@@ -1,0 +1,50 @@
+Sleep / AttnSleep 小组环境说明
+
+用途
+requirement.txt 是当前可运行环境的完整 pip 依赖快照，包含间接依赖。
+适用于 WSL Ubuntu / Linux x86_64 + NVIDIA GPU，不能直接用于 Windows 原生或 Mac。
+不包含数据集、模型权重和代码。需要同时共享小组使用的兼容修改版代码。
+
+当前实测配置
+系统：Windows 主机上的 WSL，Ubuntu 22.04.5 LTS
+Python：3.10.12
+环境管理：venv
+环境位置：/home/nzd/Sleep/.venv
+PyTorch：2.6.0+cu124
+PyTorch CUDA runtime：12.4
+GPU：NVIDIA GeForce RTX 4060 Laptop GPU，8188 MiB
+Windows NVIDIA 驱动：560.94
+NumPy：1.26.4
+SciPy：1.14.1
+pandas：2.2.3
+scikit-learn：1.6.1
+MNE：1.9.0
+PyWavelets：1.8.0
+Matplotlib：3.10.1
+openpyxl：3.1.5
+
+其他组员不必使用同型号显卡或相同驱动版本，但驱动必须兼容 CUDA 12.4。
+Python 和 NVIDIA 驱动不会由 pip 安装；先配置 WSL Ubuntu 和 Python 3.10。
+PyTorch 安装包及其依赖提供运行需要的 CUDA 库；此项目不需要单独安装完整 CUDA Toolkit。
+
+在新的小组项目目录中安装（Ubuntu 终端）
+python3.10 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirement.txt
+python -m pip check
+python -c "import torch; print(torch.__version__); print(torch.version.cuda); print(torch.cuda.is_available())"
+
+若创建环境提示缺少 ensurepip/venv，先安装 Ubuntu 的 python3.10-venv 系统包。
+不要在当前正在训练的环境中重复安装或升级依赖。
+requirement.txt 已指定 PyTorch 官方 CUDA 12.4 wheel 索引，其他依赖使用默认 pip 索引。
+此快照已通过当前环境 pip check；尚未在另一台机器上做全新安装验证。
+
+代码来源
+https://github.com/emadeldeen24/AttnSleep
+作者基础提交：6b4d2665884628c8a7bb09f36589a8ec0992f8e2
+网络结构未改，预处理/训练辅助代码已做新版依赖兼容修改。
+正式五折入口：scripts/train_clean_fivefold.py
+固定受试者划分：configs/fivefold_subject_splits.json
+第一折配置：configs/clean_baseline_fold0.json
+训练、验证、测试分别12、4、4人；仅训练集标签计算权重；验证集Macro-F1选epoch。
+当前只启动第一折，环境文件不触发任何训练。

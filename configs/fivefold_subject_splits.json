@@ -1,0 +1,439 @@
+{
+  "seed": 123,
+  "method": "numpy default_rng permutation, five groups of four; test group k, validation group (k+1)%5, others train",
+  "data_directory": "data/processed/sleep-edf-20",
+  "groups": [
+    [
+      "02",
+      "07",
+      "11",
+      "17"
+    ],
+    [
+      "04",
+      "10",
+      "15",
+      "16"
+    ],
+    [
+      "00",
+      "08",
+      "18",
+      "19"
+    ],
+    [
+      "01",
+      "06",
+      "09",
+      "12"
+    ],
+    [
+      "03",
+      "05",
+      "13",
+      "14"
+    ]
+  ],
+  "folds": [
+    {
+      "fold": 0,
+      "train": {
+        "subjects": [
+          "00",
+          "01",
+          "03",
+          "05",
+          "06",
+          "08",
+          "09",
+          "12",
+          "13",
+          "14",
+          "18",
+          "19"
+        ],
+        "files": [
+          "SC4001E0.npz",
+          "SC4002E0.npz",
+          "SC4011E0.npz",
+          "SC4012E0.npz",
+          "SC4031E0.npz",
+          "SC4032E0.npz",
+          "SC4051E0.npz",
+          "SC4052E0.npz",
+          "SC4061E0.npz",
+          "SC4062E0.npz",
+          "SC4081E0.npz",
+          "SC4082E0.npz",
+          "SC4091E0.npz",
+          "SC4092E0.npz",
+          "SC4121E0.npz",
+          "SC4122E0.npz",
+          "SC4131E0.npz",
+          "SC4141E0.npz",
+          "SC4142E0.npz",
+          "SC4181E0.npz",
+          "SC4182E0.npz",
+          "SC4191E0.npz",
+          "SC4192E0.npz"
+        ]
+      },
+      "validation": {
+        "subjects": [
+          "04",
+          "10",
+          "15",
+          "16"
+        ],
+        "files": [
+          "SC4041E0.npz",
+          "SC4042E0.npz",
+          "SC4101E0.npz",
+          "SC4102E0.npz",
+          "SC4151E0.npz",
+          "SC4152E0.npz",
+          "SC4161E0.npz",
+          "SC4162E0.npz"
+        ]
+      },
+      "test": {
+        "subjects": [
+          "02",
+          "07",
+          "11",
+          "17"
+        ],
+        "files": [
+          "SC4021E0.npz",
+          "SC4022E0.npz",
+          "SC4071E0.npz",
+          "SC4072E0.npz",
+          "SC4111E0.npz",
+          "SC4112E0.npz",
+          "SC4171E0.npz",
+          "SC4172E0.npz"
+        ]
+      }
+    },
+    {
+      "fold": 1,
+      "train": {
+        "subjects": [
+          "01",
+          "02",
+          "03",
+          "05",
+          "06",
+          "07",
+          "09",
+          "11",
+          "12",
+          "13",
+          "14",
+          "17"
+        ],
+        "files": [
+          "SC4011E0.npz",
+          "SC4012E0.npz",
+          "SC4021E0.npz",
+          "SC4022E0.npz",
+          "SC4031E0.npz",
+          "SC4032E0.npz",
+          "SC4051E0.npz",
+          "SC4052E0.npz",
+          "SC4061E0.npz",
+          "SC4062E0.npz",
+          "SC4071E0.npz",
+          "SC4072E0.npz",
+          "SC4091E0.npz",
+          "SC4092E0.npz",
+          "SC4111E0.npz",
+          "SC4112E0.npz",
+          "SC4121E0.npz",
+          "SC4122E0.npz",
+          "SC4131E0.npz",
+          "SC4141E0.npz",
+          "SC4142E0.npz",
+          "SC4171E0.npz",
+          "SC4172E0.npz"
+        ]
+      },
+      "validation": {
+        "subjects": [
+          "00",
+          "08",
+          "18",
+          "19"
+        ],
+        "files": [
+          "SC4001E0.npz",
+          "SC4002E0.npz",
+          "SC4081E0.npz",
+          "SC4082E0.npz",
+          "SC4181E0.npz",
+          "SC4182E0.npz",
+          "SC4191E0.npz",
+          "SC4192E0.npz"
+        ]
+      },
+      "test": {
+        "subjects": [
+          "04",
+          "10",
+          "15",
+          "16"
+        ],
+        "files": [
+          "SC4041E0.npz",
+          "SC4042E0.npz",
+          "SC4101E0.npz",
+          "SC4102E0.npz",
+          "SC4151E0.npz",
+          "SC4152E0.npz",
+          "SC4161E0.npz",
+          "SC4162E0.npz"
+        ]
+      }
+    },
+    {
+      "fold": 2,
+      "train": {
+        "subjects": [
+          "02",
+          "03",
+          "04",
+          "05",
+          "07",
+          "10",
+          "11",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17"
+        ],
+        "files": [
+          "SC4021E0.npz",
+          "SC4022E0.npz",
+          "SC4031E0.npz",
+          "SC4032E0.npz",
+          "SC4041E0.npz",
+          "SC4042E0.npz",
+          "SC4051E0.npz",
+          "SC4052E0.npz",
+          "SC4071E0.npz",
+          "SC4072E0.npz",
+          "SC4101E0.npz",
+          "SC4102E0.npz",
+          "SC4111E0.npz",
+          "SC4112E0.npz",
+          "SC4131E0.npz",
+          "SC4141E0.npz",
+          "SC4142E0.npz",
+          "SC4151E0.npz",
+          "SC4152E0.npz",
+          "SC4161E0.npz",
+          "SC4162E0.npz",
+          "SC4171E0.npz",
+          "SC4172E0.npz"
+        ]
+      },
+      "validation": {
+        "subjects": [
+          "01",
+          "06",
+          "09",
+          "12"
+        ],
+        "files": [
+          "SC4011E0.npz",
+          "SC4012E0.npz",
+          "SC4061E0.npz",
+          "SC4062E0.npz",
+          "SC4091E0.npz",
+          "SC4092E0.npz",
+          "SC4121E0.npz",
+          "SC4122E0.npz"
+        ]
+      },
+      "test": {
+        "subjects": [
+          "00",
+          "08",
+          "18",
+          "19"
+        ],
+        "files": [
+          "SC4001E0.npz",
+          "SC4002E0.npz",
+          "SC4081E0.npz",
+          "SC4082E0.npz",
+          "SC4181E0.npz",
+          "SC4182E0.npz",
+          "SC4191E0.npz",
+          "SC4192E0.npz"
+        ]
+      }
+    },
+    {
+      "fold": 3,
+      "train": {
+        "subjects": [
+          "00",
+          "02",
+          "04",
+          "07",
+          "08",
+          "10",
+          "11",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19"
+        ],
+        "files": [
+          "SC4001E0.npz",
+          "SC4002E0.npz",
+          "SC4021E0.npz",
+          "SC4022E0.npz",
+          "SC4041E0.npz",
+          "SC4042E0.npz",
+          "SC4071E0.npz",
+          "SC4072E0.npz",
+          "SC4081E0.npz",
+          "SC4082E0.npz",
+          "SC4101E0.npz",
+          "SC4102E0.npz",
+          "SC4111E0.npz",
+          "SC4112E0.npz",
+          "SC4151E0.npz",
+          "SC4152E0.npz",
+          "SC4161E0.npz",
+          "SC4162E0.npz",
+          "SC4171E0.npz",
+          "SC4172E0.npz",
+          "SC4181E0.npz",
+          "SC4182E0.npz",
+          "SC4191E0.npz",
+          "SC4192E0.npz"
+        ]
+      },
+      "validation": {
+        "subjects": [
+          "03",
+          "05",
+          "13",
+          "14"
+        ],
+        "files": [
+          "SC4031E0.npz",
+          "SC4032E0.npz",
+          "SC4051E0.npz",
+          "SC4052E0.npz",
+          "SC4131E0.npz",
+          "SC4141E0.npz",
+          "SC4142E0.npz"
+        ]
+      },
+      "test": {
+        "subjects": [
+          "01",
+          "06",
+          "09",
+          "12"
+        ],
+        "files": [
+          "SC4011E0.npz",
+          "SC4012E0.npz",
+          "SC4061E0.npz",
+          "SC4062E0.npz",
+          "SC4091E0.npz",
+          "SC4092E0.npz",
+          "SC4121E0.npz",
+          "SC4122E0.npz"
+        ]
+      }
+    },
+    {
+      "fold": 4,
+      "train": {
+        "subjects": [
+          "00",
+          "01",
+          "04",
+          "06",
+          "08",
+          "09",
+          "10",
+          "12",
+          "15",
+          "16",
+          "18",
+          "19"
+        ],
+        "files": [
+          "SC4001E0.npz",
+          "SC4002E0.npz",
+          "SC4011E0.npz",
+          "SC4012E0.npz",
+          "SC4041E0.npz",
+          "SC4042E0.npz",
+          "SC4061E0.npz",
+          "SC4062E0.npz",
+          "SC4081E0.npz",
+          "SC4082E0.npz",
+          "SC4091E0.npz",
+          "SC4092E0.npz",
+          "SC4101E0.npz",
+          "SC4102E0.npz",
+          "SC4121E0.npz",
+          "SC4122E0.npz",
+          "SC4151E0.npz",
+          "SC4152E0.npz",
+          "SC4161E0.npz",
+          "SC4162E0.npz",
+          "SC4181E0.npz",
+          "SC4182E0.npz",
+          "SC4191E0.npz",
+          "SC4192E0.npz"
+        ]
+      },
+      "validation": {
+        "subjects": [
+          "02",
+          "07",
+          "11",
+          "17"
+        ],
+        "files": [
+          "SC4021E0.npz",
+          "SC4022E0.npz",
+          "SC4071E0.npz",
+          "SC4072E0.npz",
+          "SC4111E0.npz",
+          "SC4112E0.npz",
+          "SC4171E0.npz",
+          "SC4172E0.npz"
+        ]
+      },
+      "test": {
+        "subjects": [
+          "03",
+          "05",
+          "13",
+          "14"
+        ],
+        "files": [
+          "SC4031E0.npz",
+          "SC4032E0.npz",
+          "SC4051E0.npz",
+          "SC4052E0.npz",
+          "SC4131E0.npz",
+          "SC4141E0.npz",
+          "SC4142E0.npz"
+        ]
+      }
+    }
+  ]
+}

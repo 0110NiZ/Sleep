@@ -1,0 +1,19 @@
+{
+  "name": "clean_baseline_5fold",
+  "fold": 2,
+  "seed": 123,
+  "epochs": 100,
+  "batch_size": 128,
+  "optimizer": {
+    "lr": 0.001,
+    "weight_decay": 0.001,
+    "amsgrad": true
+  },
+  "lr_after_epoch10": 0.0001,
+  "selection": "highest validation macro-F1 over all validation predictions; earliest epoch wins ties",
+  "class_weights": "training labels only; author EDF20 formula",
+  "normalization": "none; author microvolt input",
+  "splits_file": "configs/fivefold_subject_splits.json",
+  "splits_sha256": "33c3dfb60d6fcbb47d7bceaa35e61c2d552bc110a2bf5829d6481f552f2ab0e4",
+  "run_directory": "runs/clean_baseline_5fold/fold2_seed123"
+}
