@@ -10,8 +10,9 @@ from train_Kfold_CV import weights_init_normal
 from utils.util import calc_class_weight
 from sklearn.metrics import accuracy_score,f1_score,classification_report,confusion_matrix,cohen_kappa_score
 cfg=json.loads(Path(sys.argv[1]).read_text());fold=cfg['fold'];run=Path(cfg['run_directory'])
-S=R/f'reports/clean_baseline_5fold_fold{fold}_status.json';start=time.time()
-lock=(R/'reports/clean_baseline_5fold.lock').open('w');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+S=R/f'result/e1/training_logs/clean_baseline_5fold_fold{fold}_status.json';start=time.time()
+S.parent.mkdir(parents=True, exist_ok=True)
+lock=(R/'result/e1/training_logs/clean_baseline_5fold.lock').open('w');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
 def status(stage,**kw):
  d=dict(stage=stage,fold=fold,pid=os.getpid(),run_dir=str(run),elapsed_seconds=round(time.time()-start,2),updated_unix=time.time(),**kw)
  tmp=S.with_suffix('.tmp');tmp.write_text(json.dumps(d,indent=2));tmp.replace(S)

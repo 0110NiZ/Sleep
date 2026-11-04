@@ -1,7 +1,8 @@
 from pathlib import Path
 import subprocess,json,os,time,hashlib
 import numpy as np
-R=Path(__file__).resolve().parents[1]; S=R/'reports/preprocess_full_status.json'
+R=Path(__file__).resolve().parents[1]; S=R/'result/data_preparation/preprocess_full_status.json'
+S.parent.mkdir(parents=True, exist_ok=True)
 def status(stage,**extra):
  d=dict(stage=stage,pid=os.getpid(),updated_unix=time.time(),**extra)
  t=S.with_suffix('.tmp');t.write_text(json.dumps(d,indent=2));t.replace(S)
@@ -31,7 +32,7 @@ try:
    assert np.isfinite(x).all() and np.isin(y,range(5)).all()
    records.append(dict(record=p.stem,subject=p.name[3:5],epochs=len(y),class_counts=np.bincount(y,minlength=5).tolist()))
  assert len(records)==39 and len({r['subject'] for r in records})==20
- (R/'reports/preprocess_full_summary.json').write_text(json.dumps(records,indent=2))
+ (R/'result/data_preparation/preprocess_full_summary.json').write_text(json.dumps(records,indent=2))
  status('completed',records=39,subjects=20,total_epochs=sum(r['epochs'] for r in records),output=str(out),note='Shape, label, finite-value and metadata checks passed; independent full alignment audit pending before training.')
 except Exception as e:
  status('failed',error=repr(e));raise

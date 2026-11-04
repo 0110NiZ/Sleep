@@ -1,0 +1,16 @@
+{
+  "selected_by_fold": [
+    "A",
+    "A",
+    "A",
+    "A",
+    "B"
+  ],
+  "e3_noisy_mean_pct": 55.980781879640475,
+  "e3_noisy_sd_pp": 6.876407765902202,
+  "e2_noisy_mean_pct": 58.14146253053502,
+  "e2_noisy_sd_pp": 3.46123632339985,
+  "delta_pp": -2.160680650894548,
+  "selection_note": "Reconstructed from saved Validation (including Clean); no Test-based selection.",
+  "model_inference": false
+}

@@ -1,7 +1,0 @@
-﻿Condition,Mean_Accuracy,Mean_Macro_F1,Mean_Kappa,Delta_Accuracy,Delta_Macro_F1
-Clean (基线),80.99,75.08,0.7409,0.0,0.0
-Gaussian 20dB,80.08,74.36,0.7297,-0.91,-0.73
-Gaussian 10dB,54.67,49.11,0.4233,-26.32,-25.97
-Gaussian 5dB,27.06,20.58,0.106,-53.93,-54.5
-Baseline Wander,78.67,73.79,0.7148,-2.32,-1.29
-Burst Artifact,79.27,73.24,0.717,-1.72,-1.85

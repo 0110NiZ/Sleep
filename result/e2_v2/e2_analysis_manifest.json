@@ -1,0 +1,18 @@
+{
+  "experiment": "E2 Noise v2 - Test postprocessing",
+  "created_utc": "2026-11-04T07:08:52.292887+00:00",
+  "input_prediction_files": 50,
+  "unique_test_epochs": 42308,
+  "prediction_rows": 423080,
+  "data_dir": "/mnt/d/SleepProject/data/processed/sleep-edf-20",
+  "e2_dir": "/mnt/d/desktop/GitHub/Sleep/result/e2_v2",
+  "split_file": "/mnt/d/desktop/GitHub/Sleep/configs/fivefold_subject_splits.json",
+  "split_sha256": "fc452cb520c01f214fd9289ea2e98dbfb5cbee969d0912b47e4f83172afe4625",
+  "noise_file": "/mnt/d/desktop/GitHub/Sleep/configs/noise_conditions_v2.json",
+  "noise_config_sha256": "f8e1b7dbe7cacdae65f05f84633885e765f4b21eab1f7c43151ef2910c9a3a2e",
+  "sample_id_rule": "recording_filename_with_npz_extension:zero_based_epoch_index",
+  "subject_id_rule": "SleepEDF recording stem characters [3:5]",
+  "verification": "Predictions checked against preprocessed labels, saved per-fold CSV and details JSON; no AttnSleep inference was run.",
+  "mean_sd_note": "stage_summary uses sample SD across 5 folds (ddof=1)",
+  "pooled_note": "pooled metrics concatenate 5 Test folds and are NOT five-fold means"
+}

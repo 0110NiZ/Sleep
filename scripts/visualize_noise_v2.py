@@ -24,7 +24,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from noise_conditions_v2 import apply_noise_v2
+from scripts.noise_generator_v2 import apply_noise_v2
 
 
 # ============================================================
@@ -42,7 +42,7 @@ CONFIG_FILE = (
 )
 
 OUTPUT_DIR = (
-    ROOT / "reports/figures"
+    ROOT / "result/e2_v2/figures"
 )
 
 STAGE_NAMES = ["Wake", "N1", "N2", "N3", "REM"]

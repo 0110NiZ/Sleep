@@ -49,7 +49,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "AttnSleep"))
 
 from model.model import AttnSleep
-from noise_conditions_v2 import apply_noise_v2
+from scripts.noise_generator_v2 import apply_noise_v2
 
 import run_e2_evaluation_v2 as e2
 
