@@ -1,0 +1,548 @@
+[
+  {
+    "record": "SC4001E0",
+    "segments": 841,
+    "class_counts": [
+      188,
+      58,
+      250,
+      220,
+      125
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4002E0",
+    "segments": 1127,
+    "class_counts": [
+      183,
+      59,
+      373,
+      297,
+      215
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4011E0",
+    "segments": 1103,
+    "class_counts": [
+      157,
+      109,
+      562,
+      105,
+      170
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4012E0",
+    "segments": 1186,
+    "class_counts": [
+      162,
+      92,
+      660,
+      96,
+      176
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4021E0",
+    "segments": 1025,
+    "class_counts": [
+      128,
+      94,
+      545,
+      95,
+      163
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4022E0",
+    "segments": 1009,
+    "class_counts": [
+      125,
+      184,
+      402,
+      119,
+      179
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4031E0",
+    "segments": 952,
+    "class_counts": [
+      140,
+      61,
+      485,
+      57,
+      209
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4032E0",
+    "segments": 911,
+    "class_counts": [
+      136,
+      45,
+      400,
+      131,
+      199
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4041E0",
+    "segments": 1235,
+    "class_counts": [
+      200,
+      166,
+      620,
+      53,
+      196
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4042E0",
+    "segments": 1200,
+    "class_counts": [
+      185,
+      137,
+      514,
+      94,
+      270
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4051E0",
+    "segments": 672,
+    "class_counts": [
+      208,
+      44,
+      217,
+      135,
+      68
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4052E0",
+    "segments": 1246,
+    "class_counts": [
+      222,
+      114,
+      616,
+      114,
+      180
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4061E0",
+    "segments": 843,
+    "class_counts": [
+      142,
+      56,
+      407,
+      136,
+      102
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4062E0",
+    "segments": 1016,
+    "class_counts": [
+      193,
+      90,
+      417,
+      129,
+      187
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4071E0",
+    "segments": 976,
+    "class_counts": [
+      124,
+      89,
+      403,
+      162,
+      198
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4072E0",
+    "segments": 1273,
+    "class_counts": [
+      407,
+      84,
+      392,
+      222,
+      168
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4081E0",
+    "segments": 1134,
+    "class_counts": [
+      323,
+      68,
+      262,
+      350,
+      131
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4082E0",
+    "segments": 1054,
+    "class_counts": [
+      144,
+      39,
+      329,
+      282,
+      260
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4091E0",
+    "segments": 1132,
+    "class_counts": [
+      150,
+      19,
+      561,
+      170,
+      232
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4092E0",
+    "segments": 1105,
+    "class_counts": [
+      140,
+      81,
+      512,
+      107,
+      265
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4101E0",
+    "segments": 1104,
+    "class_counts": [
+      155,
+      65,
+      671,
+      6,
+      207
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4102E0",
+    "segments": 1092,
+    "class_counts": [
+      144,
+      117,
+      607,
+      25,
+      199
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4111E0",
+    "segments": 928,
+    "class_counts": [
+      126,
+      13,
+      502,
+      129,
+      158
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4112E0",
+    "segments": 802,
+    "class_counts": [
+      126,
+      18,
+      396,
+      111,
+      151
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4121E0",
+    "segments": 1052,
+    "class_counts": [
+      176,
+      48,
+      463,
+      107,
+      258
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4122E0",
+    "segments": 977,
+    "class_counts": [
+      290,
+      121,
+      287,
+      80,
+      199
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4131E0",
+    "segments": 1028,
+    "class_counts": [
+      155,
+      57,
+      497,
+      147,
+      172
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4141E0",
+    "segments": 1004,
+    "class_counts": [
+      187,
+      29,
+      404,
+      151,
+      233
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4142E0",
+    "segments": 952,
+    "class_counts": [
+      181,
+      27,
+      386,
+      145,
+      213
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4151E0",
+    "segments": 952,
+    "class_counts": [
+      172,
+      41,
+      354,
+      177,
+      208
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4152E0",
+    "segments": 1762,
+    "class_counts": [
+      807,
+      47,
+      438,
+      178,
+      292
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4161E0",
+    "segments": 1144,
+    "class_counts": [
+      216,
+      55,
+      448,
+      165,
+      260
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4162E0",
+    "segments": 1003,
+    "class_counts": [
+      179,
+      42,
+      459,
+      128,
+      195
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4171E0",
+    "segments": 1002,
+    "class_counts": [
+      176,
+      21,
+      328,
+      215,
+      262
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4172E0",
+    "segments": 1773,
+    "class_counts": [
+      689,
+      44,
+      687,
+      188,
+      165
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4181E0",
+    "segments": 964,
+    "class_counts": [
+      138,
+      29,
+      388,
+      291,
+      118
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4182E0",
+    "segments": 920,
+    "class_counts": [
+      147,
+      151,
+      290,
+      216,
+      116
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4191E0",
+    "segments": 1535,
+    "class_counts": [
+      188,
+      118,
+      833,
+      110,
+      286
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  },
+  {
+    "record": "SC4192E0",
+    "segments": 1274,
+    "class_counts": [
+      376,
+      72,
+      434,
+      60,
+      332
+    ],
+    "finite": true,
+    "units": "uV",
+    "independent_mne_alignment_check": "passed"
+  }
+]

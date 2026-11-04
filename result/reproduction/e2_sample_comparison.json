@@ -1,0 +1,7 @@
+{
+  "compared_predictions": 423080,
+  "label_and_sample_id_alignment": true,
+  "prediction_differences": 0,
+  "examples": [],
+  "reference": "origin/E3-bandpass:result/e2_v2/predictions_with_ids.csv"
+}

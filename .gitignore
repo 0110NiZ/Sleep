@@ -20,3 +20,7 @@ reports/*.lock
 *.pt
 *.zip
 .DS_Store
+
+# Local E4 evaluation outputs and shared model weights
+result/local/
+Sleep_Baseline_5fold/
