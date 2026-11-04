@@ -1,0 +1,6 @@
+{
+  "noisy_macro_f1_mean_pct": 69.88758216042986,
+  "noisy_macro_f1_sd_pp": 7.7390919876561055,
+  "clean_macro_f1_mean_pct": 73.81352872132393,
+  "delta_noisy_vs_e2_pp": 11.746119629894835
+}

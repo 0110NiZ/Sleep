@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "prediction_files": 50,
+  "predictions_checked": 423080,
+  "checks": [
+    "sample IDs and ground-truth labels against original test NPZ",
+    "50 confusion matrices, accuracy, Macro-F1, kappa, stage precision/recall/F1",
+    "pooled confusion matrices and Macro-F1",
+    "validation selection across all epochs and checkpoint hashes",
+    "condition means and sample SD; nine-noise within-fold averaging",
+    "RMSE/SNR algebraic consistency; not a fresh signal reconstruction rerun"
+  ],
+  "folds": [
+    {
+      "fold": 1,
+      "selected_epoch": 1,
+      "epochs_run": 7,
+      "clean_macro_f1_pct": 69.5662714419249,
+      "noisy_macro_f1_pct": 60.71303612061157
+    },
+    {
+      "fold": 2,
+      "selected_epoch": 30,
+      "epochs_run": 30,
+      "clean_macro_f1_pct": 76.17922684942677,
+      "noisy_macro_f1_pct": 75.86099001791207
+    },
+    {
+      "fold": 3,
+      "selected_epoch": 1,
+      "epochs_run": 7,
+      "clean_macro_f1_pct": 70.74261534679349,
+      "noisy_macro_f1_pct": 62.578277738585015
+    },
+    {
+      "fold": 4,
+      "selected_epoch": 28,
+      "epochs_run": 30,
+      "clean_macro_f1_pct": 74.4650397511075,
+      "noisy_macro_f1_pct": 72.79124549960036
+    },
+    {
+      "fold": 5,
+      "selected_epoch": 26,
+      "epochs_run": 30,
+      "clean_macro_f1_pct": 78.11449021736706,
+      "noisy_macro_f1_pct": 77.49436142544029
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+[
+  {
+    "epoch": 1,
+    "train_mse_scaled": 0.3110965181001529,
+    "validation_macro_f1": 0.6748766533067931,
+    "training_condition_counts": [
+      2761,
+      2777,
+      2806,
+      2835,
+      2742,
+      2831,
+      2730,
+      2747,
+      2816
+    ],
+    "seconds": 88.686466096
+  },
+  {
+    "epoch": 2,
+    "train_mse_scaled": 0.28085749234879986,
+    "validation_macro_f1": 0.6684716857947922,
+    "training_condition_counts": [
+      2760,
+      2777,
+      2782,
+      2829,
+      2784,
+      2796,
+      2694,
+      2798,
+      2825
+    ],
+    "seconds": 80.96945236700003
+  },
+  {
+    "epoch": 3,
+    "train_mse_scaled": 0.28101349764061584,
+    "validation_macro_f1": 0.6682838488123408,
+    "training_condition_counts": [
+      2734,
+      2871,
+      2742,
+      2733,
+      2701,
+      2879,
+      2727,
+      2853,
+      2805
+    ],
+    "seconds": 78.19507273700037
+  },
+  {
+    "epoch": 4,
+    "train_mse_scaled": 0.271842372513836,
+    "validation_macro_f1": 0.6708764918448622,
+    "training_condition_counts": [
+      2720,
+      2835,
+      2755,
+      2835,
+      2760,
+      2805,
+      2779,
+      2781,
+      2775
+    ],
+    "seconds": 80.28114192700014
+  },
+  {
+    "epoch": 5,
+    "train_mse_scaled": 0.2643871727217503,
+    "validation_macro_f1": 0.6718997170755238,
+    "training_condition_counts": [
+      2906,
+      2670,
+      2815,
+      2779,
+      2746,
+      2860,
+      2794,
+      2808,
+      2667
+    ],
+    "seconds": 84.03392571100039
+  },
+  {
+    "epoch": 6,
+    "train_mse_scaled": 0.27247518377642976,
+    "validation_macro_f1": 0.6671627127479546,
+    "training_condition_counts": [
+      2656,
+      2743,
+      2865,
+      2856,
+      2782,
+      2776,
+      2815,
+      2753,
+      2799
+    ],
+    "seconds": 80.05633787399984
+  },
+  {
+    "epoch": 7,
+    "train_mse_scaled": 0.26589002989263777,
+    "validation_macro_f1": 0.6722777195431683,
+    "training_condition_counts": [
+      2851,
+      2740,
+      2745,
+      2824,
+      2803,
+      2759,
+      2786,
+      2749,
+      2788
+    ],
+    "seconds": 80.21403645200007
+  }
+]
