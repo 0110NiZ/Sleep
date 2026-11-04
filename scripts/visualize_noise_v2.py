@@ -24,7 +24,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from scripts.noise_generator_v2 import apply_noise_v2
+from noise_conditions_v2 import apply_noise_v2
 
 
 # ============================================================

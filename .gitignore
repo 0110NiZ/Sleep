@@ -20,3 +20,5 @@ reports/*.lock
 *.pt
 *.zip
 .DS_Store
+**/.e3_active_run.txt
+.layout_migration_backup/
