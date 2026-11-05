@@ -1,0 +1,10 @@
+{
+  "fold": 1,
+  "selected_epoch": 27,
+  "validation_macro_f1": 0.7307963260323083,
+  "epochs_run": 100,
+  "training_and_validation_seconds": 6010.4444353003055,
+  "train_seconds": 2875.2463781936094,
+  "checkpoint_sha256": "e0d233139a7d4a685367ba5697f29239002c6963c5bbc3971547655a2b77a7e2",
+  "smoke": false
+}

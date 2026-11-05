@@ -1,0 +1,566 @@
+{
+  "config": {
+    "seed": 123,
+    "epochs": 100,
+    "batch_size": 128,
+    "optimizer": {
+      "lr": 0.001,
+      "weight_decay": 0.001,
+      "amsgrad": true
+    },
+    "lr_after_epoch10": 0.0001,
+    "clean_probability": 0.5,
+    "sampling": "One prespecified recipe: P(clean)=0.5; each of nine noisy conditions has probability 0.5/9. One condition per sample; resampled every epoch. Not optimized against E2-E5 test results.",
+    "selection": "Highest equally weighted mean Macro-F1 over ten full validation conditions; earliest epoch wins exact ties",
+    "initialization": "Random initialization using E1 initialization rule, seed 123 for every fold; no E1/E5 checkpoint loading",
+    "normalization": "None; microvolt inputs",
+    "validation_test_noise": "Exactly reuse Noise v2, seed 123 and filename:epoch IDs as implemented by E2-E5",
+    "training_noise_seed_namespace": 6006,
+    "inference_batch_size": 128,
+    "test_device": "cpu"
+  },
+  "splits": {
+    "seed": 123,
+    "method": "numpy default_rng permutation, five groups of four; test group k, validation group (k+1)%5, others train",
+    "data_directory": "data/processed/sleep-edf-20",
+    "groups": [
+      [
+        "02",
+        "07",
+        "11",
+        "17"
+      ],
+      [
+        "04",
+        "10",
+        "15",
+        "16"
+      ],
+      [
+        "00",
+        "08",
+        "18",
+        "19"
+      ],
+      [
+        "01",
+        "06",
+        "09",
+        "12"
+      ],
+      [
+        "03",
+        "05",
+        "13",
+        "14"
+      ]
+    ],
+    "folds": [
+      {
+        "fold": 0,
+        "train": {
+          "subjects": [
+            "00",
+            "01",
+            "03",
+            "05",
+            "06",
+            "08",
+            "09",
+            "12",
+            "13",
+            "14",
+            "18",
+            "19"
+          ],
+          "files": [
+            "SC4001E0.npz",
+            "SC4002E0.npz",
+            "SC4011E0.npz",
+            "SC4012E0.npz",
+            "SC4031E0.npz",
+            "SC4032E0.npz",
+            "SC4051E0.npz",
+            "SC4052E0.npz",
+            "SC4061E0.npz",
+            "SC4062E0.npz",
+            "SC4081E0.npz",
+            "SC4082E0.npz",
+            "SC4091E0.npz",
+            "SC4092E0.npz",
+            "SC4121E0.npz",
+            "SC4122E0.npz",
+            "SC4131E0.npz",
+            "SC4141E0.npz",
+            "SC4142E0.npz",
+            "SC4181E0.npz",
+            "SC4182E0.npz",
+            "SC4191E0.npz",
+            "SC4192E0.npz"
+          ]
+        },
+        "validation": {
+          "subjects": [
+            "04",
+            "10",
+            "15",
+            "16"
+          ],
+          "files": [
+            "SC4041E0.npz",
+            "SC4042E0.npz",
+            "SC4101E0.npz",
+            "SC4102E0.npz",
+            "SC4151E0.npz",
+            "SC4152E0.npz",
+            "SC4161E0.npz",
+            "SC4162E0.npz"
+          ]
+        },
+        "test": {
+          "subjects": [
+            "02",
+            "07",
+            "11",
+            "17"
+          ],
+          "files": [
+            "SC4021E0.npz",
+            "SC4022E0.npz",
+            "SC4071E0.npz",
+            "SC4072E0.npz",
+            "SC4111E0.npz",
+            "SC4112E0.npz",
+            "SC4171E0.npz",
+            "SC4172E0.npz"
+          ]
+        }
+      },
+      {
+        "fold": 1,
+        "train": {
+          "subjects": [
+            "01",
+            "02",
+            "03",
+            "05",
+            "06",
+            "07",
+            "09",
+            "11",
+            "12",
+            "13",
+            "14",
+            "17"
+          ],
+          "files": [
+            "SC4011E0.npz",
+            "SC4012E0.npz",
+            "SC4021E0.npz",
+            "SC4022E0.npz",
+            "SC4031E0.npz",
+            "SC4032E0.npz",
+            "SC4051E0.npz",
+            "SC4052E0.npz",
+            "SC4061E0.npz",
+            "SC4062E0.npz",
+            "SC4071E0.npz",
+            "SC4072E0.npz",
+            "SC4091E0.npz",
+            "SC4092E0.npz",
+            "SC4111E0.npz",
+            "SC4112E0.npz",
+            "SC4121E0.npz",
+            "SC4122E0.npz",
+            "SC4131E0.npz",
+            "SC4141E0.npz",
+            "SC4142E0.npz",
+            "SC4171E0.npz",
+            "SC4172E0.npz"
+          ]
+        },
+        "validation": {
+          "subjects": [
+            "00",
+            "08",
+            "18",
+            "19"
+          ],
+          "files": [
+            "SC4001E0.npz",
+            "SC4002E0.npz",
+            "SC4081E0.npz",
+            "SC4082E0.npz",
+            "SC4181E0.npz",
+            "SC4182E0.npz",
+            "SC4191E0.npz",
+            "SC4192E0.npz"
+          ]
+        },
+        "test": {
+          "subjects": [
+            "04",
+            "10",
+            "15",
+            "16"
+          ],
+          "files": [
+            "SC4041E0.npz",
+            "SC4042E0.npz",
+            "SC4101E0.npz",
+            "SC4102E0.npz",
+            "SC4151E0.npz",
+            "SC4152E0.npz",
+            "SC4161E0.npz",
+            "SC4162E0.npz"
+          ]
+        }
+      },
+      {
+        "fold": 2,
+        "train": {
+          "subjects": [
+            "02",
+            "03",
+            "04",
+            "05",
+            "07",
+            "10",
+            "11",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17"
+          ],
+          "files": [
+            "SC4021E0.npz",
+            "SC4022E0.npz",
+            "SC4031E0.npz",
+            "SC4032E0.npz",
+            "SC4041E0.npz",
+            "SC4042E0.npz",
+            "SC4051E0.npz",
+            "SC4052E0.npz",
+            "SC4071E0.npz",
+            "SC4072E0.npz",
+            "SC4101E0.npz",
+            "SC4102E0.npz",
+            "SC4111E0.npz",
+            "SC4112E0.npz",
+            "SC4131E0.npz",
+            "SC4141E0.npz",
+            "SC4142E0.npz",
+            "SC4151E0.npz",
+            "SC4152E0.npz",
+            "SC4161E0.npz",
+            "SC4162E0.npz",
+            "SC4171E0.npz",
+            "SC4172E0.npz"
+          ]
+        },
+        "validation": {
+          "subjects": [
+            "01",
+            "06",
+            "09",
+            "12"
+          ],
+          "files": [
+            "SC4011E0.npz",
+            "SC4012E0.npz",
+            "SC4061E0.npz",
+            "SC4062E0.npz",
+            "SC4091E0.npz",
+            "SC4092E0.npz",
+            "SC4121E0.npz",
+            "SC4122E0.npz"
+          ]
+        },
+        "test": {
+          "subjects": [
+            "00",
+            "08",
+            "18",
+            "19"
+          ],
+          "files": [
+            "SC4001E0.npz",
+            "SC4002E0.npz",
+            "SC4081E0.npz",
+            "SC4082E0.npz",
+            "SC4181E0.npz",
+            "SC4182E0.npz",
+            "SC4191E0.npz",
+            "SC4192E0.npz"
+          ]
+        }
+      },
+      {
+        "fold": 3,
+        "train": {
+          "subjects": [
+            "00",
+            "02",
+            "04",
+            "07",
+            "08",
+            "10",
+            "11",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19"
+          ],
+          "files": [
+            "SC4001E0.npz",
+            "SC4002E0.npz",
+            "SC4021E0.npz",
+            "SC4022E0.npz",
+            "SC4041E0.npz",
+            "SC4042E0.npz",
+            "SC4071E0.npz",
+            "SC4072E0.npz",
+            "SC4081E0.npz",
+            "SC4082E0.npz",
+            "SC4101E0.npz",
+            "SC4102E0.npz",
+            "SC4111E0.npz",
+            "SC4112E0.npz",
+            "SC4151E0.npz",
+            "SC4152E0.npz",
+            "SC4161E0.npz",
+            "SC4162E0.npz",
+            "SC4171E0.npz",
+            "SC4172E0.npz",
+            "SC4181E0.npz",
+            "SC4182E0.npz",
+            "SC4191E0.npz",
+            "SC4192E0.npz"
+          ]
+        },
+        "validation": {
+          "subjects": [
+            "03",
+            "05",
+            "13",
+            "14"
+          ],
+          "files": [
+            "SC4031E0.npz",
+            "SC4032E0.npz",
+            "SC4051E0.npz",
+            "SC4052E0.npz",
+            "SC4131E0.npz",
+            "SC4141E0.npz",
+            "SC4142E0.npz"
+          ]
+        },
+        "test": {
+          "subjects": [
+            "01",
+            "06",
+            "09",
+            "12"
+          ],
+          "files": [
+            "SC4011E0.npz",
+            "SC4012E0.npz",
+            "SC4061E0.npz",
+            "SC4062E0.npz",
+            "SC4091E0.npz",
+            "SC4092E0.npz",
+            "SC4121E0.npz",
+            "SC4122E0.npz"
+          ]
+        }
+      },
+      {
+        "fold": 4,
+        "train": {
+          "subjects": [
+            "00",
+            "01",
+            "04",
+            "06",
+            "08",
+            "09",
+            "10",
+            "12",
+            "15",
+            "16",
+            "18",
+            "19"
+          ],
+          "files": [
+            "SC4001E0.npz",
+            "SC4002E0.npz",
+            "SC4011E0.npz",
+            "SC4012E0.npz",
+            "SC4041E0.npz",
+            "SC4042E0.npz",
+            "SC4061E0.npz",
+            "SC4062E0.npz",
+            "SC4081E0.npz",
+            "SC4082E0.npz",
+            "SC4091E0.npz",
+            "SC4092E0.npz",
+            "SC4101E0.npz",
+            "SC4102E0.npz",
+            "SC4121E0.npz",
+            "SC4122E0.npz",
+            "SC4151E0.npz",
+            "SC4152E0.npz",
+            "SC4161E0.npz",
+            "SC4162E0.npz",
+            "SC4181E0.npz",
+            "SC4182E0.npz",
+            "SC4191E0.npz",
+            "SC4192E0.npz"
+          ]
+        },
+        "validation": {
+          "subjects": [
+            "02",
+            "07",
+            "11",
+            "17"
+          ],
+          "files": [
+            "SC4021E0.npz",
+            "SC4022E0.npz",
+            "SC4071E0.npz",
+            "SC4072E0.npz",
+            "SC4111E0.npz",
+            "SC4112E0.npz",
+            "SC4171E0.npz",
+            "SC4172E0.npz"
+          ]
+        },
+        "test": {
+          "subjects": [
+            "03",
+            "05",
+            "13",
+            "14"
+          ],
+          "files": [
+            "SC4031E0.npz",
+            "SC4032E0.npz",
+            "SC4051E0.npz",
+            "SC4052E0.npz",
+            "SC4131E0.npz",
+            "SC4141E0.npz",
+            "SC4142E0.npz"
+          ]
+        }
+      }
+    ]
+  },
+  "noise": {
+    "version": "noise_v2",
+    "seed": 123,
+    "sampling_rate": 100,
+    "signal_unit": "uV",
+    "conditions": [
+      {
+        "name": "Clean",
+        "noise_type": "clean"
+      },
+      {
+        "name": "Gaussian_Low",
+        "noise_type": "gaussian",
+        "snr_db": 20.0
+      },
+      {
+        "name": "Gaussian_Medium",
+        "noise_type": "gaussian",
+        "snr_db": 10.0
+      },
+      {
+        "name": "Gaussian_High",
+        "noise_type": "gaussian",
+        "snr_db": 5.0
+      },
+      {
+        "name": "Drift_Low",
+        "noise_type": "baseline_wander",
+        "frequency_hz": 0.5,
+        "amplitude_uv": 10.0
+      },
+      {
+        "name": "Drift_Medium",
+        "noise_type": "baseline_wander",
+        "frequency_hz": 0.5,
+        "amplitude_uv": 20.0
+      },
+      {
+        "name": "Drift_High",
+        "noise_type": "baseline_wander",
+        "frequency_hz": 0.5,
+        "amplitude_uv": 40.0
+      },
+      {
+        "name": "Burst_Low",
+        "noise_type": "burst",
+        "frequency_range_hz": [
+          15.0,
+          35.0
+        ],
+        "duration_range_s": [
+          0.5,
+          2.0
+        ],
+        "amplitude_ratio": 1.75,
+        "burst_count": 1
+      },
+      {
+        "name": "Burst_Medium",
+        "noise_type": "burst",
+        "frequency_range_hz": [
+          15.0,
+          35.0
+        ],
+        "duration_range_s": [
+          0.5,
+          2.0
+        ],
+        "amplitude_ratio": 3.5,
+        "burst_count": 1
+      },
+      {
+        "name": "Burst_High",
+        "noise_type": "burst",
+        "frequency_range_hz": [
+          15.0,
+          35.0
+        ],
+        "duration_range_s": [
+          0.5,
+          2.0
+        ],
+        "amplitude_ratio": 7.0,
+        "burst_count": 1
+      }
+    ]
+  },
+  "smoke": false,
+  "allow_repacked_data": false,
+  "train_device": "cuda",
+  "code": {
+    "scripts/run_e6_noise_augmentation.py": "4c287b62744650c776b7f2b3e424b76b3a1807756b18f8c38ae5eb271e81224a",
+    "scripts/run_e2_evaluation_v2.py": "05ab88563803bc56ce0968167dee079a1ac48537f1f418edc372535a648d47a8",
+    "scripts/noise_conditions_v2.py": "6e8158944883bba2d34f91583116c2fee9c07fbc3f6bdc758c917b1e9bb531e4",
+    "scripts/project_paths.py": "b867d95b4c92247e137844656996710fbea84541f7d91e0d6b6bf7609f8a6ac5",
+    "AttnSleep/model/model.py": "44fdf5ada251a9fb8e57ab2b267fb52d037406e5b452f064d8e16e822d46eb4e",
+    "AttnSleep/utils/util.py": "5832c0bac77ff84390ab9c402863aab42715e3e091159887da4f80c682b7a837"
+  },
+  "versions": {
+    "python": "3.11.5",
+    "torch": "2.6.0+cu124",
+    "numpy": "1.26.4",
+    "sklearn": "1.6.1"
+  },
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+}
