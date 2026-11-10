@@ -1,0 +1,9 @@
+{
+  "source_files_checked": {
+    "origin/E3-bandpass": 81,
+    "origin/E6-noise-augmentation": 982
+  },
+  "errors": [],
+  "parameters_results_models": "byte-identical",
+  "training_or_inference_run": false
+}

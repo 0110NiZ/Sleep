@@ -1,0 +1,79 @@
+{
+  "syntax": {
+    "e3": 30,
+    "e6": 35
+  },
+  "json": {
+    "e3": 22,
+    "e6": 432
+  },
+  "matrix_checks": 1922,
+  "errors": [],
+  "hash_checks": {
+    "E5": [],
+    "E6": [],
+    "configs/fivefold_subject_splits.json": true,
+    "configs/noise_conditions_v2.json": true,
+    "scripts/noise_conditions_v2.py": true,
+    "AttnSleep/model/model.py": true
+  },
+  "scores": {
+    "E4": {
+      "mean": 62.930486337362495,
+      "sd": 5.811147090765475
+    },
+    "E5": {
+      "mean": 69.88758216042986,
+      "sd": 7.7390919876561055
+    },
+    "E6": {
+      "mean": 73.36617882428142,
+      "sd": 4.4602416210868645
+    },
+    "E3": {
+      "mean": 55.980781879640475,
+      "sd": 6.876407765902202
+    }
+  },
+  "selection": {
+    "E5": [
+      1,
+      30,
+      1,
+      28,
+      26
+    ],
+    "E6": [
+      26,
+      27,
+      17,
+      28,
+      45
+    ],
+    "E3": [
+      "A",
+      "A",
+      "A",
+      "A",
+      "B"
+    ]
+  },
+  "inventory": {
+    "E4": {
+      "validation_jsons": 200,
+      "npz": 0,
+      "pth": 0
+    },
+    "E5": {
+      "validation_jsons": 104,
+      "npz": 0,
+      "pth": 0
+    },
+    "E6": {
+      "validation_jsons": 0,
+      "npz": 0,
+      "pth": 0
+    }
+  },
+  "subject_split": "PASS"
+}

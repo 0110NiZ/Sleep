@@ -1,0 +1,50 @@
+{
+  "synthetic_contracts": "PASS: fixed-ID batch invariance, original input preserved, Gaussian SNR, wavelet shape/zero-input, DAE output shape",
+  "e4_selection": [
+    "W3",
+    "W3",
+    "W3",
+    "W1",
+    "W1"
+  ],
+  "e6_history": [
+    {
+      "fold": 0,
+      "train_samples": 24028,
+      "epochs": 100,
+      "clean_fraction": 0.4998530880639254
+    },
+    {
+      "fold": 1,
+      "train_samples": 23967,
+      "epochs": 100,
+      "clean_fraction": 0.4997642591897192
+    },
+    {
+      "fold": 2,
+      "train_samples": 25045,
+      "epochs": 100,
+      "clean_fraction": 0.49999800359353164
+    },
+    {
+      "fold": 3,
+      "train_samples": 27129,
+      "epochs": 100,
+      "clean_fraction": 0.5005215820708467
+    },
+    {
+      "fold": 4,
+      "train_samples": 26755,
+      "epochs": 100,
+      "clean_fraction": 0.5007026723976826
+    }
+  ],
+  "E2_predictions": {
+    "rows": 423080,
+    "identity_labels_and_f1": "PASS"
+  },
+  "E3_predictions": {
+    "rows": 423080,
+    "identity_labels_and_f1": "PASS"
+  }
+}

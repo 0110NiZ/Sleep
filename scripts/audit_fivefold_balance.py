@@ -26,8 +26,9 @@ for f in split['folds']:
  folds.append(dict(fold=f['fold']+1,**a,train_test_max_percentage_point_gap=float(np.max(np.abs(np.array(a['train']['percent'])-a['test']['percent'])))))
 for s in subjects.values():s['counts']=s['counts'].tolist();s['percent']=(np.array(s['counts'])/s['epochs']*100).tolist()
 report=dict(scope='Descriptive data-only audit; no model results used, no split changes and no retraining.',splits_sha256=before,demographics_source=str(src),class_order=['W','N1','N2','N3','REM'],overall=overall,groups=groups,folds=folds,subjects=list(subjects.values()))
-(R/'reports/fivefold_balance_audit.json').write_text(json.dumps(report,indent=2))
-with (R/'reports/fivefold_subject_distribution.csv').open('w',newline='') as f:
+(R/'result/data_audit').mkdir(parents=True, exist_ok=True)
+(R/'result/data_audit/fivefold_balance_audit.json').write_text(json.dumps(report,indent=2))
+with (R/'result/data_audit/fivefold_subject_distribution.csv').open('w',newline='') as f:
  w=csv.writer(f);w.writerow(['subject','group','age','sex','nights','epochs','W','N1','N2','N3','REM'])
  for sid,s in subjects.items():w.writerow([sid,next(k for k,g in groups.items() if sid in g['subjects']),s['age'],s['sex'],s['nights'],s['epochs'],*s['counts']])
 assert hashlib.sha256(p.read_bytes()).hexdigest()==before

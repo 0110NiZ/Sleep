@@ -1,6 +1,6 @@
 # Sleep: AttnSleep EEG robustness project
 
-COMP 4330SEF group project. E1–E6 experiments have completed. This branch contains E4–E6 handovers; E2/E3 archives remain on E3-bandpass. See HANDOVER_MAINTENANCE.md for paths, historical result provenance, outstanding E6 files and merge notes. No experiment is rerun by these maintenance changes.
+COMP 4330SEF group project. E1–E6 experiments are complete. This integrated repository contains their code and archived results. Maintenance changes do not alter experiment settings or recorded results. See HANDOVER_MAINTENANCE.md for configurable paths, provenance and handover verification.
 
 ## Setup
 
@@ -45,3 +45,18 @@ E4 is complete on this branch. See [E4_RUN.txt](E4_RUN.txt) for setup and comman
 Five-fold nine-noise mean Macro-F1: E2 58.14%, E4 62.93% (+4.79 percentage points). Clean: E2 75.08%, E4 71.42%. Gains are concentrated in medium/high Gaussian noise; the other seven noisy conditions decline. Validation-selected candidates: W3, W3, W3, W1, W1.
 
 This branch includes the shared Noise v2 generator and CPU E2 evaluator required by E4. It does not depend on E3 filtering. Shared EEG and baseline weights must be obtained separately from the group; they are not stored in Git.
+
+## Completed experiment handovers
+
+| Experiment | Archived results |
+|---|---|
+| E1 | `result/e1/` (baseline archive; see also original commit `a4601f7`) |
+| E2 | `result/e2_v2/` |
+| E3 | `result/20261104-050058-E3/comparison/selected_per_fold.csv` (formal validation-selected filters) |
+| E4 | `result/e4_wavelet/` |
+| E5 | `result/e5_dae/` |
+| E6 | `result/e6_noise_augmentation/` |
+
+Use `scripts/summarize_all_experiments.py --help` for the complete E2–E6 comparison. It reads archived CSVs and only writes to a new directory. Training/evaluation instructions below are retained for reproducibility, not a request to rerun completed experiments.
+
+E6's 500 validation files and the separately shared prediction/checkpoint package passed independent checks. Audit records are in `reports/integration_20261110/`. Raw EEG, NPZ predictions, model weights and the full ZIP remain outside Git. Original result manifests identify the historical code; do not rewrite them to match maintenance code hashes.

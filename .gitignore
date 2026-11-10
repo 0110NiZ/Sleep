@@ -20,7 +20,8 @@ reports/*.lock
 *.pt
 *.zip
 .DS_Store
-
-# Local E4 evaluation outputs and shared model weights
+# Local outputs, migration backups and shared weights
+**/.e3_active_run.txt
+.layout_migration_backup/
 result/local/
 Sleep_Baseline_5fold/

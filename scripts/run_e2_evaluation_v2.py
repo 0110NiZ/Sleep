@@ -35,11 +35,8 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from model.model import AttnSleep
 from noise_conditions_v2 import apply_noise_v2
 
-from project_paths import DATA_DIR
-
-from project_paths import BASELINE_DIR, baseline_fold
-
-from project_paths import E2_DIR as OUTPUT_DIR
+from project_paths import DATA_DIR, BASELINE_DIR, E2_DIR, baseline_fold
+OUTPUT_DIR = E2_DIR
 
 SPLIT_FILE = (
     ROOT / "configs/fivefold_subject_splits.json"
