@@ -1,5 +1,5 @@
 from pathlib import Path
-import subprocess,json,os,time,hashlib
+import subprocess,json,os,time,hashlib,sys
 import numpy as np
 R=Path(__file__).resolve().parents[1]; S=R/'reports/preprocess_full_status.json'
 def status(stage,**extra):
@@ -19,7 +19,7 @@ try:
  out=R/'data/processed/sleep-edf-20'
  assert not out.exists(),'Output exists; inspect before retrying'
  status('preprocessing',verified_raw_files=78)
- subprocess.run([str(R/'.venv/bin/python'),'-u',str(R/'AttnSleep/prepare_datasets/prepare_physionet.py'),'--data_dir',str(R/'data/raw/sleep-edf-20'),'--output_dir',str(out),'--select_ch','EEG Fpz-Cz'],cwd=R/'AttnSleep',check=True)
+ subprocess.run([sys.executable,'-u',str(R/'AttnSleep/prepare_datasets/prepare_physionet.py'),'--data_dir',str(R/'data/raw/sleep-edf-20'),'--output_dir',str(out),'--select_ch','EEG Fpz-Cz'],cwd=R/'AttnSleep',check=True)
  status('validating')
  expected={i['name'].replace('-PSG.edf','.npz') for i in manifest if i['name'].endswith('-PSG.edf')}
  assert {p.name for p in out.glob('*.npz')}==expected

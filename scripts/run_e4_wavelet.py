@@ -8,7 +8,7 @@ import torch
 import run_e2_evaluation_v2 as e2
 from noise_conditions_v2 import apply_noise_v2
 from wavelet_denoising import denoise
-from project_paths import ROOT, BASELINE_DIR, RESULT_ROOT
+from project_paths import ROOT, BASELINE_DIR, RESULT_ROOT, baseline_fold
 
 
 def save(path, obj):
@@ -32,7 +32,7 @@ def table(path, rows):
 
 
 def model_for(fold):
-    folder=BASELINE_DIR/f'fold{fold}'
+    folder=baseline_fold(fold)
     cfg=load(folder/'config.json'); assert cfg['fold']==fold
     state=torch.load(folder/'best_validation_macro_f1.pth',weights_only=True,map_location='cpu')
     model=e2.AttnSleep().eval();model.load_state_dict(state['state_dict'],strict=True)
@@ -131,7 +131,7 @@ def main():
     config=load(ROOT/'configs/e4_wavelet.json');noise=load(ROOT/'configs/noise_conditions_v2.json');splits=load(ROOT/'configs/fivefold_subject_splits.json')
     files=['configs/e4_wavelet.json','configs/noise_conditions_v2.json','configs/fivefold_subject_splits.json','scripts/noise_conditions_v2.py','scripts/wavelet_denoising.py','scripts/run_e4_wavelet.py','scripts/run_e2_evaluation_v2.py','AttnSleep/model/model.py']
     hashes={f:digest(ROOT/f) for f in files}
-    hashes.update({f'checkpoint_fold{f}':digest(BASELINE_DIR/f'fold{f}'/'best_validation_macro_f1.pth') for f in range(5)})
+    hashes.update({f'checkpoint_fold{f}':digest(baseline_fold(f)/'best_validation_macro_f1.pth') for f in range(5)})
     datafiles=sorted({name for fold in splits['folds'] for name in fold['test']['files']})
     assert len(datafiles)==39
     hashes.update({f'data/{name}':digest(e2.DATA_DIR/name) for name in datafiles})

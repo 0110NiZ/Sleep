@@ -37,7 +37,7 @@ from noise_conditions_v2 import apply_noise_v2
 
 from project_paths import DATA_DIR
 
-from project_paths import BASELINE_DIR
+from project_paths import BASELINE_DIR, baseline_fold
 
 from project_paths import E2_DIR as OUTPUT_DIR
 
@@ -327,7 +327,7 @@ def main():
             split["test"]
         )
 
-        fold_dir = BASELINE_DIR / f"fold{fold}"
+        fold_dir = baseline_fold(fold)
 
         cfg = json.loads(
             (fold_dir / "config.json").read_text(

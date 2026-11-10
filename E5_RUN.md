@@ -1,3 +1,5 @@
+> 路径与当前交付状态以 [HANDOVER_MAINTENANCE.md](HANDOVER_MAINTENANCE.md) 为准。下方保留历史运行说明，当前无需重跑。
+
 # E5 – Denoising autoencoder
 
 Branch: `E5-dae`, based on `E4-wavelet` commit `9d27c8b`.

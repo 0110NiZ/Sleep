@@ -8,8 +8,9 @@ import run_e2_evaluation_v2 as e2
 from noise_conditions_v2 import apply_noise_v2
 
 ROOT=Path(__file__).resolve().parents[1]
-BASE=Path(os.environ.get('E5_BASELINE_ROOT',str(ROOT.parent/'runs/clean_baseline_5fold')))
-OUT=ROOT/'result/local/e5_dae'
+from project_paths import BASELINE_DIR, RESULT_ROOT, configured, baseline_fold
+BASE=configured('E5_BASELINE_ROOT', BASELINE_DIR)
+OUT=RESULT_ROOT/'e5_dae'
 def load(p):return json.loads(Path(p).read_text(encoding='utf-8-sig'))
 def save(p,obj):
     p=Path(p);p.parent.mkdir(parents=True,exist_ok=True)
@@ -21,7 +22,7 @@ def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def seed_all(seed):
     random.seed(seed);np.random.seed(seed);torch.manual_seed(seed);torch.cuda.manual_seed_all(seed)
 def baseline(fold,device):
-    folder=BASE/f'fold{fold}_seed123'
+    folder=baseline_fold(fold, BASE)
     cfg=load(folder/'config.json');assert cfg['fold']==fold
     state=torch.load(folder/'best_validation_macro_f1.pth',map_location='cpu',weights_only=True)
     m=e2.AttnSleep();m.load_state_dict(state['state_dict'],strict=True)
@@ -56,15 +57,15 @@ def evaluate(dae,clf,x,y,ids,conditions,batch,device):
     return scores,predictions
 
 def audit(cfg,splits,conditions):
-    original=load(ROOT.parent/'configs/fivefold_subject_splits.json')
-    assert splits['folds']==original['folds'],'Baseline split content mismatch'
+    recorded=load(ROOT/'result/e5_dae/manifest.json')['code']
+    assert sha(ROOT/'configs/fivefold_subject_splits.json')==recorded['configs/fivefold_subject_splits.json'],'Baseline split content mismatch'
     reference=load(ROOT/'result/e4_wavelet/experiment_info.json')['hashes']
     for fold in splits['folds']:
         sets=[set(fold[k]['subjects']) for k in ('train','validation','test')]
         assert [len(s) for s in sets]==[12,4,4]
         assert not (sets[0]&sets[1] or sets[0]&sets[2] or sets[1]&sets[2])
     assert len(set(s for f in splits['folds'] for s in f['test']['subjects']))==20
-    weights={f'fold{i}':sha(BASE/f'fold{i}_seed123/best_validation_macro_f1.pth') for i in range(5)}
+    weights={f'fold{i}':sha(baseline_fold(i, BASE)/'best_validation_macro_f1.pth') for i in range(5)}
     assert all(weights[f'fold{i}']==reference[f'checkpoint_fold{i}'] for i in range(5))
     report=load(ROOT/'reports/full_alignment_validation.json');hashes={};total=0
     for row in report:
@@ -139,7 +140,15 @@ def train_fold(fold,cfg,split,conditions,device,smoke=False):
 def verify_e2(splits,conditions):
     """Reproduce fixed E2 outputs, never use them to choose DAE settings."""
     import io
-    raw=subprocess.check_output(['git','show','origin/E3-bandpass:result/e2_v2/predictions_with_ids.csv'],cwd=ROOT).decode('utf-8-sig')
+    reference=os.environ.get('E2_REFERENCE_CSV')
+    if reference:
+        raw=configured('E2_REFERENCE_CSV', reference).read_text(encoding='utf-8-sig')
+    else:
+        reference='c2547fb:result/e2_v2/predictions_with_ids.csv'
+        try:
+            raw=subprocess.check_output(['git','show',reference],cwd=ROOT).decode('utf-8-sig')
+        except subprocess.CalledProcessError as exc:
+            raise RuntimeError('Provide E2_REFERENCE_CSV or fetch the historical E3 commit c2547fb; no reference is regenerated automatically.') from exc
     rows=list(csv.DictReader(io.StringIO(raw)))
     print('Reference prediction fields:',list(rows[0]),flush=True)
     groups={}
@@ -154,7 +163,7 @@ def verify_e2(splits,conditions):
             count=int(np.count_nonzero(pred!=expected));differences+=count;total+=len(y)
             print('E2 CHECK',f,c['name'],'differences',count,flush=True)
         del x,clf
-    save(OUT/'e2_reproduction.json',dict(predictions=total,differences=differences,reference='origin/E3-bandpass:result/e2_v2/predictions_with_ids.csv'))
+    save(OUT/'e2_reproduction.json',dict(predictions=total,differences=differences,reference=reference))
     assert differences==0,'E2 reproduction differs: stop before official E5 testing'
 
 def test_and_summary(splits,conditions):

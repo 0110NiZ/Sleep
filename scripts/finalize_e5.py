@@ -7,7 +7,9 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-ROOT=Path('/home/nzd/Sleep/e5_project');OUT=ROOT/'result/local/e5_dae';HAND=ROOT/'result/e5_dae'
+from project_paths import ROOT, RESULT_ROOT, DATA_DIR, configured
+OUT=RESULT_ROOT/'e5_dae';HAND=configured('E5_HANDOVER_DIR', RESULT_ROOT/'e5_handover')
+HAND.mkdir(parents=True, exist_ok=True)
 def load(p):return json.loads(p.read_text(encoding='utf-8-sig'))
 def readcsv(p):return list(csv.DictReader(p.open(encoding='utf-8-sig')))
 def save(p,o):p.write_text(json.dumps(o,indent=2,ensure_ascii=False),encoding='utf-8')
@@ -32,7 +34,7 @@ for f in range(5):
         near(np.mean([v['macro_f1'] for v in vals.values()]),h['validation_macro_f1'])
     ids=[];labels=[]
     for name in splits['folds'][f]['test']['files']:
-        with np.load(ROOT.parent/'data/processed/sleep-edf-20'/name) as z:
+        with np.load(DATA_DIR/name) as z:
             labels.extend(z['y'].tolist());ids.extend(f'{name}:{i}' for i in range(len(z['y'])))
     metrics=load(d/'test_metrics.json')
     for n in conditions:

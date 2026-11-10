@@ -4,7 +4,7 @@
 
 本包基于 E5-dae 分支提交 `3bf547d7fd4862de32d2c318ab9a8468ce6a1ff8`。
 新增 E6 训练、评估、结果比较脚本。原 AttnSleep、Noise v2、五折划分均未修改。
-没有真实 EEG、正式 E6 权重或正式 E6 指标；代码检查与合成数据测试不能替代真实训练。
+正式 E6 指标已归档于 result/e6_noise_augmentation；原始 EEG 和权重仍通过组内存储共享。逐轮验证明细及逐样本预测需补充交接，见 HANDOVER_MAINTENANCE.md。以下训练说明保留供复现参考，不代表需要重新训练。
 
 ## 1. 你到底要做什么
 
