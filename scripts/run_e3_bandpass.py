@@ -54,11 +54,9 @@ from noise_conditions_v2 import apply_noise_v2
 import run_e2_evaluation_v2 as e2
 
 
-BASELINE_DIR = Path(
-    "/mnt/d/SleepProject/baseline"
-)
+from project_paths import BASELINE_DIR, RESULT_ROOT, E2_DIR, baseline_fold
 
-E2_DIR = ROOT / "result" / "e2_v2"
+
 
 SPLIT_FILE = (
     ROOT / "configs/fivefold_subject_splits.json"
@@ -68,7 +66,7 @@ NOISE_FILE = (
     ROOT / "configs/noise_conditions_v2.json"
 )
 
-RESULT_ROOT = ROOT / "result"
+
 
 ACTIVE_FILE = (
     RESULT_ROOT / ".e3_active_run.txt"
@@ -394,7 +392,7 @@ def get_run_directory(stage, requested):
 def load_model(fold):
 
     folder = (
-        BASELINE_DIR / f"fold{fold}"
+        baseline_fold(fold)
     )
 
     cfg = read_json(

@@ -1,6 +1,6 @@
 # Sleep: AttnSleep EEG robustness project
 
-COMP 4330SEF group project. Current milestone: clean-data AttnSleep baseline with independent subject-wise fivefold evaluation. Noise experiments are not implemented yet.
+COMP 4330SEF group project. This branch archives completed E2/E3 experiments. E4–E6 are maintained on their experiment branches. See HANDOVER_MAINTENANCE.md for configurable paths, result provenance and pending handover files.
 
 ## Setup
 

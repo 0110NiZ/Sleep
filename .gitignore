@@ -22,3 +22,6 @@ reports/*.lock
 .DS_Store
 **/.e3_active_run.txt
 .layout_migration_backup/
+result/local/
+
+Sleep_Baseline_5fold/
