@@ -1,0 +1,76 @@
+E4 execution notes
+
+Scope
+Per-epoch wavelet denoising followed by the corresponding frozen E1 model.
+The candidate definitions are in configs/e4_wavelet.json. They must not be
+changed after reviewing test results in this experiment.
+
+Environment
+Use the dedicated Python environment prepared for this chat. Core versions:
+Python 3.12 (Windows), NumPy 1.26.4, SciPy 1.14.1, MNE 1.9.0,
+PyTorch 2.6.0 CPU, scikit-learn 1.6.1, PyWavelets 1.8.0.
+The original team used Python 3.10/Linux; compare numerical results explicitly.
+The installed environment is recorded in result/local/reproduction/environment.json.
+
+Data and weights
+Default data: data/processed/sleep-edf-20 (39 NPZ recordings).
+Default weights: Sleep_Baseline_5fold/fold0 through fold4.
+SLEEP_DATA_DIR, SLEEP_BASELINE_DIR and SLEEP_RESULT_DIR can override local paths.
+Raw EEG, processed EEG and weights are not committed to Git.
+
+Commands from repository root, using the prepared environment's Python:
+python scripts/run_e4_wavelet.py --stage validation
+python scripts/run_e4_wavelet.py --stage test
+python scripts/run_e4_wavelet.py --stage summary
+Or use --stage all. Completed condition JSONs are reused only when the
+recorded source/configuration/checkpoint/data hashes match.
+
+Protocol
+Four candidates: db4 or sym8, threshold scale 0.5 or 1.0; level 4;
+symmetric boundary extension; preserve approximation coefficients;
+soft-threshold all detail coefficients. Each epoch's finest detail MAD
+estimates sigma from that epoch's actual input only. No normalization.
+Clean inputs are also denoised. Existing Noise v2 instances remain unchanged.
+Select one candidate per fold by the equally weighted mean Macro-F1 across
+all ten validation conditions. Ties follow candidate order W1-W4.
+All five selections are saved before test evaluation starts.
+Only the selected candidate is tested; no test-driven candidate revisions.
+
+Interpretation
+This bounded candidate set is not an exhaustive test of wavelet denoising.
+Retaining coarse approximation coefficients does not explicitly remove
+slow baseline drift. No superiority over E2 or E3 is assumed.
+Signal-quality metrics use the preprocessed EEG as a reference, not a
+perfectly artifact-free signal. Classification is the primary outcome.
+Timing includes denoising plus CPU inference after warm-up, excluding
+noise generation and disk IO; do not directly compare timings from
+other hardware or thread settings.
+
+API references
+https://pywavelets.readthedocs.io/en/latest/ref/dwt-discrete-wavelet-transform.html
+https://pywavelets.readthedocs.io/en/latest/ref/thresholding-functions.html
+
+Portable evaluation setup (Python 3.10 or newer)
+python -m venv .venv
+Activate the environment using your platform's activation command.
+python -m pip install -r requirements-e4.txt
+python scripts/run_e2_evaluation_v2.py --fold all --conditions all
+python scripts/run_e4_wavelet.py --stage all
+python scripts/plot_e4_results.py
+
+The archived completed run is in result/e4_wavelet; new runs go to
+result/local/e4_wavelet. The E2 run above supplies the local reference CSV
+required by the E4 summary. Archived sample predictions are omitted from Git.
+The archive contains all 200 validation and 50 test metric files.
+
+Data handover: obtain the 39 preprocessed Clean NPZ recordings and five
+baseline checkpoints from the group through its shared storage. No public
+shared-storage URL has been supplied, so none is invented here. Raw data
+can alternatively be obtained and processed using the repository scripts.
+E5 uses Clean training data plus Noise v2 to create paired noisy/clean inputs,
+with the same subject splits and baseline classifiers; E4 output is not required.
+
+Dependency provenance: shared Noise v2 and E2 evaluator were taken from
+the locally integrated group code used for the verified E2 reproduction.
+The evaluator uses configurable project_paths instead of machine-specific paths.
+No E3 experiment code or local integration commits are included in this branch.

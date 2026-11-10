@@ -1,0 +1,16 @@
+{
+  "seed": 123,
+  "epochs": 100,
+  "batch_size": 128,
+  "optimizer": {"lr": 0.001, "weight_decay": 0.001, "amsgrad": true},
+  "lr_after_epoch10": 0.0001,
+  "clean_probability": 0.5,
+  "sampling": "One prespecified recipe: P(clean)=0.5; each of nine noisy conditions has probability 0.5/9. One condition per sample; resampled every epoch. Not optimized against E2-E5 test results.",
+  "selection": "Highest equally weighted mean Macro-F1 over ten full validation conditions; earliest epoch wins exact ties",
+  "initialization": "Random initialization using E1 initialization rule, seed 123 for every fold; no E1/E5 checkpoint loading",
+  "normalization": "None; microvolt inputs",
+  "validation_test_noise": "Exactly reuse Noise v2, seed 123 and filename:epoch IDs as implemented by E2-E5",
+  "training_noise_seed_namespace": 6006,
+  "inference_batch_size": 128,
+  "test_device": "cpu"
+}

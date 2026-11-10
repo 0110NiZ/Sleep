@@ -1,6 +1,6 @@
 # Sleep: AttnSleep EEG robustness project
 
-COMP 4330SEF group project. Current milestone: clean-data AttnSleep baseline with independent subject-wise fivefold evaluation. Noise experiments are not implemented yet.
+COMP 4330SEF group project. E1–E6 experiments are complete. This integrated repository contains their code and archived results. Maintenance changes do not alter experiment settings or recorded results. See HANDOVER_MAINTENANCE.md for configurable paths, provenance and handover verification.
 
 ## Setup
 
@@ -36,3 +36,27 @@ Create a branch for each change, submit a pull request and have another member r
 `AttnSleep/` vendors the author's code from https://github.com/emadeldeen24/AttnSleep at commit `6b4d2665884628c8a7bb09f36589a8ec0992f8e2`, with local compatibility changes recorded in `patches/author_compatibility.patch`. The original MIT license is retained at `AttnSleep/LICENSE`. Model architecture is unchanged. Cite the original AttnSleep paper when reporting results.
 
 This shareable copy uses repository-relative paths. The split manifest checksum changed because its data path changed; subject/file assignments and all training hyperparameters are unchanged. Historical results retain their original split checksum. The source experiment folder and its checkpoints were not modified. No license is granted here for the dataset; obtain it from PhysioNet under its applicable terms.
+
+
+## E4: wavelet denoising
+
+E4 is complete on this branch. See [E4_RUN.txt](E4_RUN.txt) for setup and commands, [the result report](result/e4_wavelet/E4_RESULT_REPORT.txt) for methods and limitations, and [the comparison table](result/e4_wavelet/e2_e4_comparison.csv).
+
+Five-fold nine-noise mean Macro-F1: E2 58.14%, E4 62.93% (+4.79 percentage points). Clean: E2 75.08%, E4 71.42%. Gains are concentrated in medium/high Gaussian noise; the other seven noisy conditions decline. Validation-selected candidates: W3, W3, W3, W1, W1.
+
+This branch includes the shared Noise v2 generator and CPU E2 evaluator required by E4. It does not depend on E3 filtering. Shared EEG and baseline weights must be obtained separately from the group; they are not stored in Git.
+
+## Completed experiment handovers
+
+| Experiment | Archived results |
+|---|---|
+| E1 | `result/e1/` (baseline archive; see also original commit `a4601f7`) |
+| E2 | `result/e2_v2/` |
+| E3 | `result/20261104-050058-E3/comparison/selected_per_fold.csv` (formal validation-selected filters) |
+| E4 | `result/e4_wavelet/` |
+| E5 | `result/e5_dae/` |
+| E6 | `result/e6_noise_augmentation/` |
+
+Use `scripts/summarize_all_experiments.py --help` for the complete E2–E6 comparison. It reads archived CSVs and only writes to a new directory. Training/evaluation instructions below are retained for reproducibility, not a request to rerun completed experiments.
+
+E6's 500 validation files and the separately shared prediction/checkpoint package passed independent checks. Audit records are in `reports/integration_20261110/`. Raw EEG, NPZ predictions, model weights and the full ZIP remain outside Git. Original result manifests identify the historical code; do not rewrite them to match maintenance code hashes.

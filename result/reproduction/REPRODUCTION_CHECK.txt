@@ -1,0 +1,39 @@
+E1 / E2 reproduction verification
+
+Preprocessing
+- 78 raw EDF files passed the team's SHA-1 manifest verification.
+- Ran the team's original AttnSleep prepare_physionet.py preprocessing code.
+- Changed only the launcher Python path and independent audit data path.
+- Produced 39 NPZ recordings from 20 subjects, containing 42,308 epochs.
+- All 39 recordings passed independent MNE signal and label alignment checks.
+- Fpz-Cz, 100 Hz, 30-second epochs, microvolts, no extra normalization.
+
+E1
+- Five-fold local mean Accuracy: 80.98765623458037%.
+- Five-fold local mean Macro-F1: 75.08227730767501%.
+- Every fold's confusion matrix and Macro-F1 exactly match the team's archived CPU Clean evaluation in E2.
+- Compared with the initial E1 test_metrics.json, fold 2 has a small difference:
+  Accuracy -0.0113 percentage points, Macro-F1 approximately -0.0072 percentage points.
+  This is not hidden: see e1_comparison.json. All other folds match the original matrices.
+- Full E2 sample-level comparison below also verifies the Clean predictions.
+
+E2 Noise v2
+- Re-ran all five folds and all ten conditions with the frozen original weights.
+- All 50 confusion matrices exactly match the archived team results.
+- Maximum Accuracy difference: 0 percentage points.
+- Maximum Macro-F1 difference: 0 percentage points.
+- Nine-noise mean Macro-F1: 58.14146253053502%.
+- Compared all 423,080 predictions with the team's predictions_with_ids.csv.
+- Sample IDs and labels align; predicted-label differences: ZERO.
+
+Evidence
+result/local/reproduction/e1_comparison.json
+result/local/reproduction/e1_cpu_reference_comparison.json
+result/local/reproduction/e2_comparison.json
+result/local/reproduction/e2_sample_comparison.json
+result/local/reproduction/environment.json
+reports/full_alignment_validation.json
+reports/preprocess_full_summary.json
+result/local/e2_v2/ (newly computed metrics and 50 prediction NPZ files)
+
+No baseline model was retrained. No noise settings were changed.

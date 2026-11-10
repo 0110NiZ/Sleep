@@ -1,0 +1,470 @@
+[
+  {
+    "record": "SC4001E0",
+    "subject": "00",
+    "epochs": 841,
+    "class_counts": [
+      188,
+      58,
+      250,
+      220,
+      125
+    ]
+  },
+  {
+    "record": "SC4002E0",
+    "subject": "00",
+    "epochs": 1127,
+    "class_counts": [
+      183,
+      59,
+      373,
+      297,
+      215
+    ]
+  },
+  {
+    "record": "SC4011E0",
+    "subject": "01",
+    "epochs": 1103,
+    "class_counts": [
+      157,
+      109,
+      562,
+      105,
+      170
+    ]
+  },
+  {
+    "record": "SC4012E0",
+    "subject": "01",
+    "epochs": 1186,
+    "class_counts": [
+      162,
+      92,
+      660,
+      96,
+      176
+    ]
+  },
+  {
+    "record": "SC4021E0",
+    "subject": "02",
+    "epochs": 1025,
+    "class_counts": [
+      128,
+      94,
+      545,
+      95,
+      163
+    ]
+  },
+  {
+    "record": "SC4022E0",
+    "subject": "02",
+    "epochs": 1009,
+    "class_counts": [
+      125,
+      184,
+      402,
+      119,
+      179
+    ]
+  },
+  {
+    "record": "SC4031E0",
+    "subject": "03",
+    "epochs": 952,
+    "class_counts": [
+      140,
+      61,
+      485,
+      57,
+      209
+    ]
+  },
+  {
+    "record": "SC4032E0",
+    "subject": "03",
+    "epochs": 911,
+    "class_counts": [
+      136,
+      45,
+      400,
+      131,
+      199
+    ]
+  },
+  {
+    "record": "SC4041E0",
+    "subject": "04",
+    "epochs": 1235,
+    "class_counts": [
+      200,
+      166,
+      620,
+      53,
+      196
+    ]
+  },
+  {
+    "record": "SC4042E0",
+    "subject": "04",
+    "epochs": 1200,
+    "class_counts": [
+      185,
+      137,
+      514,
+      94,
+      270
+    ]
+  },
+  {
+    "record": "SC4051E0",
+    "subject": "05",
+    "epochs": 672,
+    "class_counts": [
+      208,
+      44,
+      217,
+      135,
+      68
+    ]
+  },
+  {
+    "record": "SC4052E0",
+    "subject": "05",
+    "epochs": 1246,
+    "class_counts": [
+      222,
+      114,
+      616,
+      114,
+      180
+    ]
+  },
+  {
+    "record": "SC4061E0",
+    "subject": "06",
+    "epochs": 843,
+    "class_counts": [
+      142,
+      56,
+      407,
+      136,
+      102
+    ]
+  },
+  {
+    "record": "SC4062E0",
+    "subject": "06",
+    "epochs": 1016,
+    "class_counts": [
+      193,
+      90,
+      417,
+      129,
+      187
+    ]
+  },
+  {
+    "record": "SC4071E0",
+    "subject": "07",
+    "epochs": 976,
+    "class_counts": [
+      124,
+      89,
+      403,
+      162,
+      198
+    ]
+  },
+  {
+    "record": "SC4072E0",
+    "subject": "07",
+    "epochs": 1273,
+    "class_counts": [
+      407,
+      84,
+      392,
+      222,
+      168
+    ]
+  },
+  {
+    "record": "SC4081E0",
+    "subject": "08",
+    "epochs": 1134,
+    "class_counts": [
+      323,
+      68,
+      262,
+      350,
+      131
+    ]
+  },
+  {
+    "record": "SC4082E0",
+    "subject": "08",
+    "epochs": 1054,
+    "class_counts": [
+      144,
+      39,
+      329,
+      282,
+      260
+    ]
+  },
+  {
+    "record": "SC4091E0",
+    "subject": "09",
+    "epochs": 1132,
+    "class_counts": [
+      150,
+      19,
+      561,
+      170,
+      232
+    ]
+  },
+  {
+    "record": "SC4092E0",
+    "subject": "09",
+    "epochs": 1105,
+    "class_counts": [
+      140,
+      81,
+      512,
+      107,
+      265
+    ]
+  },
+  {
+    "record": "SC4101E0",
+    "subject": "10",
+    "epochs": 1104,
+    "class_counts": [
+      155,
+      65,
+      671,
+      6,
+      207
+    ]
+  },
+  {
+    "record": "SC4102E0",
+    "subject": "10",
+    "epochs": 1092,
+    "class_counts": [
+      144,
+      117,
+      607,
+      25,
+      199
+    ]
+  },
+  {
+    "record": "SC4111E0",
+    "subject": "11",
+    "epochs": 928,
+    "class_counts": [
+      126,
+      13,
+      502,
+      129,
+      158
+    ]
+  },
+  {
+    "record": "SC4112E0",
+    "subject": "11",
+    "epochs": 802,
+    "class_counts": [
+      126,
+      18,
+      396,
+      111,
+      151
+    ]
+  },
+  {
+    "record": "SC4121E0",
+    "subject": "12",
+    "epochs": 1052,
+    "class_counts": [
+      176,
+      48,
+      463,
+      107,
+      258
+    ]
+  },
+  {
+    "record": "SC4122E0",
+    "subject": "12",
+    "epochs": 977,
+    "class_counts": [
+      290,
+      121,
+      287,
+      80,
+      199
+    ]
+  },
+  {
+    "record": "SC4131E0",
+    "subject": "13",
+    "epochs": 1028,
+    "class_counts": [
+      155,
+      57,
+      497,
+      147,
+      172
+    ]
+  },
+  {
+    "record": "SC4141E0",
+    "subject": "14",
+    "epochs": 1004,
+    "class_counts": [
+      187,
+      29,
+      404,
+      151,
+      233
+    ]
+  },
+  {
+    "record": "SC4142E0",
+    "subject": "14",
+    "epochs": 952,
+    "class_counts": [
+      181,
+      27,
+      386,
+      145,
+      213
+    ]
+  },
+  {
+    "record": "SC4151E0",
+    "subject": "15",
+    "epochs": 952,
+    "class_counts": [
+      172,
+      41,
+      354,
+      177,
+      208
+    ]
+  },
+  {
+    "record": "SC4152E0",
+    "subject": "15",
+    "epochs": 1762,
+    "class_counts": [
+      807,
+      47,
+      438,
+      178,
+      292
+    ]
+  },
+  {
+    "record": "SC4161E0",
+    "subject": "16",
+    "epochs": 1144,
+    "class_counts": [
+      216,
+      55,
+      448,
+      165,
+      260
+    ]
+  },
+  {
+    "record": "SC4162E0",
+    "subject": "16",
+    "epochs": 1003,
+    "class_counts": [
+      179,
+      42,
+      459,
+      128,
+      195
+    ]
+  },
+  {
+    "record": "SC4171E0",
+    "subject": "17",
+    "epochs": 1002,
+    "class_counts": [
+      176,
+      21,
+      328,
+      215,
+      262
+    ]
+  },
+  {
+    "record": "SC4172E0",
+    "subject": "17",
+    "epochs": 1773,
+    "class_counts": [
+      689,
+      44,
+      687,
+      188,
+      165
+    ]
+  },
+  {
+    "record": "SC4181E0",
+    "subject": "18",
+    "epochs": 964,
+    "class_counts": [
+      138,
+      29,
+      388,
+      291,
+      118
+    ]
+  },
+  {
+    "record": "SC4182E0",
+    "subject": "18",
+    "epochs": 920,
+    "class_counts": [
+      147,
+      151,
+      290,
+      216,
+      116
+    ]
+  },
+  {
+    "record": "SC4191E0",
+    "subject": "19",
+    "epochs": 1535,
+    "class_counts": [
+      188,
+      118,
+      833,
+      110,
+      286
+    ]
+  },
+  {
+    "record": "SC4192E0",
+    "subject": "19",
+    "epochs": 1274,
+    "class_counts": [
+      376,
+      72,
+      434,
+      60,
+      332
+    ]
+  }
+]

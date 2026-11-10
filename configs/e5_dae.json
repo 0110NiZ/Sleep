@@ -1,0 +1,19 @@
+{
+  "seed": 123,
+  "epochs": 30,
+  "patience": 6,
+  "minimum_epochs": 5,
+  "batch_size": 128,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0,
+  "gradient_clip_norm": 5.0,
+  "architecture": "Residual Conv1D encoder 1-16-32-64 (kernel 9, stride 2), bottleneck 64-64 (kernel 7, dilation 4), transpose-convolution decoder 64-32-16-1 (kernel 8, stride 2); GELU; no batch normalization",
+  "scale": "One RMS scalar from current fold training EEG only; reversible internal scaling, output remains in microvolts",
+  "loss": "MSE against paired clean reference, divided by training scale squared (constant per fold)",
+  "training_noise": "One of nine Noise v2 conditions sampled uniformly per training epoch sample; independent deterministic training seed for each fold and epoch; no extra clean training cases",
+  "validation_noise": "Original Noise v2 fixed seed 123 and filename:epoch IDs; Clean plus nine noisy conditions",
+  "selection": "Highest equally weighted validation Macro-F1 across ten conditions after frozen AttnSleep; earliest epoch wins exact ties",
+  "early_stopping": "Stop after 6 epochs without validation improvement, at least 5 epochs; maximum 30",
+  "test": "Only after all five DAE selections are frozen; CPU inference with original baseline batch size; original Noise v2",
+  "scope": "One prespecified architecture and optimizer configuration; no test-driven tuning"
+}

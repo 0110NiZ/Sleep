@@ -1,0 +1,5 @@
+{
+  "all_five_confusion_matrices_exact": true,
+  "reference": "result/e2_v2/e2_details.json Clean",
+  "note": "Fold2 differs slightly from initial E1 checkpoint test_metrics, but exactly matches the archived team CPU evaluation."
+}

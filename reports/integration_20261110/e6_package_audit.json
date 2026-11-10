@@ -1,0 +1,47 @@
+{
+  "zip_sha256": "99bd1ca7e09c2292db072d0747dfa5144f00781ba0391bd1e8432f223247eed4",
+  "github_commit": "26bde03fde6d320fae051160fa1a042ed84c41cb",
+  "hash_entries_checked": 597,
+  "github_files_compared": 536,
+  "lineending_only_differences": 0,
+  "validation_files": 500,
+  "prediction_files": 50,
+  "prediction_records": 423080,
+  "best_weights": [
+    {
+      "fold": 0,
+      "selected_epoch": 26,
+      "sha256": "e2fe928bb997b3adde9b8b7ccccd1d0a87e88da61561b039b329e7330b1689de"
+    },
+    {
+      "fold": 1,
+      "selected_epoch": 27,
+      "sha256": "e0d233139a7d4a685367ba5697f29239002c6963c5bbc3971547655a2b77a7e2"
+    },
+    {
+      "fold": 2,
+      "selected_epoch": 17,
+      "sha256": "a5a92bfe179b134e1dfefca5b1b65d2cd44403cef8a4d6003981892a66d114c6"
+    },
+    {
+      "fold": 3,
+      "selected_epoch": 28,
+      "sha256": "c35cd0ea3c21b9378315fbcdf81e6aa98394348468a5209cc246c2064e092e53"
+    },
+    {
+      "fold": 4,
+      "selected_epoch": 45,
+      "sha256": "58a65285a03c0d3842eeef324b9bec6b909b85492e96ceeb971b1a4352f70fb2"
+    }
+  ],
+  "noisy_macro_f1_mean_pct": 73.36617882428142,
+  "noisy_macro_f1_sd_pp": 4.4602416210868645,
+  "clean_macro_f1_mean_pct": 74.23913556287116,
+  "clean_macro_f1_sd_pp": 4.730649253404883,
+  "max_numeric_difference": 0.0,
+  "errors": [],
+  "limits": [
+    "No model inference/training; predictions not regenerated from weights.",
+    "Checkpoint bytes match selection hashes; timestamps do not independently prove freeze chronology."
+  ]
+}

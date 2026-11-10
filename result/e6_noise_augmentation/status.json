@@ -1,0 +1,17 @@
+{
+  "stage": "complete",
+  "noisy_macro_f1_per_fold_pct": [
+    67.34454593930067,
+    75.38201003920443,
+    70.96580968066189,
+    74.02268820508851,
+    79.11584025715156
+  ],
+  "noisy_macro_f1_mean_pct": 73.36617882428142,
+  "noisy_macro_f1_sd_pp": 4.4602416210868645,
+  "clean_macro_f1_mean_pct": 74.23913556287116,
+  "clean_macro_f1_sd_pp": 4.730649253404883,
+  "prediction_files": 50,
+  "prediction_records": 423080,
+  "timing_scope": "CPU classifier forward only; noise generation, transfers and warm-up excluded"
+}

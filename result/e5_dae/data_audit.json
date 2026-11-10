@@ -1,0 +1,8 @@
+{
+  "samples": 42308,
+  "records": 39,
+  "subject_splits": "matched",
+  "baseline_weight_hashes": "matched",
+  "labels_and_shapes": "matched",
+  "npz_hashes_match_e4": false
+}

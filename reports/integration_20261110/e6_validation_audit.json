@@ -1,0 +1,50 @@
+{
+  "commit": "26bde03fde6d320fae051160fa1a042ed84c41cb",
+  "validation_files": 500,
+  "condition_checks": 5000,
+  "score_definition": "Unweighted mean of Clean plus nine noisy validation Macro-F1 values",
+  "max_numeric_difference": 3.3306690738754696e-16,
+  "folds": [
+    {
+      "fold": 0,
+      "validation_samples": 9492,
+      "best_epoch": 26,
+      "validation_macro_f1_pct": 75.81269914416859,
+      "history_and_frozen_match": true
+    },
+    {
+      "fold": 1,
+      "validation_samples": 8849,
+      "best_epoch": 27,
+      "validation_macro_f1_pct": 73.07963260323082,
+      "history_and_frozen_match": true
+    },
+    {
+      "fold": 2,
+      "validation_samples": 8414,
+      "best_epoch": 17,
+      "validation_macro_f1_pct": 77.00279634915923,
+      "history_and_frozen_match": true
+    },
+    {
+      "fold": 3,
+      "validation_samples": 6765,
+      "best_epoch": 28,
+      "validation_macro_f1_pct": 78.21342462338826,
+      "history_and_frozen_match": true
+    },
+    {
+      "fold": 4,
+      "validation_samples": 8788,
+      "best_epoch": 45,
+      "validation_macro_f1_pct": 72.4040077858383,
+      "history_and_frozen_match": true
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "No model inference or training performed.",
+    "Checkpoint files and per-sample test predictions not verified in this validation-only audit.",
+    "Freeze chronology cannot be proved from JSON equality alone."
+  ]
+}

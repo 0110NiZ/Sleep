@@ -1,0 +1,45 @@
+{
+  "experiment": "E3 Band-pass Comparison",
+  "created_at": "2026-11-04T05:00:58.971128+08:00",
+  "timezone": "Asia/Hong_Kong",
+  "seed": 123,
+  "device": "cpu",
+  "data_dir": "/mnt/d/SleepProject/data/processed/sleep-edf-20",
+  "checkpoint_dir": "/mnt/d/SleepProject/baseline",
+  "e2_reference_dir": "/mnt/d/SleepProject/results/e2_v2",
+  "torch_version": "2.6.0+cpu",
+  "numpy_version": "1.26.4",
+  "scipy_version": "1.14.1",
+  "filter_method": "Butterworth SOS + zero-phase sosfiltfilt",
+  "selection_policy": "All four candidates are evaluated and reported. No selection based on Test performance.",
+  "noise_config_sha256": "f8e1b7dbe7cacdae65f05f84633885e765f4b21eab1f7c43151ef2910c9a3a2e",
+  "split_config_sha256": "fc452cb520c01f214fd9289ea2e98dbfb5cbee969d0912b47e4f83172afe4625",
+  "noise_generator_sha256": "6e8158944883bba2d34f91583116c2fee9c07fbc3f6bdc758c917b1e9bb531e4",
+  "e2_evaluation_sha256": "04d9f0d3ffe116c3a66b8d9b1a8e78840fc407c3916da44819b832037c37309c",
+  "candidates": [
+    {
+      "id": "A",
+      "low_hz": 0.3,
+      "high_hz": 35.0,
+      "order": 4
+    },
+    {
+      "id": "B",
+      "low_hz": 0.5,
+      "high_hz": 30.0,
+      "order": 4
+    },
+    {
+      "id": "C",
+      "low_hz": 0.5,
+      "high_hz": 20.0,
+      "order": 4
+    },
+    {
+      "id": "D",
+      "low_hz": 1.0,
+      "high_hz": 30.0,
+      "order": 4
+    }
+  ]
+}

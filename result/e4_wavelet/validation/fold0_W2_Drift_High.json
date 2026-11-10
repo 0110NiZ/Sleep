@@ -1,0 +1,83 @@
+{
+  "fold": 0,
+  "candidate": "W2",
+  "condition": "Drift_High",
+  "samples": 9492,
+  "accuracy": 0.2949852507374631,
+  "macro_f1": 0.17447566359270264,
+  "kappa": 0.15126590531374084,
+  "stage_metrics": {
+    "W": {
+      "precision": 0.3286260176108988,
+      "recall": 0.9611273080660836,
+      "f1": 0.4897858115636994,
+      "support": 2058
+    },
+    "N1": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 670
+    },
+    "N2": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 4111
+    },
+    "N3": {
+      "precision": 0.23681936041486604,
+      "recall": 0.9951573849878934,
+      "f1": 0.38259250639981385,
+      "support": 826
+    },
+    "REM": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 1827
+    }
+  },
+  "confusion_matrix": [
+    [
+      1978,
+      1,
+      0,
+      79,
+      0
+    ],
+    [
+      654,
+      0,
+      0,
+      15,
+      1
+    ],
+    [
+      1662,
+      0,
+      0,
+      2449,
+      0
+    ],
+    [
+      4,
+      0,
+      0,
+      822,
+      0
+    ],
+    [
+      1721,
+      0,
+      0,
+      106,
+      0
+    ]
+  ],
+  "rmse_noisy_uv": 28.284271247421692,
+  "rmse_denoised_uv": 28.830987363740736,
+  "snr_improvement_db": -0.16629044527403697,
+  "denoise_and_inference_seconds": 23.785167300142348,
+  "denoise_and_inference_ms_per_epoch": 2.505811978523214
+}

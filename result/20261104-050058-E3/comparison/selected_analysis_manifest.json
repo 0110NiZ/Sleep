@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-11-04T08:05:03.455238+00:00",
+  "e2_identity_source": "/mnt/d/desktop/GitHub/Sleep/result/e2_v2/predictions_with_ids.csv",
+  "selection": {
+    "0": "A",
+    "1": "A",
+    "2": "A",
+    "3": "A",
+    "4": "B"
+  },
+  "selected_test_files": 50,
+  "mean_sd": "sample SD across five folds (ddof=1)",
+  "note": "Validation-based selection reconstructed after candidate Test runs; no model inference."
+}
