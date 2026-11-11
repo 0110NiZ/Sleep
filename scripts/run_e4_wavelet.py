@@ -5,10 +5,10 @@ from pathlib import Path
 import numpy as np
 import pywt
 import torch
-import run_e2_evaluation_v2 as e2
-from noise_conditions_v2 import apply_noise_v2
+import run_e2_evaluation as e2
+from noise_conditions import apply_noise, apply_noise_v2
 from wavelet_denoising import denoise
-from project_paths import ROOT, BASELINE_DIR, RESULT_ROOT, baseline_fold
+from project_paths import E2_DIR, ROOT, BASELINE_DIR, RESULT_ROOT, baseline_fold
 
 
 def save(path, obj):
@@ -43,7 +43,7 @@ def evaluate(model, batch_size, x, y, ids, condition, candidate, config, noise):
     preds=[];before=after=0.;duration=0.
     for start in range(0,len(y),batch_size*4):
         clean=x[start:start+batch_size*4]
-        noisy=apply_noise_v2(clean,condition,sample_ids=ids[start:start+len(clean)],seed=noise['seed'],fs=noise['sampling_rate'])
+        noisy=apply_noise(clean,condition,sample_ids=ids[start:start+len(clean)],seed=noise['seed'],fs=noise['sampling_rate'])
         tick=time.perf_counter()
         filtered=denoise(noisy,candidate,config)
         preds.append(e2.predict(model,filtered,batch_size))
@@ -99,7 +99,7 @@ def freeze(out,config,noise):
 
 def summarize(out,noise):
     selections=load(out/'selection_frozen.json')['folds'];rows=[];summary=[];stages=[];pooled=[];cms={}
-    with (RESULT_ROOT/'e2_v2/e2_per_fold.csv').open(encoding='utf-8-sig') as f:
+    with (E2_DIR/'e2_per_fold.csv').open(encoding='utf-8-sig') as f:
         baseline={(int(r['fold']),r['condition']):r for r in csv.DictReader(f)}
     for condition in noise['conditions']:
         name=condition['name'];foldscores=[];ys=[];ps=[]
@@ -129,7 +129,7 @@ def main():
     if args.fold!='all' and args.stage!='validation':ap.error('--fold is supported only for independent validation jobs')
     out=args.output_dir.resolve();out.mkdir(parents=True,exist_ok=True)
     config=load(ROOT/'configs/e4_wavelet.json');noise=load(ROOT/'configs/noise_conditions_v2.json');splits=load(ROOT/'configs/fivefold_subject_splits.json')
-    files=['configs/e4_wavelet.json','configs/noise_conditions_v2.json','configs/fivefold_subject_splits.json','scripts/noise_conditions_v2.py','scripts/wavelet_denoising.py','scripts/run_e4_wavelet.py','scripts/run_e2_evaluation_v2.py','AttnSleep/model/model.py']
+    files=['configs/e4_wavelet.json','configs/noise_conditions_v2.json','configs/fivefold_subject_splits.json','scripts/noise_conditions.py','scripts/wavelet_denoising.py','scripts/run_e4_wavelet.py','scripts/run_e2_evaluation.py','AttnSleep/model/model.py']
     hashes={f:digest(ROOT/f) for f in files}
     hashes.update({f'checkpoint_fold{f}':digest(baseline_fold(f)/'best_validation_macro_f1.pth') for f in range(5)})
     datafiles=sorted({name for fold in splits['folds'] for name in fold['test']['files']})

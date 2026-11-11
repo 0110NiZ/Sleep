@@ -1,6 +1,6 @@
 # Sleep: AttnSleep EEG robustness project
 
-COMP 4330SEF group project. **E1–E6 are complete.** This repository contains their code and archived results. This delivery-layout branch reorganizes files only; it does not change experiment parameters, noise instances, models or recorded results. It has not been merged into main.
+COMP 4330SEF group project. **E1–E6 are complete.** This repository contains their code and archived results. Round-one delivery organization is merged at `61f4d48`. This second-round branch unifies E2 entry names with legacy compatibility; it does not change experimental settings, noise logic, models or recorded results and is not merged into main.
 
 ## Find what you need
 
@@ -43,7 +43,7 @@ The output directory must not exist. This command only reads archived CSVs and w
 
 ## Protocol and environment
 
-Sleep-EDF-20: 20 subjects, 39 nights and 42,308 30-second Fpz-Cz EEG epochs at 100 Hz. Within each fold, 12 subjects train, 4 validate and 4 test; all nights of one subject stay together. Splits and seed 123 are fixed in `configs/`. Model/parameter selection uses validation data, never Test results. Noise v2 names, parameters and generation code are unchanged in this maintenance round.
+Sleep-EDF-20: 20 subjects, 39 nights and 42,308 30-second Fpz-Cz EEG epochs at 100 Hz. Within each fold, 12 subjects train, 4 validate and 4 test; all nights of one subject stay together. Splits and seed 123 are fixed in `configs/`. Model/parameter selection uses validation data, never Test results. Noise v2 protocol parameters and original generator logic are unchanged; current entry names have compatibility aliases.
 
 The E1 training entry point requires Linux/WSL, Python 3.10 and CUDA; other experiment environments are recorded in their run notes and manifests. See [ENVIRONMENT.txt](docs/ENVIRONMENT.txt) before installing dependencies. The full dependency snapshot has not been verified by a fresh installation and is not a universal Windows/Mac installer.
 
@@ -56,3 +56,7 @@ Archive contents, manifest hashes and historical commit references are preserved
 `AttnSleep/` vendors [the author's implementation](https://github.com/emadeldeen24/AttnSleep) at commit `6b4d2665884628c8a7bb09f36589a8ec0992f8e2`. Compatibility changes are recorded in [author_compatibility.patch](patches/author_compatibility.patch); the original [MIT license](AttnSleep/LICENSE) is retained. Cite the original AttnSleep paper. Dataset terms are provided by PhysioNet; this repository does not grant a dataset license.
 
 Changes should use a separate branch and peer review. Do not change committed splits or tune from Test results. Keep data and weights outside ordinary Git.
+
+## E2 naming maintenance
+
+Round one is merged at `61f4d48`. Round two is on a separate unmerged branch. Use `scripts/run_e2_evaluation_resumable.py` and `from noise_conditions import apply_noise`. Old `*_v2` imports/commands remain compatibility entries. See [compatibility and archive rules](docs/E2_NAMING.md). The official configuration remains `configs/noise_conditions_v2.json`; the version identifies the experimental protocol.

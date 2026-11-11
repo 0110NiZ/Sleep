@@ -18,7 +18,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'AttnSleep'))
-from noise_conditions_v2 import apply_noise_v2
+from noise_conditions import apply_noise, apply_noise_v2
 
 
 def read(path):
@@ -62,7 +62,7 @@ def augment(x, ids, assignment, conditions, seed):
     for k, condition in enumerate(conditions[1:], start=1):
         ix = np.flatnonzero(assignment == k)
         if len(ix):
-            z[ix] = apply_noise_v2(x[ix], condition,
+            z[ix] = apply_noise(x[ix], condition,
                 sample_ids=[ids[i] for i in ix], seed=seed, fs=100)
     return z
 
@@ -70,10 +70,14 @@ def augment(x, ids, assignment, conditions, seed):
 def validate_protocol(cfg, splits, noise):
     reference = read(ROOT / 'result/e5_dae/manifest.json')['code']
     for name in ['configs/fivefold_subject_splits.json',
-                 'configs/noise_conditions_v2.json', 'scripts/noise_conditions_v2.py',
+                 'configs/noise_conditions_v2.json',
                  'AttnSleep/model/model.py']:
         if sha(ROOT / name) != reference[name]:
             raise ValueError(f'Changed shared protocol/model: {name}')
+    generator = (ROOT / 'scripts/noise_conditions.py').read_bytes()
+    alias = b'\n# Public version-neutral name; protocol remains Noise v2.\napply_noise = apply_noise_v2\n'
+    if not generator.endswith(alias) or hashlib.sha256(generator[:-len(alias)]).hexdigest() != reference['scripts/noise_conditions_v2.py']:
+        raise ValueError('Changed Noise v2 implementation: historical content mismatch')
     assert cfg['epochs'] == 100 and cfg['batch_size'] == 128
     base = read(ROOT / 'configs/clean_baseline_fold0.json')
     for key in ['seed', 'optimizer', 'lr_after_epoch10']:
@@ -122,8 +126,8 @@ def audit_group(group, data_dir, strict_hashes=True):
 
 
 def bind_manifest(out, cfg, splits, noise, smoke, device, allow_repacked):
-    paths = ['scripts/run_e6_noise_augmentation.py', 'scripts/run_e2_evaluation_v2.py',
-             'scripts/noise_conditions_v2.py', 'scripts/project_paths.py',
+    paths = ['scripts/run_e6_noise_augmentation.py', 'scripts/run_e2_evaluation.py',
+             'scripts/noise_conditions.py', 'scripts/project_paths.py',
              'AttnSleep/model/model.py', 'AttnSleep/utils/util.py']
     manifest = dict(config=cfg, splits=splits, noise=noise, smoke=smoke,
         allow_repacked_data=allow_repacked, train_device=str(device),
@@ -148,7 +152,7 @@ def evaluate(model, x, y, ids, noise, device, batch=128, timing=False):
         for c in noise['conditions']:
             parts, seconds = [], 0.
             for j in range(0, len(x), batch):
-                z = apply_noise_v2(x[j:j+batch], c, sample_ids=ids[j:j+batch],
+                z = apply_noise(x[j:j+batch], c, sample_ids=ids[j:j+batch],
                                   seed=noise['seed'], fs=noise['sampling_rate'])
                 t = torch.from_numpy(z).to(device)
                 if device.type == 'cuda':
@@ -395,7 +399,7 @@ def main():
     global torch, e2, calc_class_weight, sklearn
     import torch
     import sklearn
-    import run_e2_evaluation_v2 as e2
+    import run_e2_evaluation as e2
     from utils.util import calc_class_weight
     torch.set_num_threads(4)
     torch.backends.cudnn.benchmark = False

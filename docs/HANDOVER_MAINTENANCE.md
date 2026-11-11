@@ -1,6 +1,6 @@
 # 当前交付与维护说明
 
-E1–E6 已完成并整合到 main 的 `091185d`。本轮只在独立分支整理目录；没有重跑实验、修改参数或改写正式结果。
+E1–E6 已完成并整合到 main 的 `091185d`。第一轮目录整理已合并到 main 的 `61f4d48`；第二轮命名整理仍在独立分支，没有重训、修改参数或改写正式结果。
 
 ## 交接状态
 
@@ -12,7 +12,7 @@ E1–E6 已完成并整合到 main 的 `091185d`。本轮只在独立分支整�
 
 在仓库根目录使用 `SLEEP_DATA_DIR`、`SLEEP_BASELINE_DIR`、`SLEEP_RESULT_DIR` 配置本地路径；原始 EDF 可用 `SLEEP_RAW_DIR`。E5 仍支持 `E5_BASELINE_ROOT`、`E5_HANDOVER_DIR` 和 `E2_REFERENCE_CSV`。具体命令见 [E5](E5_RUN.md)、[E6](E6_START_HERE.md)。
 
-E5 中的 `c2547fb:result/e2_v2/predictions_with_ids.csv` 是历史提交内路径，保持原样。Noise v2 文件名、函数名、配置、种子和算法本轮完全不变。
+E5 中的 `c2547fb:result/e2_v2/predictions_with_ids.csv` 是历史提交内路径，保持原样。Noise v2 配置、种子和算法保持不变；第二轮提供无版本后缀入口，旧入口继续兼容。
 
 ## 历史证据与分析边界
 

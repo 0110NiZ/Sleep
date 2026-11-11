@@ -87,7 +87,7 @@ def sample_mean_sd(values):
 
 
 def calculate_metrics(y_true, y_pred):
-    """Same label set and sklearn settings as run_e2_evaluation_v2.py."""
+    """Same label set and sklearn settings as run_e2_evaluation.py."""
 
     precision, recall, stage_f1, support = (
         precision_recall_fscore_support(

@@ -48,7 +48,7 @@ E3 uses the same configuration as E2.
 
 - `configs/fivefold_subject_splits.json`
 - `configs/noise_conditions_v2.json`
-- `scripts/noise_conditions_v2.py`
+- `scripts/noise_conditions.py`
 
 See [E2_HANDOVER.md](E2_HANDOVER.md) for the complete Noise v2 definitions and reproducibility requirements.
 

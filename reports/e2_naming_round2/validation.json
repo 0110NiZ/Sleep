@@ -1,0 +1,27 @@
+{
+  "base_commit": "61f4d48b5ced17ab7597b1a9f7321a8df1023133",
+  "branch": "maintenance/e2-naming-round2",
+  "static": {
+    "protected_files_byte_identical": 1039,
+    "python_syntax_checks": 29,
+    "current_doc_links_checked": 61,
+    "summary_outputs_byte_identical": true,
+    "historical_git_path_preserved": true
+  },
+  "runtime": {
+    "numpy_shape_condition_checks": 30,
+    "torch_condition_checks": 10,
+    "cli_help_checks": 6,
+    "module_alias_identity": true,
+    "e3_e6_imports": true,
+    "e6_original_protocol_hash_check": true,
+    "local_path_fallback_and_ambiguity_check": true,
+    "real_eeg_prediction_checks": 80,
+    "prediction_check_scope": "8 segments, one frozen E1 fold0 checkpoint, ten conditions; rename equivalence only, not full experiment or demo validation",
+    "training": false,
+    "official_outputs_written": false
+  },
+  "runtime_environment": "Existing Ubuntu-22.04 virtual environment; temporary Git tree export with core.autocrlf=false. Original experiment directories were read only.",
+  "demo": "Source pending; no demo validation claimed.",
+  "archive_policy": "All pre-existing result/, reports/ (except current README index), configs/, AttnSleep/, patches/ and docs/history/ payload bytes unchanged."
+}

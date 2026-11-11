@@ -4,8 +4,8 @@ from pathlib import Path
 import numpy as np
 import torch
 from dae_model import DAE
-import run_e2_evaluation_v2 as e2
-from noise_conditions_v2 import apply_noise_v2
+import run_e2_evaluation as e2
+from noise_conditions import apply_noise, apply_noise_v2
 
 ROOT=Path(__file__).resolve().parents[1]
 from project_paths import BASELINE_DIR, RESULT_ROOT, configured, baseline_fold
@@ -29,7 +29,7 @@ def baseline(fold,device):
     m.eval().to(device);m.requires_grad_(False)
     return m,int(cfg['batch_size'])
 def noisy(x,ids,c,seed):
-    return apply_noise_v2(x,c,sample_ids=ids,seed=int(seed),fs=100)
+    return apply_noise(x,c,sample_ids=ids,seed=int(seed),fs=100)
 def read_group(split):return e2.load_test(split)
 @torch.inference_mode()
 def evaluate(dae,clf,x,y,ids,conditions,batch,device):
@@ -75,7 +75,7 @@ def audit(cfg,splits,conditions):
             assert np.isfinite(x).all();assert np.bincount(y,minlength=5).tolist()==row['class_counts']
             total+=len(y)
     assert total==42308
-    source=['scripts/dae_model.py','scripts/run_e5_dae.py','scripts/noise_conditions_v2.py','scripts/run_e2_evaluation_v2.py',
+    source=['scripts/dae_model.py','scripts/run_e5_dae.py','scripts/noise_conditions.py','scripts/run_e2_evaluation.py',
         'AttnSleep/model/model.py','configs/e5_dae.json','configs/noise_conditions_v2.json','configs/fivefold_subject_splits.json']
     manifest=dict(code={p:sha(ROOT/p) for p in source},data=hashes,weights=weights,config=cfg,
         python=platform.python_version(),torch=torch.__version__,numpy=np.__version__,

@@ -14,3 +14,5 @@ All command examples and code/data paths are relative to the repository root unl
 - [Demo handover status](../demo/README.md): source pending, no startup command yet.
 
 The experiments are complete. Run instructions are retained for reproducibility, not a request to rerun them. Preserve original archives and use a new output directory for any future run.
+
+- [E2 naming and compatibility](E2_NAMING.md)

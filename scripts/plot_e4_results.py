@@ -5,14 +5,14 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from project_paths import RESULT_ROOT
+from project_paths import E2_DIR, RESULT_ROOT
 
 def read(p):
  with p.open(encoding='utf-8-sig') as f:return list(csv.DictReader(f))
 
 def main():
  out=RESULT_ROOT/'e4_wavelet';figs=out/'figures';figs.mkdir(exist_ok=True)
- e4=read(out/'test_per_fold.csv');e2=read(RESULT_ROOT/'e2_v2/e2_per_fold.csv')
+ e4=read(out/'test_per_fold.csv');e2=read(E2_DIR/'e2_per_fold.csv')
  def vals(rows,c):return np.array([float(r['macro_f1_pct']) for r in rows if r['condition']==c])
  fig,axes=plt.subplots(1,3,figsize=(13,4),sharey=True)
  for ax,kind in zip(axes,['Gaussian','Drift','Burst']):

@@ -51,7 +51,7 @@ The E1 checkpoints are reused for inference. E2 does not retrain AttnSleep.
 
 **Noise generator:**
 
-`scripts/noise_conditions_v2.py`
+`scripts/noise_conditions.py`
 
 **Noise configuration:**
 
@@ -59,7 +59,7 @@ The E1 checkpoints are reused for inference. E2 does not retrain AttnSleep.
 
 **Main function:**
 
-`apply_noise_v2()`
+`apply_noise()` (`apply_noise_v2()` remains compatible)
 
 The previous `noise_generator.py` implementation belongs to Noise v1 and is no longer used for official E2–E6 comparisons.
 
@@ -209,7 +209,7 @@ These identities allow subsequent analysis by subject, recording, epoch, noise c
 
 ### 7.1 Historical E2 Evaluation
 
-`scripts/run_e2_evaluation_v2.py`
+`scripts/run_e2_evaluation.py`
 
 This is the original evaluation implementation used for the completed E2 results.
 
@@ -219,15 +219,15 @@ It may contain machine-specific absolute paths and should not be treated as the 
 
 ### 7.2 Resumable E2 Evaluation
 
-`scripts/run_e2_evaluation_v2_resumable.py`
+`scripts/run_e2_evaluation_resumable.py`
 
 This additional script supports configurable paths, checking existing results and fold-condition-level resumable execution.
 
-Its default result directory is `result/e2_v2/`.
+New local runs default to `result/local/e2/` (or `SLEEP_RESULT_DIR/e2`); an existing local `e2_v2` folder is reused only when unambiguous. Published historical results remain in `result/e2_v2/`.
 
 **Verify completed E2 results:**
 
-`python scripts/run_e2_evaluation_v2_resumable.py --check-only`
+`python scripts/run_e2_evaluation_resumable.py --check-only`
 
 Verified result:
 

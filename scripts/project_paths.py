@@ -9,7 +9,15 @@ DATA_DIR = configured("SLEEP_DATA_DIR", ROOT / "data/processed/sleep-edf-20")
 RAW_DIR = configured("SLEEP_RAW_DIR", ROOT / "data/raw/sleep-edf-20")
 BASELINE_DIR = configured("SLEEP_BASELINE_DIR", ROOT / "Sleep_Baseline_5fold")
 RESULT_ROOT = configured("SLEEP_RESULT_DIR", ROOT / "result/local")
-E2_DIR = RESULT_ROOT / "e2_v2"
+def e2_result_dir(root):
+    """Use an existing legacy local directory; never silently choose between two."""
+    root = Path(root)
+    current, legacy = root / "e2", root / "e2_v2"
+    if current.exists() and legacy.exists():
+        raise ValueError(f"Both E2 directories exist; resolve ambiguity: {current}, {legacy}")
+    return legacy if legacy.exists() else current
+
+E2_DIR = e2_result_dir(RESULT_ROOT)
 def baseline_fold(fold, root=None):
     """Accept the two existing handover layouts; never silently pick between both."""
     root = BASELINE_DIR if root is None else Path(root)

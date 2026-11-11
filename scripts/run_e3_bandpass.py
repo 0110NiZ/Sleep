@@ -49,9 +49,9 @@ sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "AttnSleep"))
 
 from model.model import AttnSleep
-from noise_conditions_v2 import apply_noise_v2
+from noise_conditions import apply_noise, apply_noise_v2
 
-import run_e2_evaluation_v2 as e2
+import run_e2_evaluation as e2
 
 
 from project_paths import BASELINE_DIR, RESULT_ROOT, E2_DIR, baseline_fold
@@ -229,11 +229,11 @@ def settings():
         ),
 
         "noise_generator_sha256": sha256(
-            ROOT / "scripts/noise_conditions_v2.py"
+            ROOT / "scripts/noise_conditions.py"
         ),
 
         "e2_evaluation_sha256": sha256(
-            ROOT / "scripts/run_e2_evaluation_v2.py"
+            ROOT / "scripts/run_e2_evaluation.py"
         ),
 
         "candidates": CANDIDATES,
@@ -499,7 +499,7 @@ def filtered_inference(
 
         else:
 
-            noisy = apply_noise_v2(
+            noisy = apply_noise(
                 clean,
                 condition,
                 sample_ids=sample_ids[start:end],
@@ -645,7 +645,7 @@ def e2_validation_inference(
 
         if condition["noise_type"] != "clean":
 
-            chunk = apply_noise_v2(
+            chunk = apply_noise(
                 chunk,
                 condition,
                 sample_ids=sample_ids[start:end],
@@ -1527,7 +1527,7 @@ def save_figures(
         noise_cfg["sampling_rate"]
     )
 
-    noisy = apply_noise_v2(
+    noisy = apply_noise(
         clean.reshape(1, 1, -1),
         condition,
         sample_ids=[sample_id],

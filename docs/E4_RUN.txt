@@ -56,7 +56,7 @@ Portable evaluation setup (Python 3.10 or newer)
 python -m venv .venv
 Activate the environment using your platform's activation command.
 python -m pip install -r requirements-e4.txt
-python scripts/run_e2_evaluation_v2.py --fold all --conditions all
+python scripts/run_e2_evaluation.py --fold all --conditions all
 python scripts/run_e4_wavelet.py --stage all
 python scripts/plot_e4_results.py
 
