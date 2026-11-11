@@ -1,3 +1,5 @@
+Status: completed experiment. Commands and code/data paths below are relative to the repository root, not docs/. Historical runs must use their recorded code revision; do not resume them with maintenance code. See docs/DELIVERY_LAYOUT.md for relocated archives.
+
 E4 execution notes
 
 Scope
@@ -73,4 +75,4 @@ with the same subject splits and baseline classifiers; E4 output is not required
 Dependency provenance: shared Noise v2 and E2 evaluator were taken from
 the locally integrated group code used for the verified E2 reproduction.
 The evaluator uses configurable project_paths instead of machine-specific paths.
-No E3 experiment code or local integration commits are included in this branch.
+The original E4 branch did not include E3. The integrated repository now contains E1–E6; see the root README for their archives.

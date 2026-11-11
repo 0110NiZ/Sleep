@@ -1,3 +1,5 @@
+> 已完成实验。下文命令和代码/数据路径均以仓库根目录为基准，不以 docs/ 为基准。历史运行请使用记录的原提交，不用维护代码继续写入原输出目录。目录迁移见 [DELIVERY_LAYOUT.md](DELIVERY_LAYOUT.md)。
+
 # E3 — Butterworth Band-Pass Filtering: Experiment Handover
 
 ## 1. Overview
@@ -48,7 +50,7 @@ E3 uses the same configuration as E2.
 - `configs/noise_conditions_v2.json`
 - `scripts/noise_conditions_v2.py`
 
-See `reports/E2_HANDOVER.md` for the complete Noise v2 definitions and reproducibility requirements.
+See [E2_HANDOVER.md](E2_HANDOVER.md) for the complete Noise v2 definitions and reproducibility requirements.
 
 ## 3. Band-Pass Filtering
 
@@ -183,7 +185,7 @@ The same distinction applies to all noisy conditions.
 
 **Experiment directory:**
 
-`result/20261104-050058-E3/`
+`result/e3_bandpass/`
 
 The directory name identifies the original E3 experiment run.
 
@@ -237,7 +239,7 @@ Historical metadata should not be overwritten merely to make a modified source f
 
 The official Validation-selected results are saved under:
 
-`result/20261104-050058-E3/comparison/`
+`result/e3_bandpass/comparison/`
 
 | File | Description |
 |---|---|

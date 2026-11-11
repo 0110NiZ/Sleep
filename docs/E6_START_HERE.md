@@ -1,3 +1,5 @@
+> 已完成实验。下文命令和代码/数据路径均以仓库根目录为基准，不以 docs/ 为基准。历史运行请使用记录的原提交，不用维护代码继续写入原输出目录。目录迁移见 [DELIVERY_LAYOUT.md](DELIVERY_LAYOUT.md)。
+
 > 2026-11-10 整合更新：下文保留维护时的记录。E6 的500份验证明细已上传并核验；完整共享包的50份预测、5份最佳权重及597项文件哈希均已核验通过，536份对应GitHub文件逐字节一致。关键交接文件已补齐，无需重新索取或重跑。核验记录见 reports/integration_20261110/。本分支已整合E2–E6及维护修改；原始结果与实验参数保持不变。
 
 # E6：从准备文件到正式结果
@@ -6,7 +8,7 @@
 
 本包基于 E5-dae 分支提交 `3bf547d7fd4862de32d2c318ab9a8468ce6a1ff8`。
 新增 E6 训练、评估、结果比较脚本。原 AttnSleep、Noise v2、五折划分均未修改。
-正式 E6 指标已归档于 result/e6_noise_augmentation；原始 EEG 和权重仍通过组内存储共享。逐轮验证明细及逐样本预测需补充交接，见 HANDOVER_MAINTENANCE.md。以下训练说明保留供复现参考，不代表需要重新训练。
+正式 E6 指标已归档于 result/e6_noise_augmentation；原始 EEG 和权重仍通过组内存储共享。500份逐轮验证明细已归档，50份预测及5份权重共享包已核验；见 [HANDOVER_MAINTENANCE.md](HANDOVER_MAINTENANCE.md)。以下训练说明保留供复现参考，不代表需要重新训练。
 
 ## 1. 你到底要做什么
 
@@ -137,7 +139,7 @@ python scripts/summarize_e6.py
 
 生成 `E6_RESULT_REPORT.md` 和 `paired_differences.csv`，包括每条件E6−E2/E4/E5的差值和逐折对比。
 
-E3的逐折结果不在本分支当前结果目录中，比较脚本会明确标注缺失。需要组员提供匹配的50行逐折指标后补充，不能仅用55.98%构造逐折分析。
+原 summarize_e6.py 是历史 E2/E4/E5/E6 比较入口。当前已整合 E3 正式结果，统一比较使用 scripts/summarize_all_experiments.py，并传入 result/e3_bandpass/comparison/selected_per_fold.csv。不能仅用55.98%构造逐折分析。
 
 主要分析：九噪声平均Macro-F1、Clean变化、哪类噪声获益、强高斯是否仍不稳定、N1等各阶段变化、逐折方向是否一致、计算成本。50%配方未证明最优；固定一个训练seed；五折并非五次独立重复实验。不得仅因均值上升就宣称统计显著性。
 
@@ -147,6 +149,6 @@ E6不重建波形，所以RMSE/SNR improvement不适用。耗时以CPU模型前�
 
 提交源代码、配置、运行说明、环境记录、日志、50行逐折指标、十条件汇总、阶段指标、混淆矩阵、五折权重和50份预测。
 
-建议代码使用独立 `E6-noise-augmentation` 分支，由组员review后合并；本包没有替你推送GitHub或修改远端分支。
+历史 E6 开发使用 `E6-noise-augmentation` 分支，已随 E1–E6 整合到 main。当前目录维护在独立分支进行，尚未合并 main。
 
 `result/local/`、NPZ和PTH被原仓库.gitignore忽略。权重和预测通过组内共享存储交接；把体积小的正式结果复制到 `result/e6_noise_augmentation/` 后再提交，切勿把smoke或合成数据结果当成正式结果。

@@ -1,3 +1,5 @@
+> 已完成实验。下文命令和代码/数据路径均以仓库根目录为基准，不以 docs/ 为基准。历史运行请使用记录的原提交，不用维护代码继续写入原输出目录。目录迁移见 [DELIVERY_LAYOUT.md](DELIVERY_LAYOUT.md)。
+
 > 路径与当前交付状态以 [HANDOVER_MAINTENANCE.md](HANDOVER_MAINTENANCE.md) 为准。下方保留历史运行说明，当前无需重跑。
 
 # E5 – Denoising autoencoder

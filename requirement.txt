@@ -4,7 +4,7 @@
 # Not a Windows-native, macOS or CPU-only requirements file.
 # Install in a NEW Python 3.10 virtual environment:
 # python -m pip install -r requirement.txt
-# Hardware, driver and setup notes: ENVIRONMENT.txt
+# Hardware, driver and setup notes: docs/ENVIRONMENT.txt
 # This file was exported from the working environment; clean install not tested.
 
 --extra-index-url https://download.pytorch.org/whl/cu124

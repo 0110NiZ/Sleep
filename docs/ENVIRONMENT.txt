@@ -47,4 +47,4 @@ https://github.com/emadeldeen24/AttnSleep
 固定受试者划分：configs/fivefold_subject_splits.json
 第一折配置：configs/clean_baseline_fold0.json
 训练、验证、测试分别12、4、4人；仅训练集标签计算权重；验证集Macro-F1选epoch。
-当前只启动第一折，环境文件不触发任何训练。
+上述环境记录来自早期基线阶段。目前 E1–E6 已完成；环境文件本身不触发训练。各实验实际环境以其归档 manifest 为准。

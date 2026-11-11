@@ -161,7 +161,7 @@ def load_e2_ids(path):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--e3-dir", type=Path,
-                    default=ROOT / "result/20261104-050058-E3")
+                    default=ROOT / "result/e3_bandpass")
     ap.add_argument("--e2-dir", type=Path, default=ROOT / "result/e2_v2")
     args = ap.parse_args()
     e3, e2 = args.e3_dir.resolve(), args.e2_dir.resolve()

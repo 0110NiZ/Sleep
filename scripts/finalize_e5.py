@@ -122,7 +122,7 @@ lines+=['','## 解释与限制','',
 f"训练加每轮验证总计约 {sum(s['training_and_validation_seconds'] for s in sels)/3600:.2f} 小时。CPU去噪加分类平均约 {np.mean([float(r['mean_denoise_and_inference_ms_per_epoch']) for r in summary]):.3f} ms/epoch，预热后测量，不含加噪、磁盘读取或GPU训练；跨机器不能直接比较耗时。",'',
 '## 文件交接','',
 '小文件及图表：`result/e5_dae/`。完整结果、五折 `best.pth` / `latest.pth`、50个逐样本预测 NPZ：`result/local/e5_dae/`，通过组内共享存储交接。GitHub不自动上传权重或预测大文件。',
-'实现：`scripts/dae_model.py`、`scripts/run_e5_dae.py`；配置：`configs/e5_dae.json`；运行说明：`E5_RUN.md`；代码分支：`E5-dae`，实验实现提交 `887ff31`。','',
+'实现：`scripts/dae_model.py`、`scripts/run_e5_dae.py`；配置：`configs/e5_dae.json`；运行说明：`docs/E5_RUN.md`；代码分支：`E5-dae`，实验实现提交 `887ff31`。','',
 'E6可以独立使用同一Clean数据、划分、Noise v2和评价协议，不需要DAE的输出作为训练输入。此次未启动E6。']
 (HAND/'E5_RESULT_REPORT.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
 print(json.dumps(dict(audit='passed',samples=total,overall=overall,folds=foldrows,handoff=str(HAND)),ensure_ascii=False))

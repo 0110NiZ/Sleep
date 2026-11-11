@@ -1,3 +1,5 @@
+> 已完成实验。下文命令和代码/数据路径均以仓库根目录为基准，不以 docs/ 为基准。历史运行请使用记录的原提交，不用维护代码继续写入原输出目录。目录迁移见 [DELIVERY_LAYOUT.md](DELIVERY_LAYOUT.md)。
+
 # E2 — Noise Robustness Evaluation: Experiment Handover
 
 ## 1. Overview

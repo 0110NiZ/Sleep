@@ -1,62 +1,58 @@
 # Sleep: AttnSleep EEG robustness project
 
-COMP 4330SEF group project. E1–E6 experiments are complete. This integrated repository contains their code and archived results. Maintenance changes do not alter experiment settings or recorded results. See HANDOVER_MAINTENANCE.md for configurable paths, provenance and handover verification.
+COMP 4330SEF group project. **E1–E6 are complete.** This repository contains their code and archived results. This delivery-layout branch reorganizes files only; it does not change experiment parameters, noise instances, models or recorded results. It has not been merged into main.
 
-## Setup
+## Find what you need
 
-Use Linux / WSL Ubuntu 22.04, Python 3.10 and an NVIDIA GPU. This training entry point requires CUDA and Linux file locking; Windows-native/CPU execution is not supported. The dependency snapshot was exported from the working environment, not tested by a fresh installation.
+| Location | Purpose |
+|---|---|
+| [docs/](docs/README.md) | Environment, experiment run instructions and handover guidance |
+| [configs/](configs/) | Fixed subject splits, Noise v2 and experiment settings |
+| [scripts/](scripts/) | Training, evaluation, checks and analysis entry points |
+| [result/](result/) | Completed E1–E6 experiment archives |
+| [reports/](reports/README.md) | Data checks, reproduction evidence and integration audits |
+| [demo/](demo/README.md) | Placeholder only: web-demo source has not been delivered |
+| [AttnSleep/](AttnSleep/) | Vendored author implementation and license |
 
-Run all commands from the repository root:
+EEG data, prediction NPZs and model weights are shared separately. `data/`, `runs/` and `logs/` are local storage locations, not evidence that these large files are in Git. Cloning the repository does not run any experiment.
+
+## Completed experiments
+
+| Experiment | Archived results | Instructions |
+|---|---|---|
+| E1 Clean baseline | [e1](result/e1/) | [Environment and baseline entry point](docs/ENVIRONMENT.txt) |
+| E2 Noisy baseline | [e2_v2](result/e2_v2/) | [E2 handover](docs/E2_HANDOVER.md) |
+| E3 Band-pass | [e3_bandpass](result/e3_bandpass/) | [E3 handover](docs/E3_HANDOVER.md) |
+| E4 Wavelet | [e4_wavelet](result/e4_wavelet/) | [E4 run notes](docs/E4_RUN.txt) |
+| E5 DAE | [e5_dae](result/e5_dae/) | [E5 run notes](docs/E5_RUN.md) |
+| E6 Noise augmentation | [e6_noise_augmentation](result/e6_noise_augmentation/) | [E6 guide](docs/E6_START_HERE.md) |
+
+E3's formal comparison uses [selected_per_fold.csv](result/e3_bandpass/comparison/selected_per_fold.csv), selected using validation data; the other candidate test results are retained for sensitivity analysis. Do not replace formal scores with the best candidate Test scores.
+
+All five E1 folds completed: Accuracy 80.99% ± 4.41 percentage points; Macro-F1 75.08% ± 4.32 percentage points; Kappa 0.7409 ± 0.0561. These are project five-fold results, not the original paper's 20-fold reproduction.
+
+## Analyze existing results without rerunning models
+
+Run commands from the repository root:
 
 ```bash
-python3.10 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirement.txt
-mkdir -p reports logs runs
-python scripts/download_edf20.py
-python scripts/preprocess_full.py
-python scripts/validate_full_alignment.py
-python scripts/train_clean_fivefold.py configs/clean_baseline_fold0.json
+python scripts/summarize_all_experiments.py --e3 result/e3_bandpass/comparison/selected_per_fold.csv --out result/local/analysis_round1
 ```
 
-Download and preprocessing can take time. Existing preprocessed files can instead be placed in `data/processed/sleep-edf-20/` (39 NPZ files). Do not commit EEG datasets or model weights. Each training command trains exactly one fold for 100 epochs and refuses to overwrite an existing output. To train another fold, use its corresponding configuration (fold1 through fold4). No training is triggered when this repository is cloned.
+The output directory must not exist. This command only reads archived CSVs and writes a new summary; it does not train, infer or regenerate noise. Its E2 reference comes from the verified E4 handover CSV. `summarize_e6.py` remains a historical E2/E4/E5/E6 comparison entry point; use the command above for all five methods.
 
-## Evaluation protocol
+## Protocol and environment
 
-20 subjects, 39 nights, 42,308 epochs; EEG Fpz-Cz at 100 Hz, 30-second epochs and five sleep stages. Each fold contains 12 training, 4 validation and 4 test subjects. Both nights of a subject stay together. Splits and seed 123 are fixed in `configs/`. Class weights use training labels only. Validation Macro-F1 selects the epoch before test data are loaded. Do not tune using test results.
+Sleep-EDF-20: 20 subjects, 39 nights and 42,308 30-second Fpz-Cz EEG epochs at 100 Hz. Within each fold, 12 subjects train, 4 validate and 4 test; all nights of one subject stay together. Splits and seed 123 are fixed in `configs/`. Model/parameter selection uses validation data, never Test results. Noise v2 names, parameters and generation code are unchanged in this maintenance round.
 
-All five folds completed: Accuracy 80.99% ± 4.41 percentage points; Macro-F1 75.08% ± 4.32 percentage points; Kappa 0.7409 ± 0.0561 (sample standard deviation across folds). Full results and confusion matrix are in `reports/`. These are project fivefold results, not the original paper's 20-fold reproduction.
+The E1 training entry point requires Linux/WSL, Python 3.10 and CUDA; other experiment environments are recorded in their run notes and manifests. See [ENVIRONMENT.txt](docs/ENVIRONMENT.txt) before installing dependencies. The full dependency snapshot has not been verified by a fresh installation and is not a universal Windows/Mac installer.
 
-## Team workflow
+## Handover and provenance
 
-Create a branch for each change, submit a pull request and have another member review it. Keep the committed splits unchanged across methods. Select noise and denoising parameters using validation data. Share large data/checkpoints separately. Everyone should use their own virtual environment.
+See [current handover status](docs/HANDOVER_MAINTENANCE.md) and [old-to-new path map](docs/DELIVERY_LAYOUT.md). E6's 500 validation files and the separately shared prediction/checkpoint package passed independent checks recorded in [integration_20261110](reports/integration_20261110/). Demo prediction agreement is a separate check and is not claimed by this branch.
 
-## Attribution and packaging
+Archive contents, manifest hashes and historical commit references are preserved. Historical runs must be reproduced/resumed using the recorded original code and environment; do not rewrite old manifests to match maintenance code or continue writing into old output directories.
 
-`AttnSleep/` vendors the author's code from https://github.com/emadeldeen24/AttnSleep at commit `6b4d2665884628c8a7bb09f36589a8ec0992f8e2`, with local compatibility changes recorded in `patches/author_compatibility.patch`. The original MIT license is retained at `AttnSleep/LICENSE`. Model architecture is unchanged. Cite the original AttnSleep paper when reporting results.
+`AttnSleep/` vendors [the author's implementation](https://github.com/emadeldeen24/AttnSleep) at commit `6b4d2665884628c8a7bb09f36589a8ec0992f8e2`. Compatibility changes are recorded in [author_compatibility.patch](patches/author_compatibility.patch); the original [MIT license](AttnSleep/LICENSE) is retained. Cite the original AttnSleep paper. Dataset terms are provided by PhysioNet; this repository does not grant a dataset license.
 
-This shareable copy uses repository-relative paths. The split manifest checksum changed because its data path changed; subject/file assignments and all training hyperparameters are unchanged. Historical results retain their original split checksum. The source experiment folder and its checkpoints were not modified. No license is granted here for the dataset; obtain it from PhysioNet under its applicable terms.
-
-
-## E4: wavelet denoising
-
-E4 is complete on this branch. See [E4_RUN.txt](E4_RUN.txt) for setup and commands, [the result report](result/e4_wavelet/E4_RESULT_REPORT.txt) for methods and limitations, and [the comparison table](result/e4_wavelet/e2_e4_comparison.csv).
-
-Five-fold nine-noise mean Macro-F1: E2 58.14%, E4 62.93% (+4.79 percentage points). Clean: E2 75.08%, E4 71.42%. Gains are concentrated in medium/high Gaussian noise; the other seven noisy conditions decline. Validation-selected candidates: W3, W3, W3, W1, W1.
-
-This branch includes the shared Noise v2 generator and CPU E2 evaluator required by E4. It does not depend on E3 filtering. Shared EEG and baseline weights must be obtained separately from the group; they are not stored in Git.
-
-## Completed experiment handovers
-
-| Experiment | Archived results |
-|---|---|
-| E1 | `result/e1/` (baseline archive; see also original commit `a4601f7`) |
-| E2 | `result/e2_v2/` |
-| E3 | `result/20261104-050058-E3/comparison/selected_per_fold.csv` (formal validation-selected filters) |
-| E4 | `result/e4_wavelet/` |
-| E5 | `result/e5_dae/` |
-| E6 | `result/e6_noise_augmentation/` |
-
-Use `scripts/summarize_all_experiments.py --help` for the complete E2–E6 comparison. It reads archived CSVs and only writes to a new directory. Training/evaluation instructions below are retained for reproducibility, not a request to rerun completed experiments.
-
-E6's 500 validation files and the separately shared prediction/checkpoint package passed independent checks. Audit records are in `reports/integration_20261110/`. Raw EEG, NPZ predictions, model weights and the full ZIP remain outside Git. Original result manifests identify the historical code; do not rewrite them to match maintenance code hashes.
+Changes should use a separate branch and peer review. Do not change committed splits or tune from Test results. Keep data and weights outside ordinary Git.

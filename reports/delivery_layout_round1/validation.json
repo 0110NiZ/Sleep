@@ -1,0 +1,14 @@
+{
+  "base_commit": "091185df1ff993e7b65109e8c1db63a31f009d06",
+  "branch": "maintenance/delivery-layout-round1",
+  "checked_unchanged_files": 1058,
+  "all_archive_payloads_byte_identical": true,
+  "configuration_and_noise_code_unchanged": true,
+  "historical_commit_reference_preserved": true,
+  "parsed_python_scripts": 25,
+  "checked_current_relative_links": 57,
+  "unified_summary_matches_recorded_means": true,
+  "training_or_inference_run": false,
+  "demo": "placeholder only; source not delivered; no runtime or prediction agreement claimed",
+  "errors": []
+}
