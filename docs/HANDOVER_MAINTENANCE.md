@@ -10,7 +10,7 @@ E1–E6 已完成并整合到 main 的 `091185d`。第一轮目录整理已合�
 
 ## 本地路径
 
-在仓库根目录使用 `SLEEP_DATA_DIR`、`SLEEP_BASELINE_DIR`、`SLEEP_RESULT_DIR` 配置本地路径；原始 EDF 可用 `SLEEP_RAW_DIR`。E5 仍支持 `E5_BASELINE_ROOT`、`E5_HANDOVER_DIR` 和 `E2_REFERENCE_CSV`。具体命令见 [E5](E5_RUN.md)、[E6](E6_START_HERE.md)。
+在仓库根目录使用 `SLEEP_DATA_DIR`、`SLEEP_BASELINE_DIR`、`SLEEP_RESULT_DIR` 配置本地路径；原始 EDF 可用 `SLEEP_RAW_DIR`。E5 仍支持 `E5_BASELINE_ROOT`、`E5_HANDOVER_DIR` 和 `E2_REFERENCE_CSV`。具体命令见 [E5](E5_RUN.md)、[E6](E6_START_HERE.md)。注意例外：E2 resumable 的数据和权重目录需显式传 `--data-dir`、`--baseline-dir`；E2 finalizer 的数据目录需传 `--data-dir`；E6 runner 和历史 `summarize_e6.py` 的输出目录需传 `--out`，它们并非全部读取上述环境变量。
 
 E5 中的 `c2547fb:result/e2_v2/predictions_with_ids.csv` 是历史提交内路径，保持原样。Noise v2 配置、种子和算法保持不变；第二轮提供无版本后缀入口，旧入口继续兼容。
 

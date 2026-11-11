@@ -67,7 +67,7 @@ The output directory must not already exist. The script reads archived CSVs and 
 
 The recorded project environment uses **Ubuntu/WSL, Python 3.10 and PyTorch 2.6.0**; GPU training uses CUDA. Read the [environment instructions](docs/ENVIRONMENT.txt) and the relevant experiment guide before installing dependencies or running an experiment. The dependency snapshot describes the working environment; a fresh installation has not been independently verified.
 
-EEG data, model checkpoints and full prediction NPZs are **shared separately** and are not included in a normal clone. Local locations can be configured with `SLEEP_DATA_DIR`, `SLEEP_BASELINE_DIR` and `SLEEP_RESULT_DIR`; individual guides document additional options. Existing results can be analyzed without downloading the model weights.
+EEG data, model checkpoints and full prediction NPZs are **shared separately** and are not included in a normal clone. Local locations can be configured with `SLEEP_DATA_DIR`, `SLEEP_BASELINE_DIR` and `SLEEP_RESULT_DIR`; individual guides document additional options and exceptions. In particular, the E2 resumable entry needs explicit `--data-dir` / `--baseline-dir`, and E6 output paths use `--out` rather than `SLEEP_RESULT_DIR`. Existing results can be analyzed without downloading the model weights.
 
 The current E2 evaluation entry is `scripts/run_e2_evaluation_resumable.py`; the shared noise API is `from noise_conditions import apply_noise` when `scripts/` is on the Python path. Old `*_v2` commands and imports remain compatible. The sole noise configuration is still `configs/noise_conditions_v2.json`, identifying the formal Noise v2 protocol. See [compatibility and path guidance](docs/E2_NAMING.md).
 

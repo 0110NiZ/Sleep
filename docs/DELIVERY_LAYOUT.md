@@ -1,7 +1,7 @@
 # Round-one delivery layout
 
 Base commit: `091185df1ff993e7b65109e8c1db63a31f009d06`.
-Branch: `maintenance/delivery-layout-round1`. Main is not modified or merged by this work.
+Historical scope: this records the first-round changes developed on `maintenance/delivery-layout-round1`, subsequently merged into main at `61f4d48`. Later naming changes are documented in [E2_NAMING.md](E2_NAMING.md).
 
 ## Moved paths
 
@@ -24,7 +24,7 @@ E3 retains its entire candidate Validation/Test outputs, formal selected results
 
 Current instructions/default paths are updated, but archived results and audits are byte-identical. Consequently old paths remain inside archived reports/manifests. For example, `result/e4_wavelet/E4_RESULT_REPORT.txt` mentions `../reproduction/`; its current location is `reports/reproduction/` from the repository root. The E5 archived handover mentions `E5_RUN.md`; its current location is `docs/E5_RUN.md`.
 
-`c2547fb:result/e2_v2/predictions_with_ids.csv` is a path inside a specific historical commit. It is unchanged and must not be remapped. Noise v2 module/function/config names, sampling rules and all experiment configurations are unchanged.
+`c2547fb:result/e2_v2/predictions_with_ids.csv` is a path inside a specific historical commit. It is unchanged and must not be remapped. In round one, Noise v2 module/function/config names, sampling rules and all experiment configurations were unchanged. Round two later added canonical entry names and compatibility wrappers; configuration and sampling rules remain unchanged.
 
 The E3 postprocessing default points to the moved archive. Running a finalizer can write results: it was not executed during this maintenance. Future users must not use maintenance code to regenerate archived records in place. The unified summary reads archives and writes only to a fresh directory.
 

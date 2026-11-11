@@ -187,7 +187,7 @@ The same distinction applies to all noisy conditions.
 
 `result/e3_bandpass/`
 
-The directory name identifies the original E3 experiment run.
+This is the current archive location; its former name was `result/20261104-050058-E3/`. Original metadata and payloads remain unchanged.
 
 ### 6.1 Validation
 
@@ -280,7 +280,7 @@ This enables:
 - Pooled five-fold evaluation.
 - Confusion-matrix calculation.
 
-The complete original A–D prediction NPZ files are retained for additional analysis.
+The complete original A–D prediction NPZ files are retained in the separately shared original output, not in Git. The selected prediction CSV above is included in the archive.
 
 ## 8. Denoising Quality and Computational Cost
 
@@ -325,9 +325,11 @@ Historical source code and experiment metadata are retained for reproducibility.
 
 `scripts/finalize_e3_results.py`
 
-**Command:**
+**Optional finalization on a working copy only:**
 
-`python scripts/finalize_e3_results.py`
+`python scripts/finalize_e3_results.py --e3-dir /path/to/e3_working_copy --e2-dir /path/to/full_e2_output`
+
+Replace the example paths and supply the required saved predictions. This writes into the E3 working copy; its default points to the committed archive. Do not rerun it on the original archive. For ordinary comparisons, use the root README summary command, which reads the already finalized CSVs.
 
 This script:
 

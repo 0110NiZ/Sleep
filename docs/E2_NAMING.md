@@ -27,3 +27,5 @@ This maintenance checks old/new imports, CLI help, ten-condition noise equality 
 Demo source is not delivered. Its compatibility and prediction agreement remain pending; the old imports are retained to ease later integration.
 
 Checks passed; see [verification record](../reports/e2_naming_round2/README.md). Runtime checks used an Ubuntu LF checkout, matching the original experiment environment. Windows CRLF conversion can trigger the existing byte-hash protections; do not bypass them.
+
+For actual E2 inference with the resumable entry, pass `--data-dir` and `--baseline-dir` explicitly: their defaults remain historical machine-specific paths. `--check-only --output-dir /path/to/full_e2_output` checks the full shared output, including prediction NPZs; the committed archive alone is insufficient for that check.

@@ -8,19 +8,19 @@ The candidate definitions are in configs/e4_wavelet.json. They must not be
 changed after reviewing test results in this experiment.
 
 Environment
-Use the dedicated Python environment prepared for this chat. Core versions:
+The archived E4 run used a dedicated environment with these core versions:
 Python 3.12 (Windows), NumPy 1.26.4, SciPy 1.14.1, MNE 1.9.0,
 PyTorch 2.6.0 CPU, scikit-learn 1.6.1, PyWavelets 1.8.0.
 The original team used Python 3.10/Linux; compare numerical results explicitly.
-The installed environment is recorded in result/local/reproduction/environment.json.
+The original local environment record is result/local/reproduction/environment.json in the shared working output, not a committed file. Do not confuse it with the repository reproduction checks now under reports/reproduction/.
 
 Data and weights
 Default data: data/processed/sleep-edf-20 (39 NPZ recordings).
-Default weights: Sleep_Baseline_5fold/fold0 through fold4.
+Default weights root: Sleep_Baseline_5fold/. Each fold may use fold0 through fold4 or fold0_seed123 through fold4_seed123; exactly one layout per fold must contain best_validation_macro_f1.pth.
 SLEEP_DATA_DIR, SLEEP_BASELINE_DIR and SLEEP_RESULT_DIR can override local paths.
 Raw EEG, processed EEG and weights are not committed to Git.
 
-Commands from repository root, using the prepared environment's Python:
+Optional reproduction commands from the repository root, using your compatible environment and a fresh SLEEP_RESULT_DIR (the default is result/local):
 python scripts/run_e4_wavelet.py --stage validation
 python scripts/run_e4_wavelet.py --stage test
 python scripts/run_e4_wavelet.py --stage summary

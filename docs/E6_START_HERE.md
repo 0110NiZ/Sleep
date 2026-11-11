@@ -1,12 +1,12 @@
 > 已完成实验。下文命令和代码/数据路径均以仓库根目录为基准，不以 docs/ 为基准。历史运行请使用记录的原提交，不用维护代码继续写入原输出目录。目录迁移见 [DELIVERY_LAYOUT.md](DELIVERY_LAYOUT.md)。
 
-> 2026-11-10 整合更新：下文保留维护时的记录。E6 的500份验证明细已上传并核验；完整共享包的50份预测、5份最佳权重及597项文件哈希均已核验通过，536份对应GitHub文件逐字节一致。关键交接文件已补齐，无需重新索取或重跑。核验记录见 reports/integration_20261110/。本分支已整合E2–E6及维护修改；原始结果与实验参数保持不变。
+> 2026-11-10 整合更新：下文保留维护时的记录。E6 的500份验证明细已上传并核验；完整共享包的50份预测、5份最佳权重及597项文件哈希均已核验通过，536份对应GitHub文件逐字节一致。关键交接文件已补齐，无需重新索取或重跑。核验记录见 reports/integration_20261110/。main 已整合E1–E6及两轮维护修改；原始结果与实验参数保持不变。
 
 # E6：从准备文件到正式结果
 
 ## 当前状态
 
-本包基于 E5-dae 分支提交 `3bf547d7fd4862de32d2c318ab9a8468ce6a1ff8`。
+E6 最初的开发包基于 E5-dae 分支提交 `3bf547d7fd4862de32d2c318ab9a8468ce6a1ff8`。
 新增 E6 训练、评估、结果比较脚本。原 AttnSleep、Noise v2、五折划分均未修改。
 正式 E6 指标已归档于 result/e6_noise_augmentation；原始 EEG 和权重仍通过组内存储共享。500份逐轮验证明细已归档，50份预测及5份权重共享包已核验；见 [HANDOVER_MAINTENANCE.md](HANDOVER_MAINTENANCE.md)。以下训练说明保留供复现参考，不代表需要重新训练。
 
@@ -14,29 +14,29 @@
 
 E6 直接训练能识别带噪信号的 AttnSleep。每折随机初始化，训练输入随机保留 Clean 或加一种噪声，目标仍是 W/N1/N2/N3/REM 五类标签。它不需要 DAE，也不需要 E5 输出波形。
 
-本次预先固定一个实验配方：50% Clean；另外 50% 在九种噪声条件中等概率抽取。每轮重新抽类型和噪声实例，不叠加不同噪声。该比例是起始设计，不能写成“验证选出的最佳比例”。如小组希望比较其他比例，应在任何 E6 正式测试前预定候选集合，另开输出目录完整训练，并仅凭验证集选择；这会增加训练预算。
+本次预先固定一个实验配方：50% Clean；另外 50% 在九种噪声条件中等概率抽取。每轮重新抽类型和噪声实例，不叠加不同噪声。该比例是起始设计，不能写成“验证选出的最佳比例”。该配方的正式实验已完成；其他比例不属于当前归档实验，不应依据现有测试结果修改本实验。
 
 每折固定 100 epochs、batch size 128、Adam(lr=0.001, weight_decay=0.001, amsgrad=True)，第10轮结束后 lr=0.0001。无额外归一化，保留微伏。训练类权重只读取本折训练标签，使用 E1 的原公式。每折训练 seed 与 E1 一样为123；增强抽样和训练噪声使用独立 namespace。
 
 每轮用完整验证集的 Clean + 9噪声分别算 Macro-F1，十项等权平均选 best；同分保留更早 epoch。验证与测试严格复用仓库实际 Noise v2 的 seed=123、`filename:epoch_index` 样本 ID 和原文件顺序。两者样本 ID 不同，训练噪声种子另设。正式测试前冻结全部五折。
 
-## 2. 先向组长拿数据
+## 2. 复现所需共享数据
 
 必需：**39个与 E5 使用相同的预处理 Clean NPZ**。总数应为42,308个30秒片段，100 Hz，Fpz-Cz，`x=(N,3000,1)`、`y=(N,)`，五类标签0..4。
 
-可以复制这段给组长：
+如新成员缺少共享数据，可说明：
 
-> 我开始做E6，需要你E5实际使用的39个预处理Clean NPZ（总共42,308片段），请保持原文件名和内容，并提供你训练环境的Python/PyTorch版本。E6从随机初始化训练，不需要DAE权重或去噪波形。为核对共同评估环境，后续可能需要五折E1权重和E2的逐样本预测；它们不用于E6训练。
+> 我需要复现E6，请提供E5实际使用的39个预处理Clean NPZ（总共42,308片段），请保持原文件名和内容，并提供你训练环境的Python/PyTorch版本。E6从随机初始化训练，不需要DAE权重或去噪波形。为核对共同评估环境，后续可能需要五折E1权重和E2的逐样本预测；它们不用于E6训练。
 
 不要直接把自己重新处理的另一套NPZ替换进来。默认会检查 E5 manifest 的文件哈希。NPZ重新压缩可能改变文件哈希，即使数组相同；此时先验证原始数组逐元素相同，再考虑 `--allow-repacked-data`。该选项仅放宽容器哈希，形状和标签计数相同本身不能证明波形相同。
 
 ## 3. 下载与放置
 
-压缩包解压后包含 `Sleep/` 文件夹。把39个NPZ放入：
+在你克隆或解压的仓库根目录下，把39个NPZ放入：
 
-`Sleep/data/processed/sleep-edf-20/`
+`data/processed/sleep-edf-20/`
 
-或者保留在其他磁盘，运行时加 `--data-dir`。
+或者保留在其他磁盘，运行时加 `--data-dir`，或设置 `SLEEP_DATA_DIR`。以下省略输出路径的示例使用默认 `result/local/`；E6 runner 的输出目录不读取 `SLEEP_RESULT_DIR`；维护代码的新运行请显式指定新的 `--out`，训练和测试使用同一个正式输出目录，smoke 使用另一个目录，不要写回旧实验目录。
 
 Windows PowerShell示例，假设你将Sleep文件夹放在F盘：
 
@@ -45,6 +45,8 @@ cd F:\Sleep
 python --version
 python -c "import torch; print(torch.__version__); print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU')"
 ```
+
+历史运行应使用其原提交和环境。当前 main 的协议哈希核验按原 Ubuntu LF 文件字节进行；Windows Git 的 CRLF 转换可能触发校验失败，应使用保留 LF 的检出，不要修改 manifest 或跳过校验。
 
 应在组内已有的、可运行 AttnSleep 的环境执行；不要覆盖现有环境。如果没有环境，先安装Python 3.10+并创建专用虚拟环境，优先复用小组的Python/PyTorch版本及依赖。仓库 requirements 文件记录了原环境；requirements-lock.txt 是Ubuntu CUDA环境，不能直接当作Windows通用安装清单。
 
@@ -137,7 +139,7 @@ test会检查五折都完成100轮、best哈希匹配、数据未改变，然后
 python scripts/summarize_e6.py
 ```
 
-生成 `E6_RESULT_REPORT.md` 和 `paired_differences.csv`，包括每条件E6−E2/E4/E5的差值和逐折对比。
+默认读取并写入 `result/local/e6_noise_augmentation/`，生成 `E6_RESULT_REPORT.md` 和 `paired_differences.csv`。该历史脚本不读取 `SLEEP_RESULT_DIR`；若使用其他输出根目录，须传 `--out /path/to/e6_output`，且不要指向正式归档。
 
 原 summarize_e6.py 是历史 E2/E4/E5/E6 比较入口。当前已整合 E3 正式结果，统一比较使用 scripts/summarize_all_experiments.py，并传入 result/e3_bandpass/comparison/selected_per_fold.csv。不能仅用55.98%构造逐折分析。
 
@@ -149,6 +151,6 @@ E6不重建波形，所以RMSE/SNR improvement不适用。耗时以CPU模型前�
 
 提交源代码、配置、运行说明、环境记录、日志、50行逐折指标、十条件汇总、阶段指标、混淆矩阵、五折权重和50份预测。
 
-历史 E6 开发使用 `E6-noise-augmentation` 分支，已随 E1–E6 整合到 main。当前目录维护在独立分支进行，尚未合并 main。
+历史 E6 开发使用 `E6-noise-augmentation` 分支，已随 E1–E6 整合到 main。两轮目录与入口维护也已合并 main；旧入口仍兼容，见 [E2_NAMING.md](E2_NAMING.md)。
 
 `result/local/`、NPZ和PTH被原仓库.gitignore忽略。权重和预测通过组内共享存储交接；把体积小的正式结果复制到 `result/e6_noise_augmentation/` 后再提交，切勿把smoke或合成数据结果当成正式结果。

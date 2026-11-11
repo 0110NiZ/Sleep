@@ -61,7 +61,7 @@ The E1 checkpoints are reused for inference. E2 does not retrain AttnSleep.
 
 `apply_noise()` (`apply_noise_v2()` remains compatible)
 
-The previous `noise_generator.py` implementation belongs to Noise v1 and is no longer used for official E2–E6 comparisons.
+The earlier Noise v1 implementation is historical and is not present in current main. It is not used for official E2–E6 comparisons.
 
 ### 3.1 Evaluation Conditions
 
@@ -153,7 +153,7 @@ The noisy Test EEG can be regenerated using the official noise generator, config
 | `e2_per_fold.csv` | Per-fold metrics for 50 combinations |
 | `e2_fivefold_summary.csv` | Five-fold Mean ± SD |
 | `e2_details.json` | Stage-wise metrics and confusion matrices |
-| `predictions/` | 50 fold-condition prediction NPZ files |
+| `predictions/` | 50 fold-condition prediction NPZ files in the separately shared full output; not included in Git |
 | `predictions_with_ids.csv` | Predictions with subject and sample identities |
 | `pooled_summary.csv` | Pooled five-fold Accuracy, Macro-F1 and Kappa |
 | `pooled_stage_metrics.csv` | Pooled stage-wise metrics |
@@ -207,15 +207,11 @@ These identities allow subsequent analysis by subject, recording, epoch, noise c
 
 ## 7. Scripts and Commands
 
-### 7.1 Historical E2 Evaluation
+### 7.1 Current Shared E2 Evaluation
 
 `scripts/run_e2_evaluation.py`
 
-This is the original evaluation implementation used for the completed E2 results.
-
-It is preserved for experimental provenance, including the code hash recorded by E3.
-
-It may contain machine-specific absolute paths and should not be treated as the portable default execution entry point.
+This is the maintained shared evaluator, using `project_paths.py` for local paths. The old `run_e2_evaluation_v2.py` entry forwards to it. Historical E3 source hashes refer to the original experiment revision, not to the maintained file or compatibility wrapper. Retrieve that recorded revision for historical reproduction.
 
 ### 7.2 Resumable E2 Evaluation
 
@@ -227,23 +223,27 @@ New local runs default to `result/local/e2/` (or `SLEEP_RESULT_DIR/e2`); an exis
 
 **Verify completed E2 results:**
 
-`python scripts/run_e2_evaluation_resumable.py --check-only`
+`python scripts/run_e2_evaluation_resumable.py --check-only --output-dir /path/to/full_e2_output`
 
-Verified result:
+Replace the example path with the full shared E2 output containing CSV/JSON files and all 50 prediction NPZs. The Git archive alone does not contain those NPZs; a missing-file report after cloning is not an experimental failure.
+
+Previously verified result on the complete shared output:
 
 `E2: 50 complete, 0 missing, 0 partial/inconsistent conditions`
 
 `CHECK ONLY PASS`
 
-This operation does not perform model inference.
+This operation does not perform model inference. For an intentional new evaluation, also pass `--data-dir` and `--baseline-dir`: this resumable script still has historical machine-specific defaults for these two arguments; it does not inherit their `SLEEP_*` environment overrides.
 
 ### 7.3 E2 Postprocessing
 
 `scripts/finalize_e2_results.py`
 
-**Command:**
+**Optional postprocessing on a working copy only:**
 
-`python scripts/finalize_e2_results.py`
+`python scripts/finalize_e2_results.py --e2-dir /path/to/e2_working_copy --data-dir /path/to/clean_npz`
+
+Replace both paths. This writes into the supplied E2 directory; the default points to the committed archive. Completed results require no finalization rerun. Use the root README summary command for read-only analysis of the published scores.
 
 This script generates sample-identified predictions, pooled metrics, pooled confusion matrices and stage-wise summaries using saved predictions and preprocessed EEG labels.
 
@@ -286,7 +286,7 @@ The sample-identified prediction CSV contains labels and identities, not complet
 - E2 uses frozen E1 AttnSleep checkpoints.
 - All five Test folds and ten conditions have been completed.
 - E2 sample identities and pooled metrics have been generated and verified.
-- The original E2 evaluation code is retained for historical reproducibility.
+- The original E2 evaluation code is retained in Git history; current old-name entries are compatibility wrappers.
 - No model retraining is required for the completed E2 postprocessing.
 
 **E2 experiment and statistical analysis: Completed.**
