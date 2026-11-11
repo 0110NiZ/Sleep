@@ -1,6 +1,6 @@
 # Sleep: AttnSleep EEG robustness project
 
-COMP 4330SEF group project. **E1–E6 are complete.** This repository contains their code and archived results. Round-one delivery organization is merged at `61f4d48`. This second-round branch unifies E2 entry names with legacy compatibility; it does not change experimental settings, noise logic, models or recorded results and is not merged into main.
+COMP 4330SEF group project. **E1–E6 are complete.** This repository contains their code and archived results. Round-one delivery organization is merged at `61f4d48`. Round-two E2 naming maintenance (`4a1ec93`) is also integrated into main, retaining legacy compatibility without changing experimental settings, noise logic, models or recorded results.
 
 ## Find what you need
 
@@ -59,4 +59,4 @@ Changes should use a separate branch and peer review. Do not change committed sp
 
 ## E2 naming maintenance
 
-Round one is merged at `61f4d48`. Round two is on a separate unmerged branch. Use `scripts/run_e2_evaluation_resumable.py` and `from noise_conditions import apply_noise`. Old `*_v2` imports/commands remain compatibility entries. See [compatibility and archive rules](docs/E2_NAMING.md). The official configuration remains `configs/noise_conditions_v2.json`; the version identifies the experimental protocol.
+Round one is merged at `61f4d48`. Round two (`4a1ec93`) is integrated into main. Use `scripts/run_e2_evaluation_resumable.py` and `from noise_conditions import apply_noise`. Old `*_v2` imports/commands remain compatibility entries. See [compatibility and archive rules](docs/E2_NAMING.md). The official configuration remains `configs/noise_conditions_v2.json`; the version identifies the experimental protocol.

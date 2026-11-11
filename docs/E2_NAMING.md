@@ -1,6 +1,6 @@
 # E2 naming maintenance (round two)
 
-Round one was merged into main at `61f4d48`; this round remains on `maintenance/e2-naming-round2`.
+Round one was merged into main at `61f4d48`. Round two (`4a1ec93`), developed on `maintenance/e2-naming-round2`, is now integrated into main.
 
 | Current entry | Compatible old entry |
 |---|---|
