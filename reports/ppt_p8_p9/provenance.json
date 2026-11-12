@@ -1,0 +1,19 @@
+{
+  "source_commit": "49b6515618673ffb3c917e38861e952fcab06e2f",
+  "sources_sha256": {
+    "result/e2_v2/e2_per_fold.csv": "dcebb73fc949442018386483985016ed4fb649e9023596817bc0cd20ecb9cbaa",
+    "result/e3_bandpass/comparison/selected_per_fold.csv": "c2b7f13adfabe494d80787af26a591c0bebe2f300c6c8eb28404ab821ab29a88",
+    "result/e4_wavelet/test_per_fold.csv": "5efceff8f5b944470d5119f25138a50dac31b864d2fa5958abeba74682cd354f",
+    "result/e5_dae/test_per_fold.csv": "8aab4e96772ac233d46cb37e329587def70d79e0dcaee2ffcfb44a3422680f78",
+    "result/e6_noise_augmentation/test_per_fold.csv": "d1b77d592e5802501ebdbde8ea04bfa5eb3907f265d9b108dfbd6f7d0cc299de",
+    "result/e4_wavelet/e2_reference_per_fold.csv": "dcebb73fc949442018386483985016ed4fb649e9023596817bc0cd20ecb9cbaa",
+    "configs/noise_conditions_v2.json": "f8e1b7dbe7cacdae65f05f84633885e765f4b21eab1f7c43151ef2910c9a3a2e"
+  },
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "matplotlib": "3.10.1",
+  "numpy": "1.26.4",
+  "e6_vs_e2_noisy_pp": 15.224716293746397,
+  "e6_vs_e2_clean_pp": -0.8431417448038587,
+  "p9_rmse_difference_uv": 0.8038735501412138,
+  "p9_macro_f1_difference_pp": 2.686151159472516
+}
