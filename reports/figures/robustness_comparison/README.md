@@ -2,7 +2,7 @@
 
 Generated from formal archived test CSVs, not rounded PPT labels. No training or inference.
 
-- Style: white background, blue #74A9C5 and green #C2E5CF bars, two-decimal value labels. Clean/noisy comparison uses horizontal grouped bars; reconstruction/classification comparison uses two basic bar charts.
+- Style: white background and two-decimal value labels. Clean/noisy colors: blue #74A9C5 and green #C2E5CF. E4/E5 colors: yellow #EDDDAB and green #C2E5CF. Clean/noisy comparison uses horizontal grouped bars; reconstruction/classification comparison uses two basic bar charts.
 - Clean/noisy comparison: clean Macro-F1 and equally weighted nine-noise Macro-F1. Average nine conditions within each fold, then average five folds. CSV SD is sample SD over five fold values. E3 uses validation-selected per-fold filters.
 - Reconstruction/classification comparison: Gaussian_Medium only. Average per-fold reported RMSE and Macro-F1 for E4 and E5. Both methods use corresponding frozen E1 classifiers. The reported RMSE is averaged from archived fold metrics, not recomputed from pooled waveforms.
 - `clean_noisy_per_fold.csv` supports later paired descriptive analysis. No statistical significance is implied and folds are not independent repetitions.
@@ -21,7 +21,7 @@ Generated from formal archived test CSVs, not rounded PPT labels. No training or
 | `reconstruction_classification_gaussian_medium.csv` | Values plotted in the E4/E5 comparison |
 | `provenance.json` | Formal input hashes, source commit and full-precision differences |
 
-Each chart also has SVG and PDF vector versions. Labels show two decimals; source CSVs retain full precision. In the first figure blue means Clean and green means noisy mean; in the second blue means E4 and green means E5. RMSE is lower-is-better, Macro-F1 higher-is-better. Both charts show descriptive means without uncertainty bars; sample SDs for the overall comparison are retained in the summary CSV. Gaussian Medium is one illustrative condition, not a conclusion about every condition.
+Each chart also has SVG and PDF vector versions. Labels show two decimals; source CSVs retain full precision. In the first figure blue means Clean and green means noisy mean; in the second yellow means E4 and green means E5. RMSE is lower-is-better, Macro-F1 higher-is-better. Both charts show descriptive means without uncertainty bars; sample SDs for the overall comparison are retained in the summary CSV. Gaussian Medium is one illustrative condition, not a conclusion about every condition.
 
 From repository root in the Sleep environment:
 
