@@ -1,0 +1,131 @@
+{
+  "e6_source": "Actual y_true/y_pred from your 50 formal prediction NPZs; no PPT values.",
+  "e6_directory": "F:\\sleep\\Sleep\\result\\local\\e6_noise_augmentation",
+  "e6_prediction_sha256": {
+    "fold0/predictions_Clean.npz": "b0cda7ec3bef781dcffdd21858ff6fe56e51f3abb03880cddb165f7de7237368",
+    "fold0/predictions_Gaussian_Low.npz": "a158040c19706bacdc699002c9b2f5c9e46ef063c724bfde836179822abefcc8",
+    "fold0/predictions_Gaussian_Medium.npz": "fa580583713cf595a866012f3da0e97619e05c7167b8553725817950d38146a3",
+    "fold0/predictions_Gaussian_High.npz": "7a29f23192df630e86ade076741764a44fbc11e2dd4b638ab1edf46d5285c69d",
+    "fold0/predictions_Drift_Low.npz": "3997286a4e504ab05138b6f54471ec8e01ed24f3e02b5daa7263291d6b5f2df3",
+    "fold0/predictions_Drift_Medium.npz": "64661337a00f64057ac38125fd31906412c5ea1ac86bc39a5ecb62b0e803a3af",
+    "fold0/predictions_Drift_High.npz": "ae2225aac95d6ce1c56ecc4fef39c530662322d1b4622269873002599c4cce87",
+    "fold0/predictions_Burst_Low.npz": "c80b6e6b311b2761690016119c900e0ddfac1c794b314fe838f721c89cd2caf7",
+    "fold0/predictions_Burst_Medium.npz": "012cb43d32fc64d8420940380d2efb0168f6431b7a821cd32a622abfc263a659",
+    "fold0/predictions_Burst_High.npz": "74ba3e930c9a23b280a500e2e75bbbdebcb70cdbc0b91e94a89955533ce3db95",
+    "fold1/predictions_Clean.npz": "5ec499ba760de87ca74544fd41e3c6db393ee231968db0de66c40245838187ca",
+    "fold1/predictions_Gaussian_Low.npz": "7a2277990bff7ce842f56e28157cbc139f0dd77c22e320ee661dc20c2168166e",
+    "fold1/predictions_Gaussian_Medium.npz": "29b6968d72bf65404c32f2552849bdc6ab05aed59db71edfa2b9ed3a60481440",
+    "fold1/predictions_Gaussian_High.npz": "9868cafe762310c2f868b55d8df2f982627a7d13a01f7abf5f044a19e96fcd0b",
+    "fold1/predictions_Drift_Low.npz": "eab8405509aa46421e8655bdcf0c22440929e7a5e3ef0157a68fb2eadd45bbb8",
+    "fold1/predictions_Drift_Medium.npz": "4558fbaf0adeecb032028f44f1b36f0b041b1be4183644b5dde8801cb1a05b23",
+    "fold1/predictions_Drift_High.npz": "37d28690e22d99ab05d49d4263f1cad0b6e669c79f7acaa5911f0ac043380007",
+    "fold1/predictions_Burst_Low.npz": "e0f87ea5576a7fe78bceb82a2183fa0f9ec213eedd8273aee5a58cae155d37e7",
+    "fold1/predictions_Burst_Medium.npz": "7386b12b8ff6dbb843f88b255a243092120500da501b1de0db7910b99cb452a0",
+    "fold1/predictions_Burst_High.npz": "e54c6a4aa37b85380bb6c1d18d5a906b0c1db67b387f2c27e04633e156269ff3",
+    "fold2/predictions_Clean.npz": "c5e5e28f7d5428d8cf30a158cb37eb2bbccde06123d8108a824ccd53f9d91e6e",
+    "fold2/predictions_Gaussian_Low.npz": "18ac8e1958f51e08ad30da5ae9a547a978400db6fd150b2c3bd2bdf4ea18beae",
+    "fold2/predictions_Gaussian_Medium.npz": "b11ea3731f624fe6bbc6a6f5bba545880bf7a5b9a83b9495540de0c3604c1bbb",
+    "fold2/predictions_Gaussian_High.npz": "c3fac12233393c41789c89a8c383f68dd5b182e84eb365d1aae8198e9da486e7",
+    "fold2/predictions_Drift_Low.npz": "83e86938dad65a0c5e18b9c1309d04d7f64a348f07f2e41be22c3c8bfaaa0f0b",
+    "fold2/predictions_Drift_Medium.npz": "2432a9ba3f5788e03e08685094a56be8991c3d28c5e1f3b2cb7cea69dbecb90b",
+    "fold2/predictions_Drift_High.npz": "9e7fc049c0a06f48590679d5f599bd645b6416b67e400b97b04f438a0c3704f2",
+    "fold2/predictions_Burst_Low.npz": "afec8c5ad607e3be758f9f86b9cbd01b4fd9e85322122154f4de6c617987418b",
+    "fold2/predictions_Burst_Medium.npz": "cb6e9175772382808c09f00f9c243f4c520758f9cf37ac4178903faec9cae525",
+    "fold2/predictions_Burst_High.npz": "4b81f55f41e5537172347f1a8f1191f8c778c0472629497a0e8c9ed809aff2fd",
+    "fold3/predictions_Clean.npz": "3968d827fa21c2af369c5b142553adc1430685772b7cfbff14889c1a8e77983a",
+    "fold3/predictions_Gaussian_Low.npz": "4d9ce6614de6cc8ea355e5b5d62b42c3e37280a3d4774c214b60a11ece996cfc",
+    "fold3/predictions_Gaussian_Medium.npz": "08c5da669daa71f495515bb3cbcd02711540cf7bc4aed11f92d0519af0697df8",
+    "fold3/predictions_Gaussian_High.npz": "b9cc3b94f0ed7fd4d8c94ca1e1efa81ec13c61f04445cf9b84c02635ef980d81",
+    "fold3/predictions_Drift_Low.npz": "7eace7fff3a6e93f01cfd666417781eca68924856fda2a69a311da49728a6c16",
+    "fold3/predictions_Drift_Medium.npz": "7ce932c91ed08ec27ac50bade466d1685b299b1d7efbe66433a6a4c1d0ef9a23",
+    "fold3/predictions_Drift_High.npz": "4533784eb68d094cfad0c5aa1b77c6a41dbc20f9b788725f1305068fefc99ad5",
+    "fold3/predictions_Burst_Low.npz": "47ef00242b9facc3543a3784a7da7a00890963352cd71a343b7a5801df6b6c59",
+    "fold3/predictions_Burst_Medium.npz": "23c0611bb91762c14bfd1f01783772cf270389e81a1e8618bcc88f0025244354",
+    "fold3/predictions_Burst_High.npz": "49a9c459510ee9b4060704a58176a19b2a56bb6faba384ac0a5978e8508ee9a8",
+    "fold4/predictions_Clean.npz": "3f28eefbd800beeb45746896d93df1916b6d8e0d862724ef44e06d15dea3db3b",
+    "fold4/predictions_Gaussian_Low.npz": "92f4de8746d209e8f79cfaa52d2fc4117514c06bc66368379f5a1a68445c30a0",
+    "fold4/predictions_Gaussian_Medium.npz": "8b5114381c6a49a0ede6eccb9a3eea55fd0012bec3c149e1cc9556d174c7e189",
+    "fold4/predictions_Gaussian_High.npz": "9ae8fb85a018ed73946b3136ccf9772709df9369df84e67d908c43d9ec90a52e",
+    "fold4/predictions_Drift_Low.npz": "629f1df09351b32425130fd1a7527731688ceee66febfd3923a2ac08dd3275f2",
+    "fold4/predictions_Drift_Medium.npz": "329bc5df92909ca0e5f19013662ede3cd5efd61852cc4122dd0c9f84632f4bf0",
+    "fold4/predictions_Drift_High.npz": "e70d53ab0a91b4754417c4ce7f9559b69eb7cdc415053e558e600def790769f8",
+    "fold4/predictions_Burst_Low.npz": "05c5fbcf894ec0933aa75db8bc89055af8632689b47b14722b8a1ec4d23d7565",
+    "fold4/predictions_Burst_Medium.npz": "138349d57b2c66a1efc9c358579aaba567c31a16f0227968ae4f1ad17d67da76",
+    "fold4/predictions_Burst_High.npz": "aee50aba78789d31a5fc458704550f1943b8a413f8fa7e06b368f18bbd9ee0db"
+  },
+  "reference_sources": {
+    "E2": {
+      "path": "F:\\sleep\\Sleep\\P10\\inputs\\E2\\e2_details.json",
+      "sha256": "4866b263a3f2269d418d335e0ec2e8b4a2e1a86059e78bf4e76f2dfcfb5ec35a",
+      "origin": "bundled group formal test records"
+    },
+    "E5": {
+      "files": [
+        {
+          "path": "F:\\sleep\\Sleep\\result\\e5_dae\\fold0\\test_metrics.json",
+          "sha256": "66f42d7c3f10f689a0c48302fcf947516489565a79f16c2645d0f8acbe4b75a9"
+        },
+        {
+          "path": "F:\\sleep\\Sleep\\result\\e5_dae\\fold1\\test_metrics.json",
+          "sha256": "3ddf5b697fb123297924bb514b5800e2c0bc375487ab926034272d4d56a6ccbd"
+        },
+        {
+          "path": "F:\\sleep\\Sleep\\result\\e5_dae\\fold2\\test_metrics.json",
+          "sha256": "b1e86a4716fc05e3ff0edfdfe884c6104def1293712cca9e56117e0ad078dc51"
+        },
+        {
+          "path": "F:\\sleep\\Sleep\\result\\e5_dae\\fold3\\test_metrics.json",
+          "sha256": "96e7d584bb87ee555eec1f268f77616b7fb47aa454a81a1cd183023feb78d41b"
+        },
+        {
+          "path": "F:\\sleep\\Sleep\\result\\e5_dae\\fold4\\test_metrics.json",
+          "sha256": "1ee6046c0bd8420b302426fe5071e800a8eb7f2476d7a38ce4fc717dbff71aae"
+        }
+      ],
+      "origin": "local project"
+    }
+  },
+  "checks": {
+    "e6_predictions_match_saved_metrics": true,
+    "same_ids_and_labels_across_conditions": true,
+    "same_stage_support_across_methods": true
+  },
+  "aggregation": "Per-stage F1 from confusion matrices. Equal average of nine noisy conditions in each fold, then equal average of five folds. Clean excluded from the graph.",
+  "e6_prediction_files": 50,
+  "e6_prediction_records": 423080,
+  "mean_stage_f1_pct": {
+    "E2": [
+      73.19119481547003,
+      28.638587546538155,
+      64.07700848298497,
+      64.79045291275318,
+      60.01006889492876
+    ],
+    "E5": [
+      80.4543434544872,
+      36.242297666741536,
+      81.3246365020137,
+      79.35828116261315,
+      72.05835201629372
+    ],
+    "E6": [
+      83.15324179168306,
+      38.43383845428683,
+      85.31811912365406,
+      86.36163132123673,
+      73.56406343054637
+    ]
+  },
+  "noisy_macro_f1_pct": {
+    "E2": 58.14146253053502,
+    "E5": 69.88758216042986,
+    "E6": 73.3661788242814
+  },
+  "colors": {
+    "E2": "#C7B7E2",
+    "E5": "#B7DDCA",
+    "E6": "#F1B8C5"
+  },
+  "background": "#FFFFFF",
+  "font": "Calibri"
+}

@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="777.6pt" height="345.6pt" viewBox="0 0 777.6 345.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-12T15:03:21.932639</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 345.6 
+L 777.6 345.6 
+L 777.6 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 52.8768 274.752 
+L 768.2688 274.752 
+L 768.2688 13.824 
+L 52.8768 13.824 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 12px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="124.416" y="293.913875" transform="rotate(-0 124.416 293.913875)">W</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 12px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="267.4944" y="293.913875" transform="rotate(-0 267.4944 293.913875)">N1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 12px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="410.5728" y="293.913875" transform="rotate(-0 410.5728 293.913875)">N2</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font-size: 12px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="553.6512" y="293.913875" transform="rotate(-0 553.6512 293.913875)">N3</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5"/>
+     <g id="text_5">
+      <text style="font-size: 12px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="696.7296" y="293.913875" transform="rotate(-0 696.7296 293.913875)">REM</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_6">
+      <path d="M 52.8768 274.752 
+L 768.2688 274.752 
+" clip-path="url(#pe4c8b60b52)" style="fill: none; stroke: #e4e7eb; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_7"/>
+     <g id="text_6">
+      <text style="font-size: 10px; font-family: 'Calibri'; text-anchor: end; fill: #6d7780" x="42.8768" y="278.152781" transform="rotate(-0 42.8768 278.152781)">0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_8">
+      <path d="M 52.8768 222.5664 
+L 768.2688 222.5664 
+" clip-path="url(#pe4c8b60b52)" style="fill: none; stroke: #e4e7eb; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_9"/>
+     <g id="text_7">
+      <text style="font-size: 10px; font-family: 'Calibri'; text-anchor: end; fill: #6d7780" x="42.8768" y="225.967181" transform="rotate(-0 42.8768 225.967181)">20</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_10">
+      <path d="M 52.8768 170.3808 
+L 768.2688 170.3808 
+" clip-path="url(#pe4c8b60b52)" style="fill: none; stroke: #e4e7eb; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_11"/>
+     <g id="text_8">
+      <text style="font-size: 10px; font-family: 'Calibri'; text-anchor: end; fill: #6d7780" x="42.8768" y="173.781581" transform="rotate(-0 42.8768 173.781581)">40</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_12">
+      <path d="M 52.8768 118.1952 
+L 768.2688 118.1952 
+" clip-path="url(#pe4c8b60b52)" style="fill: none; stroke: #e4e7eb; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_13"/>
+     <g id="text_9">
+      <text style="font-size: 10px; font-family: 'Calibri'; text-anchor: end; fill: #6d7780" x="42.8768" y="121.595981" transform="rotate(-0 42.8768 121.595981)">60</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_14">
+      <path d="M 52.8768 66.0096 
+L 768.2688 66.0096 
+" clip-path="url(#pe4c8b60b52)" style="fill: none; stroke: #e4e7eb; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_15"/>
+     <g id="text_10">
+      <text style="font-size: 10px; font-family: 'Calibri'; text-anchor: end; fill: #6d7780" x="42.8768" y="69.410381" transform="rotate(-0 42.8768 69.410381)">80</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_16">
+      <path d="M 52.8768 13.824 
+L 768.2688 13.824 
+" clip-path="url(#pe4c8b60b52)" style="fill: none; stroke: #e4e7eb; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_17"/>
+     <g id="text_11">
+      <text style="font-size: 10px; font-family: 'Calibri'; text-anchor: end; fill: #6d7780" x="42.8768" y="17.224781" transform="rotate(-0 42.8768 17.224781)">100</text>
+     </g>
+    </g>
+    <g id="text_12">
+     <text style="font-size: 11px; font-family: 'Calibri'; text-anchor: middle; fill: #6d7780" x="16.714613" y="144.288" transform="rotate(-90 16.714613 144.288)">F1 (%)</text>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 52.8768 274.752 
+L 52.8768 13.824 
+" style="fill: none; stroke: #d5dbe0; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 52.8768 274.752 
+L 768.2688 274.752 
+" style="fill: none; stroke: #d5dbe0; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 73.980864 274.752 
+L 107.604288 274.752 
+L 107.604288 83.775679 
+L 73.980864 83.775679 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #c7b7e2"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 217.059264 274.752 
+L 250.682688 274.752 
+L 250.682688 200.025906 
+L 217.059264 200.025906 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #c7b7e2"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 360.137664 274.752 
+L 393.761088 274.752 
+L 393.761088 107.557143 
+L 360.137664 107.557143 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #c7b7e2"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 503.216064 274.752 
+L 536.839488 274.752 
+L 536.839488 105.695567 
+L 503.216064 105.695567 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #c7b7e2"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 646.294464 274.752 
+L 679.917888 274.752 
+L 679.917888 118.168927 
+L 646.294464 118.168927 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #c7b7e2"/>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="90.792576" y="78.22871" transform="rotate(-0 90.792576 78.22871)">73.19</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="233.870976" y="194.478938" transform="rotate(-0 233.870976 194.478938)">28.64</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="376.949376" y="102.010175" transform="rotate(-0 376.949376 102.010175)">64.08</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="520.027776" y="100.148598" transform="rotate(-0 520.027776 100.148598)">64.79</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="663.106176" y="112.621959" transform="rotate(-0 663.106176 112.621959)">60.01</text>
+   </g>
+   <g id="patch_10">
+    <path d="M 107.604288 274.752 
+L 141.227712 274.752 
+L 141.227712 64.824091 
+L 107.604288 64.824091 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #b7ddca"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 250.682688 274.752 
+L 284.306112 274.752 
+L 284.306112 180.185698 
+L 250.682688 180.185698 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #b7ddca"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 393.761088 274.752 
+L 427.384512 274.752 
+L 427.384512 62.553252 
+L 393.761088 62.553252 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #b7ddca"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 536.839488 274.752 
+L 570.462912 274.752 
+L 570.462912 67.684024 
+L 536.839488 67.684024 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #b7ddca"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 679.917888 274.752 
+L 713.541312 274.752 
+L 713.541312 86.731583 
+L 679.917888 86.731583 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #b7ddca"/>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="124.416" y="59.277122" transform="rotate(-0 124.416 59.277122)">80.45</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="267.4944" y="174.638729" transform="rotate(-0 267.4944 174.638729)">36.24</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="410.5728" y="57.006284" transform="rotate(-0 410.5728 57.006284)">81.32</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="553.6512" y="62.137055" transform="rotate(-0 553.6512 62.137055)">79.36</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="696.7296" y="81.184615" transform="rotate(-0 696.7296 81.184615)">72.06</text>
+   </g>
+   <g id="patch_15">
+    <path d="M 141.227712 274.752 
+L 174.851136 274.752 
+L 174.851136 57.781909 
+L 141.227712 57.781909 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #f1b8c5"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 284.306112 274.752 
+L 317.929536 274.752 
+L 317.929536 174.467354 
+L 284.306112 174.467354 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #f1b8c5"/>
+   </g>
+   <g id="patch_17">
+    <path d="M 427.384512 274.752 
+L 461.007936 274.752 
+L 461.007936 52.133138 
+L 427.384512 52.133138 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #f1b8c5"/>
+   </g>
+   <g id="patch_18">
+    <path d="M 570.462912 274.752 
+L 604.086336 274.752 
+L 604.086336 49.410323 
+L 570.462912 49.410323 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #f1b8c5"/>
+   </g>
+   <g id="patch_19">
+    <path d="M 713.541312 274.752 
+L 747.164736 274.752 
+L 747.164736 82.802761 
+L 713.541312 82.802761 
+z
+" clip-path="url(#pe4c8b60b52)" style="fill: #f1b8c5"/>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="158.039424" y="52.234941" transform="rotate(-0 158.039424 52.234941)">83.15</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="301.117824" y="168.920385" transform="rotate(-0 301.117824 168.920385)">38.43</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="444.196224" y="46.586169" transform="rotate(-0 444.196224 46.586169)">85.32</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="587.274624" y="43.863354" transform="rotate(-0 587.274624 43.863354)">86.36</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 8.7px; font-family: 'Calibri'; text-anchor: middle; fill: #384650" x="730.353024" y="77.255792" transform="rotate(-0 730.353024 77.255792)">73.56</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_20">
+     <path d="M 292.033191 317.57372 
+L 301.933191 317.57372 
+L 301.933191 309.15872 
+L 292.033191 309.15872 
+z
+" style="fill: #c7b7e2"/>
+    </g>
+    <g id="text_28">
+     <text style="font-size: 11px; font-family: 'Calibri'; text-anchor: start; fill: #384650" x="307.433191" y="317.18872" transform="rotate(-0 307.433191 317.18872)">E2 Baseline</text>
+    </g>
+    <g id="patch_21">
+     <path d="M 373.596472 317.57372 
+L 383.496472 317.57372 
+L 383.496472 309.15872 
+L 373.596472 309.15872 
+z
+" style="fill: #b7ddca"/>
+    </g>
+    <g id="text_29">
+     <text style="font-size: 11px; font-family: 'Calibri'; text-anchor: start; fill: #384650" x="388.996472" y="317.18872" transform="rotate(-0 388.996472 317.18872)">E5 DAE</text>
+    </g>
+    <g id="patch_22">
+     <path d="M 436.169284 317.57372 
+L 446.069284 317.57372 
+L 446.069284 309.15872 
+L 436.169284 309.15872 
+z
+" style="fill: #f1b8c5"/>
+    </g>
+    <g id="text_30">
+     <text style="font-size: 11px; font-family: 'Calibri'; text-anchor: start; fill: #384650" x="451.569284" y="317.18872" transform="rotate(-0 451.569284 317.18872)">E6 Augmentation</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe4c8b60b52">
+   <rect x="52.8768" y="13.824" width="715.392" height="260.928"/>
+  </clipPath>
+ </defs>
+</svg>
