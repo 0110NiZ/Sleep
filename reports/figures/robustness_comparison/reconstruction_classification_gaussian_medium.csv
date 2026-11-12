@@ -1,0 +1,3 @@
+method,condition,rmse_mean_uv,macro_f1_mean
+E4,Gaussian_Medium,6.760013076389924,68.18365840028437
+E5,Gaussian_Medium,5.956139526248711,65.49750724081186

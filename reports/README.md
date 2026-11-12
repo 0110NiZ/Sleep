@@ -1,4 +1,4 @@
-# Verification records
+# Reports and figures
 
 - [Data balance audit](data_audit/): subject/class distribution; moved from result/data_audit without content changes.
 - [Reproduction checks](reproduction/): E1/E2 reproducibility evidence; moved from result/reproduction without content changes.
@@ -9,3 +9,7 @@
 Original audit records may contain historical paths or machine-specific output locations. They are evidence, not current launch commands. Resolve moved repository paths using [the mapping](../docs/DELIVERY_LAYOUT.md); do not rewrite their hashes or paths.
 
 - [E2 naming round-two compatibility checks](e2_naming_round2/README.md)
+
+## Analysis figures
+
+- [Robustness comparison figures](figures/robustness_comparison/README.md): white-background labeled bar charts, full-precision plotting tables and reproducible Python entry. Derived from formal results; no training or inference.

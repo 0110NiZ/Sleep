@@ -63,6 +63,16 @@ python scripts/summarize_all_experiments.py --e3 result/e3_bandpass/comparison/s
 
 The output directory must not already exist. The script reads archived CSVs and creates `overall.csv` and `paired_vs_e2.csv`; it does not train models, perform inference or generate noise. Its default E2 source is the verified reference CSV in the E4 handover.
 
+### Presentation and report figures
+
+The [robustness comparison figures](reports/figures/robustness_comparison/README.md) contain clean/noisy Macro-F1 comparisons and an E4/E5 reconstruction-versus-classification example, with PNG/SVG/PDF exports, plotting data and provenance. Figures are organized by content rather than slide number.
+
+```bash
+python scripts/plot_robustness_comparison.py --out result/local/robustness_figures
+```
+
+Use a new output directory. This only reads archived metrics and draws charts; it does not rerun experiments. Requires NumPy and Matplotlib.
+
 ## Environment and running experiments
 
 The recorded project environment uses **Ubuntu/WSL, Python 3.10 and PyTorch 2.6.0**; GPU training uses CUDA. Read the [environment instructions](docs/ENVIRONMENT.txt) and the relevant experiment guide before installing dependencies or running an experiment. The dependency snapshot describes the working environment; a fresh installation has not been independently verified.
@@ -81,7 +91,7 @@ For historical reproduction or resuming an old run, use its recorded code commit
 | [configs/](configs/) | Subject splits, noise protocol and experiment settings |
 | [scripts/](scripts/) | Training, evaluation, verification and analysis tools |
 | [result/](result/) | Formal experiment archives |
-| [reports/](reports/README.md) | Data checks, reproduction evidence and integration audits |
+| [reports/](reports/README.md) | Analysis figures, data checks, reproduction evidence and integration audits |
 | [AttnSleep/](AttnSleep/) | Original author implementation and license |
 | [demo/](demo/README.md) | Reserved location for the forthcoming local web demo |
 
