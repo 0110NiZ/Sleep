@@ -2,7 +2,7 @@
 
 Generated from formal archived test CSVs, not rounded PPT labels. No training or inference.
 
-- Style: white background, pastel bars, two-decimal value labels. Clean/noisy comparison uses horizontal grouped bars; reconstruction/classification comparison uses two basic bar charts.
+- Style: white background, blue #74A9C5 and green #C2E5CF bars, two-decimal value labels. Clean/noisy comparison uses horizontal grouped bars; reconstruction/classification comparison uses two basic bar charts.
 - Clean/noisy comparison: clean Macro-F1 and equally weighted nine-noise Macro-F1. Average nine conditions within each fold, then average five folds. CSV SD is sample SD over five fold values. E3 uses validation-selected per-fold filters.
 - Reconstruction/classification comparison: Gaussian_Medium only. Average per-fold reported RMSE and Macro-F1 for E4 and E5. Both methods use corresponding frozen E1 classifiers. The reported RMSE is averaged from archived fold metrics, not recomputed from pooled waveforms.
 - `clean_noisy_per_fold.csv` supports later paired descriptive analysis. No statistical significance is implied and folds are not independent repetitions.

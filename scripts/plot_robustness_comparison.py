@@ -42,7 +42,7 @@ def main():
  plt.rcParams.update({'font.family':'DejaVu Sans','font.size':11,'svg.fonttype':'none','figure.facecolor':'white','axes.facecolor':'white'})
  names=['E2 Baseline','E3 Band-pass','E4 Wavelet','E5 DAE','E6 Augmentation']
  c=np.array([r['clean_mean'] for r in overall]);n=np.array([r['noisy_mean'] for r in overall]);y=np.arange(5)
- blue='#A8C7E6';green='#B6D9C4'
+ blue='#74A9C5';green='#C2E5CF'
  fig,ax=plt.subplots(figsize=(9,5))
  bars1=ax.barh(y-.18,c,.36,label='Clean',color=blue)
  bars2=ax.barh(y+.18,n,.36,label='Noisy mean',color=green)
@@ -70,7 +70,7 @@ def main():
 
 Generated from formal archived test CSVs, not rounded PPT labels. No training or inference.
 
-- Style: white background, pastel bars, two-decimal value labels. Clean/noisy comparison uses horizontal grouped bars; reconstruction/classification comparison uses two basic bar charts.
+- Style: white background, blue #74A9C5 and green #C2E5CF bars, two-decimal value labels. Clean/noisy comparison uses horizontal grouped bars; reconstruction/classification comparison uses two basic bar charts.
 - Clean/noisy comparison: clean Macro-F1 and equally weighted nine-noise Macro-F1. Average nine conditions within each fold, then average five folds. CSV SD is sample SD over five fold values. E3 uses validation-selected per-fold filters.
 - Reconstruction/classification comparison: Gaussian_Medium only. Average per-fold reported RMSE and Macro-F1 for E4 and E5. Both methods use corresponding frozen E1 classifiers. The reported RMSE is averaged from archived fold metrics, not recomputed from pooled waveforms.
 - `clean_noisy_per_fold.csv` supports later paired descriptive analysis. No statistical significance is implied and folds are not independent repetitions.
