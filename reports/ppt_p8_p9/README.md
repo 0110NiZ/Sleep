@@ -2,6 +2,7 @@
 
 Generated from formal archived test CSVs, not rounded PPT labels. No training or inference.
 
+- Style: white background, pastel bars, two-decimal value labels. Page 8 uses horizontal grouped bars; page 9 uses two basic bar charts.
 - Page 8: clean Macro-F1 and equally weighted nine-noise Macro-F1. Average nine conditions within each fold, then average five folds. CSV SD is sample SD over five fold values. E3 uses validation-selected per-fold filters.
 - Page 9: Gaussian_Medium only. Average per-fold reported RMSE and Macro-F1 for E4 and E5. Both methods use corresponding frozen E1 classifiers. The reported RMSE is averaged from archived fold metrics, not recomputed from pooled waveforms.
 - `p8_per_fold.csv` supports later paired descriptive analysis. No statistical significance is implied and folds are not independent repetitions.
