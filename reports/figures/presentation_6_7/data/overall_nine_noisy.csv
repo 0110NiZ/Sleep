@@ -1,0 +1,6 @@
+method,mean_macro_f1_pct,sd_fold_means_pp,provenance
+E2,58.141462530535023,3.46123632339985,Public GitHub archived official test aggregates
+E3,55.980781879640460,6.87640776590220,E3 fold values from pinned formal selected_per_fold.csv
+E4,62.930486337362495,5.81114709076548,Public GitHub archived official test aggregates
+E5,69.887582160429858,7.74000000000000,GitHub means; per-fold SD transcribed from source PPT
+E6,73.366178824281420,4.46000000000000,GitHub means; per-fold SD transcribed from source PPT
