@@ -1,4 +1,4 @@
-﻿"""Plot E2 frozen baseline sensitivity across Noise v2 conditions (white background)."""
+"""Plot E2 frozen baseline sensitivity across Noise v2 conditions (white background)."""
 
 import csv
 import json
@@ -56,7 +56,7 @@ def main() -> None:
 
     plt.rcParams.update({
         "font.family": "sans-serif",
-        "font.sans-serif": ["Arial", "DejaVu Sans"],
+        "font.sans-serif": ["DejaVu Sans", "Arial"],
         "mathtext.default": "regular",
         "font.size": 10,
         "axes.linewidth": 0.9,
@@ -69,7 +69,7 @@ def main() -> None:
     families = [
         ("Gaussian White Noise", "Gaussian"),
         ("Baseline Drift (0.5 Hz)", "Drift"),
-        ("Oscillatory Burst (15-35 Hz)", "Burst"),
+        ("Oscillatory Burst (15–35 Hz)", "Burst"),
     ]
     levels = ["Low", "Medium", "High"]
 
@@ -91,7 +91,7 @@ def main() -> None:
             linestyle="--",
             linewidth=1.3,
             zorder=2,
-            label=f"Clean Baseline ({clean_mean:.2f}% $\\pm$ {clean_sd:.2f}%)",
+            label=f"E1 Clean Baseline ({clean_mean:.2f}% ± {clean_sd:.2f} pp)",
         )
 
         ax.errorbar(
@@ -107,7 +107,7 @@ def main() -> None:
             markersize=6.2,
             linewidth=2.0,
             zorder=4,
-            label="E2 Noisy Baseline (Mean $\\pm$ SD)",
+            label="E2 Noisy Baseline (Mean ± sample SD)",
         )
 
         for xi, (m, s) in enumerate(zip(means, sds)):
