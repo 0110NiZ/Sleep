@@ -2,27 +2,28 @@
 
 Generated from formal archived test CSVs, not rounded PPT labels. No training or inference.
 
-- Style: white background and two-decimal value labels. Clean comparison model colors: E2 coral #F59790 and E6 pale blue #CDE2E8, matching the presentation all-method comparison. E4/E5 colors: yellow #EDDDAB and green #C2E5CF. Clean comparison uses two vertical bars with a 0–100% axis; reconstruction/classification comparison uses two basic bar charts.
-- Clean comparison: E2 and E6 clean Macro-F1 only (75.08% and 74.24%). The E6 minus E2 difference from unrounded means is -0.8431417448038587 percentage points, displayed as -0.84 pp. Clean means no additional synthetic noise. Clean values average the five clean fold scores. Full E2–E6 clean/noisy tables remain available for analysis. For their noisy mean, average nine conditions within each fold, then average five folds. CSV SD is sample SD over five fold values. E3 uses validation-selected per-fold filters.
+- Style: white background and two-decimal value labels. Clean comparison model colors: E1 coral #F59790 and E6 pale blue #CDE2E8, matching the presentation all-method comparison. E4/E5 colors: yellow #EDDDAB and green #C2E5CF. Clean comparison uses two vertical bars with a 0–100% axis; reconstruction/classification comparison uses two basic bar charts.
+- Naming: E1 denotes the clean baseline experiment; E2 denotes the noisy evaluation of the same frozen classifier. The E2 archive contains the shared clean reference. The new plot labels it E1 Clean Baseline; `source_method=E2` in the figure CSV preserves this archive provenance. The original E2 archive and complete comparison tables are not renamed.
+- Clean comparison: E1 clean reference and E6 clean Macro-F1 only (75.08% and 74.24%). The E6 minus clean-baseline difference from unrounded means is -0.8431417448038587 percentage points, displayed as -0.84 pp. Clean means no additional synthetic noise. Clean values average the five clean fold scores. Full E2–E6 clean/noisy tables remain available for analysis. For their noisy mean, average nine conditions within each fold, then average five folds. CSV SD is sample SD over five fold values. E3 uses validation-selected per-fold filters.
 - Reconstruction/classification comparison: Gaussian_Medium only. Average per-fold reported RMSE and Macro-F1 for E4 and E5. Both methods use corresponding frozen E1 classifiers. The reported RMSE is averaged from archived fold metrics, not recomputed from pooled waveforms.
 - `clean_noisy_per_fold.csv` supports later paired descriptive analysis. No statistical significance is implied and folds are not independent repetitions.
 - PNG: 300 dpi for slides. SVG/PDF: vector outputs. SVG retains text. These are figure files; they do not contain PowerPoint chart workbooks. Source CSV and plotting script support regeneration.
 - Differences use unrounded source values; subtraction of displayed two-decimal labels can differ by 0.01 pp.
-- `provenance.json` records input hashes and source commit. Original result files remain unchanged. The obsolete clean_vs_noisy_macro_f1 PNG/SVG/PDF has been replaced by clean_e2_vs_e6_macro_f1; the former plotting block is removed.
+- `provenance.json` records input hashes and source commit. Original result files remain unchanged. The obsolete clean_vs_noisy_macro_f1 PNG/SVG/PDF has been replaced by clean_e1_vs_e6_macro_f1; the former plotting block is removed.
 
 ## Files and interpretation
 
 | File | Contents |
 |---|---|
-| `clean_e2_vs_e6_macro_f1.png` | E2/E6 clean Macro-F1 only; zero-based vertical bars |
-| `clean_e2_e6_summary.csv` | Full-precision clean means, sample SDs and model colors for the new figure |
+| `clean_e1_vs_e6_macro_f1.png` | E1/E6 clean Macro-F1 only; zero-based vertical bars |
+| `clean_e1_e6_summary.csv` | Full-precision clean means, sample SDs and model colors for the new figure |
 | `reconstruction_vs_classification_gaussian_medium.png` | E4/E5 RMSE and Macro-F1 under Gaussian Medium; two bar charts |
 | `clean_noisy_summary.csv` | Five-fold means, sample SDs and clean/noisy gaps |
 | `clean_noisy_per_fold.csv` | Paired per-fold clean and noisy scores |
 | `reconstruction_classification_gaussian_medium.csv` | Values plotted in the E4/E5 comparison |
 | `provenance.json` | Formal input hashes, source commit and full-precision differences |
 
-Each chart also has SVG and PDF vector versions. Labels show two decimals; source CSVs retain full precision. In the first figure coral means E2 and pale blue means E6; in the second yellow means E4 and green means E5. RMSE is lower-is-better, Macro-F1 higher-is-better. Both charts show descriptive means without uncertainty bars; sample SDs for the overall comparison are retained in the summary CSV. Gaussian Medium is one illustrative condition, not a conclusion about every condition.
+Each chart also has SVG and PDF vector versions. Labels show two decimals; source CSVs retain full precision. In the first figure coral means E1 and pale blue means E6; in the second yellow means E4 and green means E5. RMSE is lower-is-better, Macro-F1 higher-is-better. Both charts show descriptive means without uncertainty bars; sample SDs for the overall comparison are retained in the summary CSV. Gaussian Medium is one illustrative condition, not a conclusion about every condition.
 
 From repository root in the Sleep environment:
 

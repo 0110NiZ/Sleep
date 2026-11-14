@@ -44,10 +44,10 @@ def main():
  green='#C2E5CF'
  # Match the model colors in the presentation's all-method noisy comparison.
  model_colors={'E2':'#F59790','E6':'#CDE2E8'}
- clean_rows=[dict(method=r['method'],clean_mean=r['clean_mean'],clean_sd=r['clean_sd'],color=model_colors[r['method']]) for r in overall if r['method'] in model_colors]
- writecsv(out/'clean_e2_e6_summary.csv',clean_rows)
+ clean_rows=[dict(method='E1' if r['method']=='E2' else r['method'],source_method=r['method'],clean_mean=r['clean_mean'],clean_sd=r['clean_sd'],color=model_colors[r['method']]) for r in overall if r['method'] in model_colors]
+ writecsv(out/'clean_e1_e6_summary.csv',clean_rows)
  fig,ax=plt.subplots(figsize=(8.4,5.4))
- bars=ax.bar(['E2 Baseline','E6 Augmentation'],[r['clean_mean'] for r in clean_rows],color=[r['color'] for r in clean_rows],width=.48,zorder=3)
+ bars=ax.bar(['E1 Clean Baseline','E6 Augmentation'],[r['clean_mean'] for r in clean_rows],color=[r['color'] for r in clean_rows],width=.48,zorder=3)
  ax.bar_label(bars,labels=[f"{r['clean_mean']:.2f}%" for r in clean_rows],padding=9,fontsize=16,fontweight='bold',color='#394854')
  ax.set_ylim(0,100);ax.set_ylabel('Clean Macro-F1 (%)',fontsize=13)
  ax.set_yticks(np.arange(0,101,20));ax.tick_params(axis='x',labelsize=14,length=0,pad=12)
@@ -55,10 +55,10 @@ def main():
  for side in ['top','right']:ax.spines[side].set_visible(False)
  for side in ['left','bottom']:ax.spines[side].set_color('#B7BEC4')
  fig.tight_layout(pad=1.8)
- for ext in ['png','svg','pdf']:fig.savefig(out/f'clean_e2_vs_e6_macro_f1.{ext}',dpi=300,facecolor='white')
+ for ext in ['png','svg','pdf']:fig.savefig(out/f'clean_e1_vs_e6_macro_f1.{ext}',dpi=300,facecolor='white')
  plt.close(fig)
  # Keep new text artifacts free of generated trailing whitespace.
- for name in ['clean_e2_e6_summary.csv','clean_e2_vs_e6_macro_f1.svg']:
+ for name in ['clean_e1_e6_summary.csv','clean_e1_vs_e6_macro_f1.svg']:
   f=out/name;f.write_text('\n'.join(line.rstrip() for line in f.read_text().splitlines())+'\n',encoding='utf-8')
  fig,axes=plt.subplots(1,2,figsize=(9,4.5))
  for ax,key,label,limit in [(axes[0],'rmse_mean_uv','RMSE (µV)',8),(axes[1],'macro_f1_mean','Macro-F1 (%)',80)]:
@@ -77,27 +77,28 @@ def main():
 
 Generated from formal archived test CSVs, not rounded PPT labels. No training or inference.
 
-- Style: white background and two-decimal value labels. Clean comparison model colors: E2 coral #F59790 and E6 pale blue #CDE2E8, matching the presentation all-method comparison. E4/E5 colors: yellow #EDDDAB and green #C2E5CF. Clean comparison uses two vertical bars with a 0–100% axis; reconstruction/classification comparison uses two basic bar charts.
-- Clean comparison: E2 and E6 clean Macro-F1 only (75.08% and 74.24%). The E6 minus E2 difference from unrounded means is -0.8431417448038587 percentage points, displayed as -0.84 pp. Clean means no additional synthetic noise. Clean values average the five clean fold scores. Full E2–E6 clean/noisy tables remain available for analysis. For their noisy mean, average nine conditions within each fold, then average five folds. CSV SD is sample SD over five fold values. E3 uses validation-selected per-fold filters.
+- Style: white background and two-decimal value labels. Clean comparison model colors: E1 coral #F59790 and E6 pale blue #CDE2E8, matching the presentation all-method comparison. E4/E5 colors: yellow #EDDDAB and green #C2E5CF. Clean comparison uses two vertical bars with a 0–100% axis; reconstruction/classification comparison uses two basic bar charts.
+- Naming: E1 denotes the clean baseline experiment; E2 denotes the noisy evaluation of the same frozen classifier. The E2 archive contains the shared clean reference. The new plot labels it E1 Clean Baseline; `source_method=E2` in the figure CSV preserves this archive provenance. The original E2 archive and complete comparison tables are not renamed.
+- Clean comparison: E1 clean reference and E6 clean Macro-F1 only (75.08% and 74.24%). The E6 minus clean-baseline difference from unrounded means is -0.8431417448038587 percentage points, displayed as -0.84 pp. Clean means no additional synthetic noise. Clean values average the five clean fold scores. Full E2–E6 clean/noisy tables remain available for analysis. For their noisy mean, average nine conditions within each fold, then average five folds. CSV SD is sample SD over five fold values. E3 uses validation-selected per-fold filters.
 - Reconstruction/classification comparison: Gaussian_Medium only. Average per-fold reported RMSE and Macro-F1 for E4 and E5. Both methods use corresponding frozen E1 classifiers. The reported RMSE is averaged from archived fold metrics, not recomputed from pooled waveforms.
 - `clean_noisy_per_fold.csv` supports later paired descriptive analysis. No statistical significance is implied and folds are not independent repetitions.
 - PNG: 300 dpi for slides. SVG/PDF: vector outputs. SVG retains text. These are figure files; they do not contain PowerPoint chart workbooks. Source CSV and plotting script support regeneration.
 - Differences use unrounded source values; subtraction of displayed two-decimal labels can differ by 0.01 pp.
-- `provenance.json` records input hashes and source commit. Original result files remain unchanged. The obsolete clean_vs_noisy_macro_f1 PNG/SVG/PDF has been replaced by clean_e2_vs_e6_macro_f1; the former plotting block is removed.
+- `provenance.json` records input hashes and source commit. Original result files remain unchanged. The obsolete clean_vs_noisy_macro_f1 PNG/SVG/PDF has been replaced by clean_e1_vs_e6_macro_f1; the former plotting block is removed.
 
 ## Files and interpretation
 
 | File | Contents |
 |---|---|
-| `clean_e2_vs_e6_macro_f1.png` | E2/E6 clean Macro-F1 only; zero-based vertical bars |
-| `clean_e2_e6_summary.csv` | Full-precision clean means, sample SDs and model colors for the new figure |
+| `clean_e1_vs_e6_macro_f1.png` | E1/E6 clean Macro-F1 only; zero-based vertical bars |
+| `clean_e1_e6_summary.csv` | Full-precision clean means, sample SDs and model colors for the new figure |
 | `reconstruction_vs_classification_gaussian_medium.png` | E4/E5 RMSE and Macro-F1 under Gaussian Medium; two bar charts |
 | `clean_noisy_summary.csv` | Five-fold means, sample SDs and clean/noisy gaps |
 | `clean_noisy_per_fold.csv` | Paired per-fold clean and noisy scores |
 | `reconstruction_classification_gaussian_medium.csv` | Values plotted in the E4/E5 comparison |
 | `provenance.json` | Formal input hashes, source commit and full-precision differences |
 
-Each chart also has SVG and PDF vector versions. Labels show two decimals; source CSVs retain full precision. In the first figure coral means E2 and pale blue means E6; in the second yellow means E4 and green means E5. RMSE is lower-is-better, Macro-F1 higher-is-better. Both charts show descriptive means without uncertainty bars; sample SDs for the overall comparison are retained in the summary CSV. Gaussian Medium is one illustrative condition, not a conclusion about every condition.
+Each chart also has SVG and PDF vector versions. Labels show two decimals; source CSVs retain full precision. In the first figure coral means E1 and pale blue means E6; in the second yellow means E4 and green means E5. RMSE is lower-is-better, Macro-F1 higher-is-better. Both charts show descriptive means without uncertainty bars; sample SDs for the overall comparison are retained in the summary CSV. Gaussian Medium is one illustrative condition, not a conclusion about every condition.
 
 From repository root in the Sleep environment:
 

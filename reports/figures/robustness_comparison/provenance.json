@@ -1,6 +1,6 @@
 {
-  "source_commit": "c1e85b6759b57e2fcfc4e66e8266572c1197ebf9",
-  "plot_script_sha256": "feee5e3cf6e26b1831c11bdddd636741de175224d20b5192b039d5c996ff7a19",
+  "source_commit": "1d5374dc7bb7e3207b67a92afd351fbc1a24e6b2",
+  "plot_script_sha256": "074b754660899f8ea2378dc9a7bf9b1343d80a1bf7f6dace1bf55049d2989dd1",
   "clean_comparison_colors": {
     "E2": "#F59790",
     "E6": "#CDE2E8"
