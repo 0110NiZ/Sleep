@@ -65,7 +65,7 @@ The output directory must not already exist. The script reads archived CSVs and 
 
 ### Presentation and report figures
 
-The [robustness comparison figures](reports/figures/robustness_comparison/README.md) contain clean/noisy Macro-F1 comparisons and an E4/E5 reconstruction-versus-classification example, with PNG/SVG/PDF exports, plotting data and provenance. Figures are organized by content rather than slide number.
+The [robustness comparison figures](reports/figures/robustness_comparison/README.md) contain an E2/E6 clean-performance trade-off comparison and an E4/E5 reconstruction-versus-classification example (full clean/noisy tables are retained), with PNG/SVG/PDF exports, plotting data and provenance. Figures are organized by content rather than slide number.
 
 ```bash
 python scripts/plot_robustness_comparison.py --out result/local/robustness_figures

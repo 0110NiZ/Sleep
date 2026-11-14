@@ -1,5 +1,10 @@
 {
-  "source_commit": "d963a684fb9f59c4447d0c742df895802956a5da",
+  "source_commit": "c1e85b6759b57e2fcfc4e66e8266572c1197ebf9",
+  "plot_script_sha256": "feee5e3cf6e26b1831c11bdddd636741de175224d20b5192b039d5c996ff7a19",
+  "clean_comparison_colors": {
+    "E2": "#F59790",
+    "E6": "#CDE2E8"
+  },
   "sources_sha256": {
     "result/e2_v2/e2_per_fold.csv": "dcebb73fc949442018386483985016ed4fb649e9023596817bc0cd20ecb9cbaa",
     "result/e3_bandpass/comparison/selected_per_fold.csv": "c2b7f13adfabe494d80787af26a591c0bebe2f300c6c8eb28404ab821ab29a88",
