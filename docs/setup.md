@@ -15,6 +15,6 @@ E1 handover supports `fold0/` or `fold0_seed123/` (likewise folds 1–4), contai
 
 The shared path helper supports these variables; older entry points or archived configs can still contain original absolute paths or explicit CLI arguments. Consult the experiment guide before starting any future run. Existing datasets elsewhere are not moved by this cleanup. Set paths to their real location.
 
-`data`, `logs`, `runs`, `Sleep_Baseline_5fold` and `result/local` are relative compatibility links into `local/`. Keep the links intact. Windows-native Git must materialize symbolic links; a checkout that turns them into text files is not supported by this verification.
+`data`, `runs` and `result/local` are relative compatibility links into `local/`. `data` and `runs` are still referenced by the unchanged original configs; `result/local` is still used by experiment output paths. Keep these links intact. Use `local/logs/` and `local/weights/E1_baseline/` directly; the old root logs and weight aliases have been removed. Windows-native Git must materialize symbolic links; a checkout that turns them into text files is not supported by this verification.
 
 Saved results stay in `result/E*/`. Use a fresh output directory for any future authorized run. Do not modify original manifests or selection records to avoid a hash mismatch.

@@ -15,7 +15,7 @@ def status(stage,**extra):
  t=S.with_suffix('.tmp');t.write_text(json.dumps(d,indent=2));t.replace(S)
 try:
  status('verifying_raw')
- manifest=json.loads((R/'reports/sleep_edf20_manifest.json').read_text())['files']
+ manifest=json.loads((R/'docs/checks/sleep_edf20_manifest.json').read_text())['files']
  assert len(manifest)==78
  for i in manifest:
   p=R/'data/raw/sleep-edf-20'/i['name']

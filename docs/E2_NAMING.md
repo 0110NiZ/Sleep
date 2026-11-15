@@ -1,1 +1,0 @@
-history/E2_NAMING.md

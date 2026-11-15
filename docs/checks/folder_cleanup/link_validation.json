@@ -1,0 +1,25 @@
+{
+  "base_commit": "84e980b7101d9d3c21358bedc7bdc5a05af315af",
+  "deleted_links_only": 28,
+  "all_removed_link_targets_preserved": true,
+  "retained_links": 47,
+  "protected_regular_files_byte_identical": 1071,
+  "basic_check_command": "python docs/checks/folder_cleanup/check.py",
+  "basic_check_exit_code": 0,
+  "original_archive_files_hash_verified": 1051,
+  "imported_figure_table_files_hash_verified": 10,
+  "python_syntax_files": 62,
+  "new_and_legacy_help_checks": 17,
+  "current_doc_link_checks": 21,
+  "E6_full_protocol_check": "passed",
+  "default_data_weights_output_paths": "passed",
+  "edited_python_only_exact_documented_path_replacements": true,
+  "no_training_inference_or_plot_regeneration": true,
+  "limits": [
+    "Help/import/static checks only; experiments not rerun.",
+    "Ubuntu/WSL checked, Windows-native checkout not validated.",
+    "Demo source pending.",
+    "Historical notes retain old paths; current guides describe replacements."
+  ],
+  "errors": []
+}

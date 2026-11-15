@@ -15,4 +15,10 @@ E5/E6 checkpoint packages should retain `fold0`–`fold4`, `best.pth` and origin
 
 Use Ubuntu/WSL with symbolic links. Historical commands still resolve, but an archived run may reject current code hashes: use its recorded commit for historical resume. Never update an old manifest to hide a code change.
 
-See [original maintenance notes](HANDOVER_MAINTENANCE.md) for experiment-specific limits and [cleanup checks](checks/folder_cleanup/README.md) for this change's scope.
+See [original maintenance notes](history/HANDOVER_MAINTENANCE.md) for experiment-specific limits and [cleanup checks](checks/folder_cleanup/README.md) for this change's scope.
+
+## Removed obsolete aliases
+
+Use `docs/checks/` instead of `reports/`, `docs/history/patches/` instead of `patches/`, `local/logs/` instead of `logs/`, and `local/weights/E1_baseline/` instead of `Sleep_Baseline_5fold/`. The shared baseline path helper now defaults directly to the new location; `SLEEP_BASELINE_DIR` still accepts an existing external weight directory. Use `requirements.txt`; historical lock/E4 dependency files are in `docs/history/`.
+
+Old document aliases under docs/ and old figure links under reports/figures/ were removed. Use the current docs index and visualization index. Historical notes keep their original text and paths as evidence; they are not current startup instructions. No data or weight directories in other worktrees were moved or deleted.

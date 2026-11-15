@@ -120,8 +120,10 @@ Large EEG files, five-fold weights and full prediction NPZ packages are shared s
 
 ## Compatibility and history
 
-Old `scripts/`, result names and selected root paths remain as compatibility links. They point to the same files, not duplicate implementations. Use the folders above for new work. The directory cleanup preserves experiment configurations, archived results and Noise v2 identity; it does not rename fields inside historical manifests.
+Old `scripts/`, result names and configuration aliases remain where active imports or hash checks need them. Root `data/` and `runs/` remain because archived configuration values refer to them. They point to the same files, not duplicate implementations. Use the folders above for new work. The directory cleanup preserves experiment configurations, archived results and Noise v2 identity; it does not rename fields inside historical manifests.
 
 This layout uses relative symbolic links and is checked in **Ubuntu/WSL**. Windows-native clones must support Git symbolic links; that environment has not been validated. Historical reproduction/resume should use the recorded commit: current code-path changes can correctly trigger archived code-hash guards. Do not edit manifests to bypass them.
 
 See [the cleanup record](docs/checks/folder_cleanup/README.md) for source branches, path mappings and validation. The demo integration is deferred until its source is delivered.
+
+Removed root aliases: `reports`, `patches`, `logs`, `Sleep_Baseline_5fold`, `requirement.txt`, `requirements-e4.txt` and `requirements-lock.txt`. Current code uses their real locations directly. Use `requirements.txt`; original E4/lock dependency records remain in `docs/history/`. Legacy top-level documentation links and the obsolete reports figure links were also removed. See [retained-link reasons](docs/checks/folder_cleanup/compatibility.md).

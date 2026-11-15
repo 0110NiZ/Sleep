@@ -74,7 +74,7 @@ def audit(cfg,splits,conditions):
     assert len(set(s for f in splits['folds'] for s in f['test']['subjects']))==20
     weights={f'fold{i}':sha(baseline_fold(i, BASE)/'best_validation_macro_f1.pth') for i in range(5)}
     assert all(weights[f'fold{i}']==reference[f'checkpoint_fold{i}'] for i in range(5))
-    report=load(ROOT/'reports/full_alignment_validation.json');hashes={};total=0
+    report=load(ROOT/'docs/checks/full_alignment_validation.json');hashes={};total=0
     for row in report:
         path=e2.DATA_DIR/(row['record']+'.npz');hashes[path.name]=sha(path)
         with np.load(path,allow_pickle=False) as z:

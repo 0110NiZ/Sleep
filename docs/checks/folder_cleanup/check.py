@@ -1,12 +1,18 @@
 from pathlib import Path
 import ast,hashlib,json,subprocess,os,re,sys,importlib.util
 R=Path(__file__).resolve().parents[3];os.chdir(R)
+trim=json.loads((R/'docs/checks/folder_cleanup/link_cleanup.json').read_text())
 meta=json.loads((R/'docs/checks/folder_cleanup/file_map.json').read_text());checks={};errors=[]
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 kept=[]
 for name,h in meta['original_sha256'].items():
     if name.startswith(('result/','configs/','AttnSleep/')) or (name.startswith('reports/') and not name.endswith('README.md')) or name.startswith(('patches/','docs/history/')):
-        if not (R/name).is_file() or sha(R/name)!=h:errors.append('changed archive: '+name)
+        target=name
+        if name.startswith('reports/figures/robustness_comparison/'):
+            target=meta['moves'].get(name.replace('reports/','docs/checks/'),name)
+        elif name.startswith('reports/'):target=name.replace('reports/','docs/checks/',1)
+        elif name.startswith('patches/'):target=name.replace('patches/','docs/history/patches/',1)
+        if not (R/target).is_file() or sha(R/target)!=h:errors.append('changed archive: '+name)
         kept.append(name)
 checks['unchanged_original_archive_files']=len(kept)
 imports=[]
@@ -28,12 +34,13 @@ asts=[]
 for old,new in meta['moves'].items():
     if old.startswith('scripts/') and new.startswith('code/'):
         source=subprocess.check_output(['git','show',meta['base_commit']+':'+old],text=True)
+        for old_path,new_path in trim['path_replacements'].items():source=source.replace(old_path,new_path)
         changed=(R/new).read_text()
         changed=re.sub(r'\n# Locate shared modules from either the new or legacy command path\.\nimport sys as _layout_sys\nfrom pathlib import Path as _LayoutPath\n_layout_root = .*?\n_layout_sys.path.insert\(0, str\(_layout_root / \'scripts\'\)\)\n_layout_sys.path.insert\(0, str\(_layout_root / \'code\'\)\)\n','\n',changed)
         if len(Path(new).parts)>2:changed=changed.replace('Path(__file__).resolve().parents[2]','Path(__file__).resolve().parents[1]')
         if ast.dump(ast.parse(source))!=ast.dump(ast.parse(changed)):errors.append('unexpected code AST change: '+new)
         asts.append(new)
-checks['experiment_code_AST_unchanged_except_import_path_bootstrap']=asts
+checks['experiment_code_AST_unchanged_except_documented_path_changes']=asts
 syntax=[]
 for folder in ('code','scripts','visualization'):
     for p in (R/folder).rglob('*.py'):

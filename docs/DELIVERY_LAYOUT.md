@@ -1,1 +1,0 @@
-history/DELIVERY_LAYOUT.md

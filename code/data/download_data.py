@@ -19,9 +19,9 @@ lockfile=(P/'download.lock').open('w'); fcntl.flock(lockfile,fcntl.LOCK_EX|fcntl
 manifest=Path(mne.__file__).parent/'datasets/sleep_physionet/age_records.csv'
 rows=[r for r in csv.DictReader(manifest.open()) if int(r['subject'])<20]
 assert len(rows)==78 and len({r['subject'] for r in rows})==20
-items=json.loads((R/'reports/sleep_edf20_manifest.json').read_text())['files']
+items=json.loads((R/'docs/checks/sleep_edf20_manifest.json').read_text())['files']
 assert {i['name']:i['sha1'] for i in items}=={r['fname']:r['sha'] for r in rows}
-(R/'reports/sleep_edf20_manifest.json').write_text(json.dumps(dict(source=BASE,checksum_source=str(manifest),files=items),indent=2))
+(R/'docs/checks/sleep_edf20_manifest.json').write_text(json.dumps(dict(source=BASE,checksum_source=str(manifest),files=items),indent=2))
 total=sum(i['bytes'] for i in items); guard=threading.Lock(); verified=set(); failed=[]; started=time.time()
 def sha(p):
     h=hashlib.sha1()

@@ -1,0 +1,286 @@
+{
+  "base_commit": "84e980b7101d9d3c21358bedc7bdc5a05af315af",
+  "removed_links": {
+    "Sleep_Baseline_5fold": "local/weights/E1_baseline",
+    "logs": "local/logs",
+    "patches": "docs/history/patches",
+    "reports": "docs/checks",
+    "requirement.txt": "requirements.txt",
+    "requirements-e4.txt": "docs/history/requirements-e4.txt",
+    "requirements-lock.txt": "docs/history/requirements-lock.txt",
+    "docs/E4_RUN.txt": "history/E4_RUN.txt",
+    "docs/E2_HANDOVER.md": "history/E2_HANDOVER.md",
+    "docs/E2_NAMING.md": "history/E2_NAMING.md",
+    "docs/E3_HANDOVER.md": "history/E3_HANDOVER.md",
+    "docs/HANDOVER_MAINTENANCE.md": "history/HANDOVER_MAINTENANCE.md",
+    "docs/E6_START_HERE.md": "history/E6_START_HERE.md",
+    "docs/DELIVERY_LAYOUT.md": "history/DELIVERY_LAYOUT.md",
+    "docs/E5_RUN.md": "history/E5_RUN.md",
+    "docs/ENVIRONMENT.txt": "history/ENVIRONMENT.txt",
+    "docs/checks/figures/robustness_comparison/provenance.json": "../../../../visualization/clean_performance/provenance.json",
+    "docs/checks/figures/robustness_comparison/reconstruction_vs_classification_gaussian_medium.pdf": "../../../../visualization/reconstruction/reconstruction_vs_classification_gaussian_medium.pdf",
+    "docs/checks/figures/robustness_comparison/clean_noisy_summary.csv": "../../../../visualization/clean_performance/clean_noisy_summary.csv",
+    "docs/checks/figures/robustness_comparison/clean_e1_vs_e6_macro_f1.pdf": "../../../../visualization/clean_performance/clean_e1_vs_e6_macro_f1.pdf",
+    "docs/checks/figures/robustness_comparison/clean_e1_e6_summary.csv": "../../../../visualization/clean_performance/clean_e1_e6_summary.csv",
+    "docs/checks/figures/robustness_comparison/clean_e1_vs_e6_macro_f1.svg": "../../../../visualization/clean_performance/clean_e1_vs_e6_macro_f1.svg",
+    "docs/checks/figures/robustness_comparison/README.md": "../../../../visualization/clean_performance/README.md",
+    "docs/checks/figures/robustness_comparison/reconstruction_vs_classification_gaussian_medium.svg": "../../../../visualization/reconstruction/reconstruction_vs_classification_gaussian_medium.svg",
+    "docs/checks/figures/robustness_comparison/reconstruction_classification_gaussian_medium.csv": "../../../../visualization/reconstruction/reconstruction_classification_gaussian_medium.csv",
+    "docs/checks/figures/robustness_comparison/clean_noisy_per_fold.csv": "../../../../visualization/clean_performance/clean_noisy_per_fold.csv",
+    "docs/checks/figures/robustness_comparison/clean_e1_vs_e6_macro_f1.png": "../../../../visualization/clean_performance/clean_e1_vs_e6_macro_f1.png",
+    "docs/checks/figures/robustness_comparison/reconstruction_vs_classification_gaussian_medium.png": "../../../../visualization/reconstruction/reconstruction_vs_classification_gaussian_medium.png"
+  },
+  "edited_python": [
+    "code/E1_baseline.py",
+    "code/E6_augmentation.py",
+    "code/E5_dae.py",
+    "code/paths.py",
+    "code/checks/check_subject_splits.py",
+    "code/data/preprocess_data.py",
+    "code/data/download_data.py",
+    "visualization/method_comparison/plot.py"
+  ],
+  "path_replacements": {
+    "reports/": "docs/checks/",
+    "patches/author_compatibility.patch": "docs/history/patches/author_compatibility.patch",
+    "R/'requirements-lock.txt'": "R/'docs/history/requirements-lock.txt'",
+    "ROOT / \"Sleep_Baseline_5fold\"": "ROOT / \"local/weights/E1_baseline\""
+  },
+  "retained_links": [
+    {
+      "path": "data",
+      "target": "local/data",
+      "reason": "Unchanged E1 config / subject split paths refer to this location."
+    },
+    {
+      "path": "runs",
+      "target": "local/runs",
+      "reason": "Unchanged E1 config / subject split paths refer to this location."
+    },
+    {
+      "path": "result/e1",
+      "target": "E1_baseline",
+      "reason": "Current evaluation/summary code reads archived results through this path; historical hash/provenance identities retained."
+    },
+    {
+      "path": "result/local",
+      "target": "../local/runs",
+      "reason": "Existing experiment CLI defaults and output code use this location."
+    },
+    {
+      "path": "result/e3_bandpass",
+      "target": "E3_bandpass",
+      "reason": "Current evaluation/summary code reads archived results through this path; historical hash/provenance identities retained."
+    },
+    {
+      "path": "result/e2_v2",
+      "target": "E2_noisy_baseline",
+      "reason": "Current evaluation/summary code reads archived results through this path; historical hash/provenance identities retained."
+    },
+    {
+      "path": "result/e5_dae",
+      "target": "E5_dae",
+      "reason": "Current evaluation/summary code reads archived results through this path; historical hash/provenance identities retained."
+    },
+    {
+      "path": "result/e6_noise_augmentation",
+      "target": "E6_augmentation",
+      "reason": "Current evaluation/summary code reads archived results through this path; historical hash/provenance identities retained."
+    },
+    {
+      "path": "result/e4_wavelet",
+      "target": "E4_wavelet",
+      "reason": "Current evaluation/summary code reads archived results through this path; historical hash/provenance identities retained."
+    },
+    {
+      "path": "scripts/preprocess_full.py",
+      "target": "../code/data/preprocess_data.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/summarize_e6.py",
+      "target": "../code/summarize_E6.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/plot_robustness_comparison.py",
+      "target": "../visualization/comparison_plots.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/download_edf20.py",
+      "target": "../code/data/download_data.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/check_e5.py",
+      "target": "../code/checks/check_E5.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/run_e3_bandpass.py",
+      "target": "../code/E3_bandpass.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/plot_presentation_6_7.py",
+      "target": "../visualization/method_comparison/plot.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/verify_e1_baseline.py",
+      "target": "../code/checks/check_E1.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/plot_e4_results.py",
+      "target": "../visualization/E4_results/plot.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/run_e5_dae.py",
+      "target": "../code/E5_dae.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/plot_e2_baseline.py",
+      "target": "../visualization/E2_noise_effect/plot.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/run_e6_noise_augmentation.py",
+      "target": "../code/E6_augmentation.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/train_clean_fivefold.py",
+      "target": "../code/E1_baseline.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/wavelet_denoising.py",
+      "target": "../code/wavelet.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/visualize_noise.py",
+      "target": "../visualization/noise_examples/plot.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/summarize_all_experiments.py",
+      "target": "../code/summarize_results.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/validate_full_alignment.py",
+      "target": "../code/checks/check_preprocessing.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/run_e2_evaluation.py",
+      "target": "../code/E2_evaluation.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/run_e2_evaluation_resumable.py",
+      "target": "../code/E2_noisy_baseline.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/background_e5.py",
+      "target": "../code/background_E5.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/dae_model.py",
+      "target": "../code/dae_model.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/noise_conditions.py",
+      "target": "../code/noise.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/project_paths.py",
+      "target": "../code/paths.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/finalize_e3_results.py",
+      "target": "../code/finalize_E3.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/run_e4_wavelet.py",
+      "target": "../code/E4_wavelet.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/audit_fivefold_balance.py",
+      "target": "../code/checks/check_subject_splits.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/finalize_e5.py",
+      "target": "../code/finalize_E5.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "scripts/finalize_e2_results.py",
+      "target": "../code/finalize_E2.py",
+      "reason": "Existing experiment imports, code-hash checks or supported legacy commands use this entry; one implementation only."
+    },
+    {
+      "path": "configs/e6_noise_augmentation.json",
+      "target": "E6_augmentation.json",
+      "reason": "Experiment imports/defaults and protocol hash checks use the original configuration names."
+    },
+    {
+      "path": "configs/clean_baseline_fold1.json",
+      "target": "E1_baseline_fold1.json",
+      "reason": "Experiment imports/defaults and protocol hash checks use the original configuration names."
+    },
+    {
+      "path": "configs/e5_dae.json",
+      "target": "E5_dae.json",
+      "reason": "Experiment imports/defaults and protocol hash checks use the original configuration names."
+    },
+    {
+      "path": "configs/clean_baseline_fold0.json",
+      "target": "E1_baseline_fold0.json",
+      "reason": "Experiment imports/defaults and protocol hash checks use the original configuration names."
+    },
+    {
+      "path": "configs/clean_baseline_fold4.json",
+      "target": "E1_baseline_fold4.json",
+      "reason": "Experiment imports/defaults and protocol hash checks use the original configuration names."
+    },
+    {
+      "path": "configs/clean_baseline_fold2.json",
+      "target": "E1_baseline_fold2.json",
+      "reason": "Experiment imports/defaults and protocol hash checks use the original configuration names."
+    },
+    {
+      "path": "configs/clean_baseline_fold3.json",
+      "target": "E1_baseline_fold3.json",
+      "reason": "Experiment imports/defaults and protocol hash checks use the original configuration names."
+    },
+    {
+      "path": "configs/noise_conditions_v2.json",
+      "target": "noise.json",
+      "reason": "Experiment imports/defaults and protocol hash checks use the original configuration names."
+    },
+    {
+      "path": "configs/fivefold_subject_splits.json",
+      "target": "subject_splits.json",
+      "reason": "Experiment imports/defaults and protocol hash checks use the original configuration names."
+    },
+    {
+      "path": "configs/e4_wavelet.json",
+      "target": "E4_wavelet.json",
+      "reason": "Experiment imports/defaults and protocol hash checks use the original configuration names."
+    }
+  ]
+}

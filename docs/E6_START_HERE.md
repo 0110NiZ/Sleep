@@ -1,1 +1,0 @@
-history/E6_START_HERE.md

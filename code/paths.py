@@ -7,7 +7,7 @@ def configured(name, default):
     return value.resolve() if value.is_absolute() else (ROOT / value).resolve()
 DATA_DIR = configured("SLEEP_DATA_DIR", ROOT / "data/processed/sleep-edf-20")
 RAW_DIR = configured("SLEEP_RAW_DIR", ROOT / "data/raw/sleep-edf-20")
-BASELINE_DIR = configured("SLEEP_BASELINE_DIR", ROOT / "Sleep_Baseline_5fold")
+BASELINE_DIR = configured("SLEEP_BASELINE_DIR", ROOT / "local/weights/E1_baseline")
 RESULT_ROOT = configured("SLEEP_RESULT_DIR", ROOT / "result/local")
 def e2_result_dir(root):
     """Use an existing legacy local directory; never silently choose between two."""

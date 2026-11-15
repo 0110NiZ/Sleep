@@ -8,7 +8,7 @@ From the extracted package:
     python plot_presentation_6_7.py --out figures
 
 From the Sleep repository root, with archived 50-row fold files present:
-    python scripts/plot_presentation_6_7.py --repo . --out reports/figures/presentation_6_7
+    python scripts/plot_presentation_6_7.py --repo . --out docs/checks/figures/presentation_6_7
 
 Requires numpy and matplotlib. Output: two PNG and two SVG images.
 """

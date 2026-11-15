@@ -113,7 +113,7 @@ def validate_protocol(cfg, splits, noise):
 def audit_group(group, data_dir, strict_hashes=True):
     """Audit ONLY the requested group. No test file opening during fold training."""
     expected = {r['record'] + '.npz': r for r in
-                read(ROOT / 'reports/full_alignment_validation.json')}
+                read(ROOT / 'docs/checks/full_alignment_validation.json')}
     hashes = read(ROOT / 'result/e5_dae/manifest.json')['data']
     for name in group['files']:
         path = data_dir / name

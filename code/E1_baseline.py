@@ -59,8 +59,8 @@ try:
  assert len(file_sets[0]|file_sets[1]|file_sets[2])==39
  (run/'splits.json').write_bytes(raw);(run/'config.json').write_text(json.dumps(cfg,indent=2))
  (run/'runner.py').write_text(Path(__file__).read_text())
- (run/'requirements-lock.txt').write_bytes((R/'requirements-lock.txt').read_bytes())
- (run/'author_code_diff.patch').write_text((R/'patches/author_compatibility.patch').read_text())
+ (run/'requirements-lock.txt').write_bytes((R/'docs/history/requirements-lock.txt').read_bytes())
+ (run/'author_code_diff.patch').write_text((R/'docs/history/patches/author_compatibility.patch').read_text())
  assert torch.cuda.is_available();torch.set_num_threads(4)
  random.seed(cfg['seed']);np.random.seed(cfg['seed']);torch.manual_seed(cfg['seed']);torch.cuda.manual_seed_all(cfg['seed'])
  torch.backends.cudnn.benchmark=False;torch.backends.cudnn.deterministic=True

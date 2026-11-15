@@ -13,4 +13,4 @@
 - [Original documentation](history/)
 - [Demo status](../demo/README.md)
 
-Paths in current guides are relative to the repository root. Original documentation is retained for provenance; its old paths are supported by compatibility links. Historical statements are not new experiment status reports.
+Paths in current guides are relative to the repository root. Original documentation is retained for provenance; it may show obsolete paths. Use setup.md and handover.md for current locations. Historical statements are not new experiment status reports.

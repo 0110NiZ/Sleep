@@ -7,4 +7,4 @@
 - [First layout cleanup](delivery_layout_round1/): earlier preserved-file records.
 - [E2 naming cleanup](e2_naming_round2/): earlier compatibility checks.
 
-All original JSON/CSV audit evidence is preserved. Paths inside those records refer to their original commits and may use old names. `reports/` remains a compatibility link to this folder.
+All original JSON/CSV audit evidence is preserved. Paths inside those records refer to their original commits and may use old names. Current code reads this folder directly; the obsolete root `reports/` alias has been removed.

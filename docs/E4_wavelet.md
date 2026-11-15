@@ -2,9 +2,9 @@
 
 - Main entry: [code/E4_wavelet.py](../code/E4_wavelet.py)
 - Formal results: [result/E4_wavelet/](../result/E4_wavelet/)
-- Original run and handover instructions: [E4_RUN.txt](E4_RUN.txt)
+- Original run and handover instructions: [E4_RUN.txt](history/E4_RUN.txt)
 
-The original instructions remain available through their original document path, with the unchanged text archived in `docs/history/`. Commands there may use `scripts/` and older result/configuration names; these compatibility paths remain valid in Ubuntu/WSL.
+The unchanged original instructions are archived in `docs/history/`. They are a historical snapshot, not a current path guide: use this page and setup.md for current paths. Old experimental script, result and configuration aliases are retained where still needed; removed root documentation/storage aliases are listed in the cleanup record.
 
 For new work, replace the old main command with `python code/E4_wavelet.py` and retain its original arguments. Read [setup](setup.md) before using local paths. Do not rerun completed experiments or overwrite their formal output. E1's entry point starts training directly; it is not a help-only utility.
 

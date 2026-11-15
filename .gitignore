@@ -9,11 +9,6 @@ data/*
 !data/.gitkeep
 runs/*
 !runs/.gitkeep
-logs/*
-!logs/.gitkeep
-reports/*status.json
-reports/*.pid
-reports/*.lock
 *.edf
 *.npz
 *.pth
@@ -24,10 +19,14 @@ reports/*.lock
 **/.e3_active_run.txt
 .layout_migration_backup/
 result/local/
-Sleep_Baseline_5fold/
 
 # Local-only datasets, weights and runtime outputs. Keep empty folder markers.
 local/**
 !local/**/
 !local/**/.gitkeep
 !local/README.md
+
+# Local process markers in the current audit location.
+docs/checks/*status.json
+docs/checks/*.pid
+docs/checks/*.lock
