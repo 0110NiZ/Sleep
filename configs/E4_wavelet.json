@@ -1,0 +1,20 @@
+{
+  "method": "per-epoch DWT soft thresholding",
+  "sampling_rate": 100,
+  "epoch_samples": 3000,
+  "extension_mode": "symmetric",
+  "level": 4,
+  "noise_estimator": "median(abs(cD1-median(cD1)))/0.6744897501960817, separately per input epoch",
+  "threshold": "scale * sigma * sqrt(2*log(3000))",
+  "coefficients": "retain approximation; soft-threshold all detail levels",
+  "normalization": "none; microvolts",
+  "candidates": [
+    {"id": "W1", "wavelet": "db4", "scale": 0.5},
+    {"id": "W2", "wavelet": "db4", "scale": 1.0},
+    {"id": "W3", "wavelet": "sym8", "scale": 0.5},
+    {"id": "W4", "wavelet": "sym8", "scale": 1.0}
+  ],
+  "selection": "per-fold maximum equally weighted macro-F1 across Clean plus nine validation noise conditions; candidate order breaks ties",
+  "test": "only the selected candidate; no test-driven changes",
+  "scope": "A bounded comparison of four predefined configurations, not an exhaustive search over wavelet methods"
+}

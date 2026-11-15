@@ -1,0 +1,11 @@
+# E1_baseline
+
+- Main entry: [code/E1_baseline.py](../code/E1_baseline.py)
+- Formal results: [result/E1_baseline/](../result/E1_baseline/)
+- Original run and handover instructions: [ENVIRONMENT.txt](ENVIRONMENT.txt)
+
+The original instructions remain available through their original document path, with the unchanged text archived in `docs/history/`. Commands there may use `scripts/` and older result/configuration names; these compatibility paths remain valid in Ubuntu/WSL.
+
+For new work, replace the old main command with `python code/E1_baseline.py` and retain its original arguments. Read [setup](setup.md) before using local paths. Do not rerun completed experiments or overwrite their formal output. E1's entry point starts training directly; it is not a help-only utility.
+
+Configuration values, checkpoint selection and stored scores are unchanged. Archived absolute paths and code hashes describe the original experiment; they are not rewritten to describe this folder cleanup. Resume/reproduce an original run from its recorded commit rather than bypassing its integrity checks.

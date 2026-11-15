@@ -1,0 +1,70 @@
+
+{
+  "version": "noise_v2",
+  "seed": 123,
+  "sampling_rate": 100,
+  "signal_unit": "uV",
+  "conditions": [
+    {
+      "name": "Clean",
+      "noise_type": "clean"
+    },
+    {
+      "name": "Gaussian_Low",
+      "noise_type": "gaussian",
+      "snr_db": 20.0
+    },
+    {
+      "name": "Gaussian_Medium",
+      "noise_type": "gaussian",
+      "snr_db": 10.0
+    },
+    {
+      "name": "Gaussian_High",
+      "noise_type": "gaussian",
+      "snr_db": 5.0
+    },
+    {
+      "name": "Drift_Low",
+      "noise_type": "baseline_wander",
+      "frequency_hz": 0.5,
+      "amplitude_uv": 10.0
+    },
+    {
+      "name": "Drift_Medium",
+      "noise_type": "baseline_wander",
+      "frequency_hz": 0.5,
+      "amplitude_uv": 20.0
+    },
+    {
+      "name": "Drift_High",
+      "noise_type": "baseline_wander",
+      "frequency_hz": 0.5,
+      "amplitude_uv": 40.0
+    },
+    {
+      "name": "Burst_Low",
+      "noise_type": "burst",
+      "frequency_range_hz": [15.0, 35.0],
+      "duration_range_s": [0.5, 2.0],
+      "amplitude_ratio": 1.75,
+      "burst_count": 1
+    },
+    {
+      "name": "Burst_Medium",
+      "noise_type": "burst",
+      "frequency_range_hz": [15.0, 35.0],
+      "duration_range_s": [0.5, 2.0],
+      "amplitude_ratio": 3.5,
+      "burst_count": 1
+    },
+    {
+      "name": "Burst_High",
+      "noise_type": "burst",
+      "frequency_range_hz": [15.0, 35.0],
+      "duration_range_s": [0.5, 2.0],
+      "amplitude_ratio": 7.0,
+      "burst_count": 1
+    }
+  ]
+}

@@ -1,18 +1,16 @@
-# Documentation index
+# Documentation
 
-All command examples and code/data paths are relative to the repository root unless explicitly identified as a historical or machine-specific path.
+- [Setup and local paths](setup.md)
+- [E1_baseline](E1_baseline.md)
+- [E2_noisy_baseline](E2_noisy_baseline.md)
+- [E3_bandpass](E3_bandpass.md)
+- [E4_wavelet](E4_wavelet.md)
+- [E5_dae](E5_dae.md)
+- [E6_augmentation](E6_augmentation.md)
+- [Results and analysis](results.md)
+- [Handover and compatibility](handover.md)
+- [Verification records](checks/README.md)
+- [Original documentation](history/)
+- [Demo status](../demo/README.md)
 
-- [Environment and E1 baseline](ENVIRONMENT.txt)
-- [E2 handover](E2_HANDOVER.md)
-- [E3 handover](E3_HANDOVER.md)
-- [E4 run notes](E4_RUN.txt)
-- [E5 run notes](E5_RUN.md)
-- [E6 guide](E6_START_HERE.md)
-- [Current handover / interpretation limits](HANDOVER_MAINTENANCE.md)
-- [Delivery layout and archive path mapping](DELIVERY_LAYOUT.md)
-- [Original 2026-11-10 maintenance narrative](history/HANDOVER_MAINTENANCE_20261110.md): historical statements, not current instructions.
-- [Demo handover status](../demo/README.md): source pending, no startup command yet.
-
-The experiments are complete. Run instructions are retained for reproducibility, not a request to rerun them. Preserve original archives and use a new output directory for any future run.
-
-- [E2 naming and compatibility](E2_NAMING.md)
+Paths in current guides are relative to the repository root. Original documentation is retained for provenance; its old paths are supported by compatibility links. Historical statements are not new experiment status reports.

@@ -42,65 +42,86 @@ E2's clean score is the E1 reference, not a separately trained model. E3 uses th
 - **Input denoising has mixed effects:** band-pass filtering falls below the noisy baseline on average, while wavelet denoising and DAE improve it. All three reduce clean-input performance.
 - **Noise augmentation achieves the highest mean noisy score in these experiments:** E6 improves over E2 by **15.22 percentage points**, while clean Macro-F1 decreases by **0.84 percentage points**. These differences use the unrounded means.
 
-These are descriptive results for the specified synthetic-noise protocol. They do not establish superiority under every noise condition or real-world device setting. The five training sets overlap, so the folds are not five independent repeat experiments. Reconstruction metrics apply to E3–E5; timing should only be compared when hardware and measurement protocols match. See [interpretation limits](docs/HANDOVER_MAINTENANCE.md).
+These are descriptive results for the specified synthetic-noise protocol. They do not establish superiority under every noise condition or real-world device setting. The five training sets overlap, so the folds are not five independent repeat experiments. Reconstruction metrics apply to E3–E5; timing should only be compared when hardware and measurement protocols match. See [interpretation limits](docs/handover.md).
 
-## Explore and analyze the results
 
-| Experiment | Archived results | Run and handover instructions |
-|---|---|---|
-| E1 | [Clean baseline](result/e1/) | [Environment and baseline notes](docs/ENVIRONMENT.txt) |
-| E2 | [Noisy baseline](result/e2_v2/) | [E2 guide](docs/E2_HANDOVER.md) |
-| E3 | [Band-pass results](result/e3_bandpass/) | [E3 guide](docs/E3_HANDOVER.md) |
-| E4 | [Wavelet results](result/e4_wavelet/) | [E4 guide](docs/E4_RUN.txt) |
-| E5 | [DAE results](result/e5_dae/) | [E5 guide](docs/E5_RUN.md) |
-| E6 | [Noise-augmentation results](result/e6_noise_augmentation/) | [E6 guide](docs/E6_START_HERE.md) |
+## Where to find things
 
-To summarize all five methods without rerunning any model, run this from the repository root:
-
-```bash
-python scripts/summarize_all_experiments.py --e3 result/e3_bandpass/comparison/selected_per_fold.csv --out result/local/analysis_summary
-```
-
-The output directory must not already exist. The script reads archived CSVs and creates `overall.csv` and `paired_vs_e2.csv`; it does not train models, perform inference or generate noise. Its default E2 source is the verified reference CSV in the E4 handover.
-
-### Presentation and report figures
-
-The [robustness comparison figures](reports/figures/robustness_comparison/README.md) contain an E1/E6 clean-performance trade-off comparison and an E4/E5 reconstruction-versus-classification example (full clean/noisy tables are retained), with PNG/SVG/PDF exports, plotting data and provenance. Figures are organized by content rather than slide number.
-
-```bash
-python scripts/plot_robustness_comparison.py --out result/local/robustness_figures
-```
-
-Use a new output directory. This only reads archived metrics and draws charts; it does not rerun experiments. Requires NumPy and Matplotlib.
-
-## Environment and running experiments
-
-The recorded project environment uses **Ubuntu/WSL, Python 3.10 and PyTorch 2.6.0**; GPU training uses CUDA. Read the [environment instructions](docs/ENVIRONMENT.txt) and the relevant experiment guide before installing dependencies or running an experiment. The dependency snapshot describes the working environment; a fresh installation has not been independently verified.
-
-EEG data, model checkpoints and full prediction NPZs are **shared separately** and are not included in a normal clone. Local locations can be configured with `SLEEP_DATA_DIR`, `SLEEP_BASELINE_DIR` and `SLEEP_RESULT_DIR`; individual guides document additional options and exceptions. In particular, the E2 resumable entry needs explicit `--data-dir` / `--baseline-dir`, and E6 output paths use `--out` rather than `SLEEP_RESULT_DIR`. Existing results can be analyzed without downloading the model weights.
-
-The current E2 evaluation entry is `scripts/run_e2_evaluation_resumable.py`; the shared noise API is `from noise_conditions import apply_noise` when `scripts/` is on the Python path. Old `*_v2` commands and imports remain compatible. The sole noise configuration is still `configs/noise_conditions_v2.json`, identifying the formal Noise v2 protocol. See [compatibility and path guidance](docs/E2_NAMING.md).
-
-For historical reproduction or resuming an old run, use its recorded code commit and environment. Preserve the archived results and manifests, and use a fresh output directory for any new experiment.
-
-## Repository guide
-
-| Directory | Contents |
+| Folder | Contents |
 |---|---|
-| [docs/](docs/README.md) | Environment, run instructions and handover guidance |
-| [configs/](configs/) | Subject splits, noise protocol and experiment settings |
-| [scripts/](scripts/) | Training, evaluation, verification and analysis tools |
-| [result/](result/) | Formal experiment archives |
-| [reports/](reports/README.md) | Analysis figures, data checks, reproduction evidence and integration audits |
-| [AttnSleep/](AttnSleep/) | Original author implementation and license |
-| [demo/](demo/README.md) | Reserved location for the forthcoming local web demo |
+| [code/](code/) | Our E1–E6 experiment entry points and shared functions |
+| [AttnSleep/](AttnSleep/) | Original AttnSleep model and supporting code |
+| [configs/](configs/) | Experiment settings, subject splits and Noise v2 protocol |
+| [result/](result/) | Original formal experiment results, grouped by E1–E6 |
+| [visualization/](visualization/) | Plotting code, source tables and exported figures, grouped by topic |
+| [docs/](docs/) | Setup, experiment guides, handover notes and checks |
+| [demo/](demo/) | Placeholder for the web demo; source still pending |
+| [local/](local/) | Local-only EEG, weights, logs and new outputs; not uploaded |
 
-## Local web demonstration
+```text
+Sleep/
+├── README.md
+├── requirements.txt
+├── AttnSleep/
+├── code/
+│   ├── E1_baseline.py
+│   ├── E2_noisy_baseline.py
+│   ├── E2_evaluation.py
+│   ├── E3_bandpass.py
+│   ├── E4_wavelet.py
+│   ├── E5_dae.py
+│   ├── E6_augmentation.py
+│   ├── noise.py, dae_model.py, wavelet.py, paths.py
+│   ├── summarize_results.py
+│   ├── data/
+│   └── checks/
+├── configs/
+│   ├── E1_baseline_fold0.json … E1_baseline_fold4.json
+│   ├── E4_wavelet.json, E5_dae.json, E6_augmentation.json
+│   ├── subject_splits.json
+│   └── noise.json
+├── result/
+│   ├── E1_baseline/
+│   ├── E2_noisy_baseline/
+│   ├── E3_bandpass/
+│   ├── E4_wavelet/
+│   ├── E5_dae/
+│   └── E6_augmentation/
+├── visualization/
+│   ├── E2_noise_effect/
+│   ├── noise_examples/
+│   ├── method_comparison/
+│   ├── clean_performance/
+│   ├── reconstruction/
+│   ├── E4_results/
+│   └── comparison_plots.py
+├── docs/
+│   ├── setup.md
+│   ├── E1_baseline.md … E6_augmentation.md
+│   ├── results.md
+│   ├── handover.md
+│   ├── checks/
+│   └── history/
+├── demo/
+└── local/
+    ├── data/
+    ├── weights/
+    ├── logs/
+    └── runs/
+```
 
-The planned demo will display EEG corruption, denoising and sleep-stage predictions. **Only a placeholder is currently included in `demo/`; there is no runnable webpage in this repository yet.** Once the source is delivered, its paths and sample predictions will be checked against the formal experiment archives.
+E2 shares the noise configuration; E3 keeps its existing parameter choices in code and archived selection records. No new E2/E3 parameter files have been invented.
 
-## Attribution and license
+## Getting started
 
-This project builds on [the original AttnSleep implementation](https://github.com/emadeldeen24/AttnSleep), vendored at commit `6b4d2665884628c8a7bb09f36589a8ec0992f8e2`. Please cite the original paper, *An attention-based deep learning approach for sleep stage classification with single-channel EEG* (Eldele et al., 2021). The author's [MIT license](AttnSleep/LICENSE) is retained, and compatibility changes are recorded in [author_compatibility.patch](patches/author_compatibility.patch).
+For a report or presentation, start with [results](docs/results.md) and [figures](visualization/README.md). For code, read [setup](docs/setup.md) and the [experiment guides](docs/README.md). The completed experiments do not need to be rerun.
 
-Sleep-EDF-20 is drawn from PhysioNet's Sleep-EDF Expanded database. Dataset use remains subject to its source terms; this repository does not grant a separate dataset license.
+Large EEG files, five-fold weights and full prediction NPZ packages are shared separately. GitHub contains the formal tables and audit records; it is not a complete copy of local experiment storage.
+
+## Compatibility and history
+
+Old `scripts/`, result names and selected root paths remain as compatibility links. They point to the same files, not duplicate implementations. Use the folders above for new work. The directory cleanup preserves experiment configurations, archived results and Noise v2 identity; it does not rename fields inside historical manifests.
+
+This layout uses relative symbolic links and is checked in **Ubuntu/WSL**. Windows-native clones must support Git symbolic links; that environment has not been validated. Historical reproduction/resume should use the recorded commit: current code-path changes can correctly trigger archived code-hash guards. Do not edit manifests to bypass them.
+
+See [the cleanup record](docs/checks/folder_cleanup/README.md) for source branches, path mappings and validation. The demo integration is deferred until its source is delivered.

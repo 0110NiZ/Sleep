@@ -1,0 +1,143 @@
+{
+  "unchanged_original_archive_files": 1051,
+  "unchanged_imported_figures_and_tables": 10,
+  "relative_links_checked": 75,
+  "experiment_code_AST_unchanged_except_import_path_bootstrap": [
+    "code/E1_baseline.py",
+    "code/E2_noisy_baseline.py",
+    "code/E2_evaluation.py",
+    "code/E3_bandpass.py",
+    "code/E4_wavelet.py",
+    "code/E5_dae.py",
+    "code/E6_augmentation.py",
+    "code/dae_model.py",
+    "code/wavelet.py",
+    "code/noise.py",
+    "code/paths.py",
+    "code/summarize_results.py",
+    "code/summarize_E6.py",
+    "code/finalize_E2.py",
+    "code/finalize_E3.py",
+    "code/finalize_E5.py",
+    "code/background_E5.py",
+    "code/data/download_data.py",
+    "code/data/preprocess_data.py",
+    "code/checks/check_subject_splits.py",
+    "code/checks/check_E5.py",
+    "code/checks/check_preprocessing.py",
+    "code/checks/check_E1.py"
+  ],
+  "python_syntax_files": 62,
+  "help_only_checks": [
+    {
+      "command": "code/E2_noisy_baseline.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "code/E2_evaluation.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "code/E3_bandpass.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "code/E4_wavelet.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "code/E5_dae.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "code/E6_augmentation.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "code/summarize_results.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "visualization/comparison_plots.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "visualization/clean_performance/plot.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "visualization/reconstruction/plot.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "visualization/method_comparison/plot.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "scripts/run_e2_evaluation_resumable.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "scripts/run_e3_bandpass.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "scripts/run_e4_wavelet.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "scripts/run_e5_dae.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "scripts/run_e6_noise_augmentation.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "scripts/run_e2_evaluation_v2.py --help",
+      "returncode": 0
+    },
+    {
+      "command": "scripts/run_e2_evaluation_v2_resumable.py --help",
+      "returncode": 0
+    }
+  ],
+  "E6_generator_hash_guard": true,
+  "E6_fixed_input_hashes_match": true,
+  "current_markdown_files_link_checked": 21,
+  "no_training_inference_or_plot_regeneration": true,
+  "errors": [],
+  "imported_plot_tables_vs_formal_results": {
+    "max_condition_delta_pp": 1.4210854715202004e-14,
+    "max_mean_delta_pp": 0.0,
+    "sd_delta_pp": {
+      "E2": 8.881784197001252e-16,
+      "E3": 0.0,
+      "E4": 1.0658141036401503e-14,
+      "E5": 0.0009080123438982568,
+      "E6": 0.00024162108686986983
+    },
+    "note": "Imported E5/E6 offline SDs are rounded; preserved as supplied. No plots regenerated."
+  },
+  "E6_full_protocol_validation": "passed without loading data or models",
+  "source_branches": {
+    "visualization-MAI": "dd28f22e95a1405b5aee8755e513302e366996ff",
+    "tang-ppt-figures": "d767e440b83483e9bc0b68f49062ac4ad8a394fc"
+  },
+  "historical_git_object_path_preserved": true,
+  "staged_regular_files_verified": 1146,
+  "staged_symlinks_verified": 75,
+  "large_data_or_weight_files_tracked": [],
+  "tracked_files_over_20_MiB": [
+    {
+      "path": "result/E2_noisy_baseline/predictions_with_ids.csv",
+      "bytes": 21456794
+    },
+    {
+      "path": "result/E3_bandpass/predictions/selected_predictions_with_ids.csv",
+      "bytes": 22302964
+    }
+  ],
+  "code_and_document_diff_whitespace_check": "passed",
+  "unchanged_export_formatting": "Imported CSV CRLF and generated SVG whitespace kept byte-identical; excluded from source formatting check."
+}
