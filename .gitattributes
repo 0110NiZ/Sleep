@@ -3,3 +3,4 @@ configs/noise_conditions_v2.json text eol=lf
 AttnSleep/model/model.py text eol=lf
 experiments/support/shared/noise_conditions.py text eol=lf
 figures/tables/*.csv text eol=lf
+results/E2_noisy_baseline/e2_per_fold.csv text eol=lf

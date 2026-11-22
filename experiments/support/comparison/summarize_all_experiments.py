@@ -1,8 +1,14 @@
 """Read archived E2-E6 scores; write only to a NEW directory. No inference."""
 import argparse, csv, json, statistics
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
+if not __package__:
+    sys.path.insert(0, str(ROOT))
+
+from experiments.support.shared.e2_reference import verified_e2_table
+
 def read_table(path):
     with Path(path).open(encoding="utf-8-sig", newline="") as f:
         rows=list(csv.DictReader(f))
@@ -18,13 +24,15 @@ def read_table(path):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--e3",type=Path,required=True,help="Formal selected_per_fold.csv, not one fixed filter")
-    p.add_argument("--e2",type=Path,default=ROOT/"results/e4_wavelet/e2_reference_per_fold.csv")
-    p.add_argument("--e4",type=Path,default=ROOT/"results/e4_wavelet/test_per_fold.csv")
-    p.add_argument("--e5",type=Path,default=ROOT/"results/e5_dae/test_per_fold.csv")
-    p.add_argument("--e6",type=Path,default=ROOT/"results/e6_noise_augmentation/test_per_fold.csv")
+    p.add_argument("--e2",type=Path,help="Override the archived E2 test scores")
+    p.add_argument("--e4",type=Path,default=ROOT/"results/E4_wavelet/test_per_fold.csv")
+    p.add_argument("--e5",type=Path,default=ROOT/"results/E5_dae/test_per_fold.csv")
+    p.add_argument("--e6",type=Path,default=ROOT/"results/E6_noise_augmentation/test_per_fold.csv")
     p.add_argument("--out",type=Path,required=True,help="Must not already exist")
     a=p.parse_args()
     if a.out.exists(): raise FileExistsError(f"Refusing to overwrite {a.out}")
+    if a.e2 is None:
+        a.e2 = verified_e2_table()
     tables={m:read_table(getattr(a,m.lower())) for m in ("E2","E3","E4","E5","E6")}
     names=[c["name"] for c in json.loads((ROOT/"configs/noise_conditions_v2.json").read_text())["conditions"]]
     expected={(f,c) for f in range(5) for c in names}

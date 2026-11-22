@@ -3,18 +3,24 @@ Run in repository root: python experiments/support/comparison/plot_robustness_co
 Requires numpy, matplotlib. Refuses to overwrite an existing output directory.
 """
 import argparse,csv,hashlib,json,statistics,subprocess
+import sys
 from pathlib import Path
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-ROOT=Path(__file__).resolve().parents[3]
+ROOT = Path(__file__).resolve().parents[3]
+if not __package__:
+    sys.path.insert(0, str(ROOT))
+
+from experiments.support.shared.e2_reference import verified_e2_table
+
 def source_commit():
     # A submission ZIP can be extracted outside Git or inside an unrelated repository.
     if not (ROOT / '.git').exists():
         return None
     return subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
-SOURCES={'E2':'results/e2_noisy_baseline/e2_per_fold.csv','E3':'results/e3_bandpass/comparison/selected_per_fold.csv','E4':'results/e4_wavelet/test_per_fold.csv','E5':'results/e5_dae/test_per_fold.csv','E6':'results/e6_noise_augmentation/test_per_fold.csv'}
+SOURCES={'E2':'results/E2_noisy_baseline/e2_per_fold.csv','E3':'results/E3_bandpass/comparison/selected_per_fold.csv','E4':'results/E4_wavelet/test_per_fold.csv','E5':'results/E5_dae/test_per_fold.csv','E6':'results/E6_noise_augmentation/test_per_fold.csv'}
 def read(p):
  with p.open(encoding='utf-8-sig',newline='') as f:rows=list(csv.DictReader(f))
  table={(int(r['fold']),r['condition']):r for r in rows}
@@ -24,15 +30,14 @@ def writecsv(p,rows):
  with p.open('w',encoding='utf-8',newline='') as f:
   w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
 def main():
- parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--out',type=Path,default=ROOT/'docs/additional_figures');args=parser.parse_args();out=args.out
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--out',type=Path,default=ROOT/'figures/additional');args=parser.parse_args();out=args.out
  if out.exists():raise FileExistsError(f'Refusing to overwrite {out}; use --out NEW_DIRECTORY')
- tables={k:read(ROOT/v) for k,v in SOURCES.items()};conditions=[x['name'] for x in json.loads((ROOT/'configs/noise_conditions_v2.json').read_text())['conditions']];expected={(i,c) for i in range(5) for c in conditions}
+ sources={k:ROOT/v for k,v in SOURCES.items()}
+ sources["E2"]=verified_e2_table()
+ tables={k:read(v) for k,v in sources.items()};conditions=[x['name'] for x in json.loads((ROOT/'configs/noise_conditions_v2.json').read_text())['conditions']];expected={(i,c) for i in range(5) for c in conditions}
  for k,t in tables.items():
   assert set(t)==expected,k
   assert all(0<=float(r['macro_f1_pct'])<=100 for r in t.values()),k
- # Independent reference archive must agree with E2 for all 50 scores.
- ref=read(ROOT/'results/e4_wavelet/e2_reference_per_fold.csv')
- assert all(abs(float(ref[k]['macro_f1_pct'])-float(tables['E2'][k]['macro_f1_pct']))<1e-9 for k in expected)
  overall=[];folds=[]
  for m,t in tables.items():
   c=[float(t[f,'Clean']['macro_f1_pct']) for f in range(5)]
@@ -50,7 +55,7 @@ def main():
  # Match the model colors in the presentation's all-method noisy comparison.
  model_colors={'E2':'#F59790','E6':'#CDE2E8'}
  clean_rows=[dict(method='E1' if r['method']=='E2' else r['method'],source_method=r['method'],clean_mean=r['clean_mean'],clean_sd=r['clean_sd'],color=model_colors[r['method']]) for r in overall if r['method'] in model_colors]
- writecsv(out/'clean_e1_e6_summary.csv',clean_rows)
+ writecsv(out/'clean_E1_E6_summary.csv',clean_rows)
  fig,ax=plt.subplots(figsize=(8.4,5.4))
  bars=ax.bar(['E1 Clean Baseline','E6 Augmentation'],[r['clean_mean'] for r in clean_rows],color=[r['color'] for r in clean_rows],width=.48,zorder=3)
  ax.bar_label(bars,labels=[f"{r['clean_mean']:.2f}%" for r in clean_rows],padding=9,fontsize=16,fontweight='bold',color='#394854')
@@ -60,10 +65,10 @@ def main():
  for side in ['top','right']:ax.spines[side].set_visible(False)
  for side in ['left','bottom']:ax.spines[side].set_color('#B7BEC4')
  fig.tight_layout(pad=1.8)
- for ext in ['png','svg','pdf']:fig.savefig(out/f'clean_e1_vs_e6_macro_f1.{ext}',dpi=300,facecolor='white')
+ for ext in ['png','svg','pdf']:fig.savefig(out/f'clean_E1_vs_E6_macro_f1.{ext}',dpi=300,facecolor='white')
  plt.close(fig)
  # Keep new text artifacts free of generated trailing whitespace.
- for name in ['clean_e1_e6_summary.csv','clean_e1_vs_e6_macro_f1.svg']:
+ for name in ['clean_E1_E6_summary.csv','clean_E1_vs_E6_macro_f1.svg']:
   f=out/name;f.write_text('\n'.join(line.rstrip() for line in f.read_text().splitlines())+'\n',encoding='utf-8')
  fig,axes=plt.subplots(1,2,figsize=(9,4.5))
  for ax,key,label,limit in [(axes[0],'rmse_mean_uv','RMSE (µV)',8),(axes[1],'macro_f1_mean','Macro-F1 (%)',80)]:
@@ -75,7 +80,7 @@ def main():
  for ext in ['png','svg','pdf']:fig.savefig(out/f'reconstruction_vs_classification_gaussian_medium.{ext}',dpi=300,facecolor='white')
  plt.close(fig)
  rmse_diff=comparison[0]['rmse_mean_uv']-comparison[1]['rmse_mean_uv'];f1_diff=comparison[0]['macro_f1_mean']-comparison[1]['macro_f1_mean']
- inputs=list(SOURCES.values())+['results/e4_wavelet/e2_reference_per_fold.csv','configs/noise_conditions_v2.json']
+ inputs=list(SOURCES.values())+['docs/checks/reproduction/E2_reference.sha256','configs/noise_conditions_v2.json']
  provenance={'source_commit':source_commit(),'plot_script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'clean_comparison_colors':model_colors,'sources_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in inputs},'python':__import__('sys').version,'matplotlib':matplotlib.__version__,'numpy':np.__version__,'e6_vs_e2_noisy_pp':float(n[-1]-n[0]),'e6_vs_e2_clean_pp':float(c[-1]-c[0]),'p9_rmse_difference_uv':rmse_diff,'p9_macro_f1_difference_pp':f1_diff}
  (out/'provenance.json').write_text(json.dumps(provenance,indent=2)+'\n')
  (out/'README.md').write_text('''# Robustness comparison figures
@@ -83,20 +88,20 @@ def main():
 Generated from formal archived test CSVs, not rounded PPT labels. No training or inference.
 
 - Style: white background and two-decimal value labels. Clean comparison model colors: E1 coral #F59790 and E6 pale blue #CDE2E8, matching the presentation all-method comparison. E4/E5 colors: yellow #EDDDAB and green #C2E5CF. Clean comparison uses two vertical bars with a 0–100% axis; reconstruction/classification comparison uses two basic bar charts.
-- Naming: E1 denotes the clean baseline experiment; E2 denotes the noisy evaluation of the same frozen classifier. The E2 archive contains the shared clean reference. The new plot labels it E1 Clean Baseline; `source_method=E2` in the figure CSV preserves this archive provenance. The original E2 archive and complete comparison tables are not renamed.
+- Naming: E1 denotes the clean baseline experiment; E2 denotes the noisy evaluation of the same frozen classifier. The E2 archive contains the shared clean reference. The new plot labels it E1 Clean Baseline; `source_method=E2` in the figure CSV preserves this archive provenance.
 - Clean comparison: E1 clean reference and E6 clean Macro-F1 only (75.08% and 74.24%). The E6 minus clean-baseline difference from unrounded means is -0.8431417448038587 percentage points, displayed as -0.84 pp. Clean means no additional synthetic noise. Clean values average the five clean fold scores. Full E2–E6 clean/noisy tables remain available for analysis. For their noisy mean, average nine conditions within each fold, then average five folds. CSV SD is sample SD over five fold values. E3 uses validation-selected per-fold filters.
 - Reconstruction/classification comparison: Gaussian_Medium only. Average per-fold reported RMSE and Macro-F1 for E4 and E5. Both methods use corresponding frozen E1 classifiers. The reported RMSE is averaged from archived fold metrics, not recomputed from pooled waveforms.
 - `clean_noisy_per_fold.csv` supports later paired descriptive analysis. No statistical significance is implied and folds are not independent repetitions.
 - PNG: 300 dpi for slides. SVG/PDF: vector outputs. SVG retains text. These are figure files; they do not contain PowerPoint chart workbooks. Source CSV and plotting script support regeneration.
 - Differences use unrounded source values; subtraction of displayed two-decimal labels can differ by 0.01 pp.
-- `provenance.json` records input hashes and source commit. Original result files remain unchanged. The obsolete clean_vs_noisy_macro_f1 PNG/SVG/PDF has been replaced by clean_e1_vs_e6_macro_f1; the former plotting block is removed.
+- `provenance.json` records input hashes and source commit. Its paths refer to the input files at that recorded revision.
 
 ## Files and interpretation
 
 | File | Contents |
 |---|---|
-| `clean_e1_vs_e6_macro_f1.png` | E1/E6 clean Macro-F1 only; zero-based vertical bars |
-| `clean_e1_e6_summary.csv` | Full-precision clean means, sample SDs and model colors for the new figure |
+| `clean_E1_vs_E6_macro_f1.png` | E1/E6 clean Macro-F1 only; zero-based vertical bars |
+| `clean_E1_E6_summary.csv` | Full-precision clean means, sample SDs and model colors for the new figure |
 | `reconstruction_vs_classification_gaussian_medium.png` | E4/E5 RMSE and Macro-F1 under Gaussian Medium; two bar charts |
 | `clean_noisy_summary.csv` | Five-fold means, sample SDs and clean/noisy gaps |
 | `clean_noisy_per_fold.csv` | Paired per-fold clean and noisy scores |
@@ -112,7 +117,7 @@ source .venv/bin/activate
 python experiments/support/comparison/plot_robustness_comparison.py --out /tmp/sleep-robustness-figures-new
 ```
 
-Use a new output directory. Requirements: numpy and matplotlib. The default output is `docs/additional_figures`; the script refuses to overwrite an existing directory.
+Use a new output directory. Requirements: numpy and matplotlib. The default output is `figures/additional`; the script refuses to overwrite an existing directory.
 ''',encoding='utf-8')
  print(json.dumps({'overall':overall,'p9':comparison,'differences':{k:v for k,v in provenance.items() if '_pp' in k or 'difference' in k}},indent=2))
 if __name__=='__main__':main()

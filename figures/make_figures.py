@@ -16,15 +16,15 @@ FAMILIES = ("Gaussian", "Drift", "Burst")
 LEVELS = ("Low", "Medium", "High")
 NOISY = [f"{family}_{level}" for family in FAMILIES for level in LEVELS]
 METHODS = {
-    "E2": ("Noisy baseline", "e2_noisy_baseline/e2_per_fold.csv"),
-    "E3": ("Band-pass", "e3_bandpass/comparison/selected_per_fold.csv"),
-    "E4": ("Wavelet", "e4_wavelet/test_per_fold.csv"),
-    "E5": ("DAE", "e5_dae/test_per_fold.csv"),
-    "E6": ("Augmentation", "e6_noise_augmentation/test_per_fold.csv"),
+    "E2": ("Noisy baseline", "E2_noisy_baseline/e2_per_fold.csv"),
+    "E3": ("Band-pass", "E3_bandpass/comparison/selected_per_fold.csv"),
+    "E4": ("Wavelet", "E4_wavelet/test_per_fold.csv"),
+    "E5": ("DAE", "E5_dae/test_per_fold.csv"),
+    "E6": ("Augmentation", "E6_noise_augmentation/test_per_fold.csv"),
 }
 PLOTS = [
-    "06_noise_impact", "07_clean_noisy_overview", "08_condition_heatmap",
-    "09_rmse_vs_f1", "10_stagewise_f1",
+    "E2_noise_impact", "clean_vs_noisy_macro_f1", "gain_vs_E2_by_noise_condition",
+    "E4_E5_rmse_vs_macro_f1", "E2_E5_E6_f1_by_sleep_stage",
 ]
 
 
@@ -55,7 +55,7 @@ def build_tables(destination):
             name: statistics.mean(float(table[fold, name]["macro_f1_pct"]) for fold in FOLDS)
             for name in ["Clean", *NOISY]
         }
-    baseline = read_rows("e1_clean_baseline/clean_baseline_5fold_results.csv")
+    baseline = read_rows("E1_clean_baseline/clean_baseline_5fold_results.csv")
     if len(baseline) != 5 or {int(row["fold"]) for row in baseline} != set(range(1, 6)):
         raise ValueError("Incomplete E1 test results")
     cpu = {r["fold"]: r for r in json.loads((REPO / "docs/checks/reproduction/e1_comparison.json").read_text())}
@@ -116,7 +116,7 @@ def main():
     for plot in PLOTS:
         subprocess.run([sys.executable, HERE / "plots" / (plot + ".py")], env=env, check=True)
     if args.data_dir:
-        subprocess.run([sys.executable, HERE / "plots/02_eeg_waveforms.py", "--data-dir", args.data_dir],
+        subprocess.run([sys.executable, HERE / "plots/test_eeg_with_noise.py", "--data-dir", args.data_dir],
                        env=env, check=True)
 
 

@@ -19,17 +19,17 @@ PROJECT=ROOT.parent
 sys.path.insert(0,str(PROJECT))
 sys.path.insert(0,str(PROJECT/'AttnSleep'))
 from model.model import AttnSleep
-from experiments.e5_dae.dae_model import DAE
+from experiments.E5_dae.dae_model import DAE
 from experiments.support.shared.noise_conditions import apply_noise
-from experiments.e4_wavelet.wavelet_denoising import denoise
+from experiments.E4_wavelet.wavelet_denoising import denoise
 read=lambda p:json.loads(p.read_text(encoding='utf-8'))
 splits=read(PROJECT/'configs/fivefold_subject_splits.json')
 files={name:f for f,fold in enumerate(splits['folds']) for name in fold['test']['files']}
 noise=read(PROJECT/'configs/noise_conditions_v2.json')
 wave_config=read(PROJECT/'configs/e4_wavelet.json')
-with (PROJECT/'results/e3_bandpass/comparison/parameter_selection.csv').open(encoding='utf-8-sig') as handle:
+with (PROJECT/'results/E3_bandpass/comparison/parameter_selection.csv').open(encoding='utf-8-sig') as handle:
     e3={int(row['fold']):row['selected_filter'] for row in csv.DictReader(handle)}
-selection=read(PROJECT/'results/e4_wavelet/selection_frozen.json')['folds']
+selection=read(PROJECT/'results/E4_wavelet/selection_frozen.json')['folds']
 e4={f:selection[str(f)]['candidate'] for f in range(5)}
 for f in range(5):
     for path in [args.baseline_dir/f'fold{f}'/'best_validation_macro_f1.pth',args.e5_dir/f'fold{f}'/'best.pth',args.e5_dir/f'fold{f}'/'selection.json',args.e6_dir/f'fold{f}'/'best.pth',args.e6_dir/f'fold{f}'/'selection.json']:
