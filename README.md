@@ -1,110 +1,48 @@
 # AttnSleep Robustness under Simulated EEG Noise
 
-For the course submission, see the [presentation figure index and reproduction commands](reports/figures/presentation/README.md). The six figures, plotting inputs and source code are included there. The experiment results below use the original archived test runs.
+**[Experiment code](experiments/) · [Test results](results/) · [PPT figures, data and plotting code](figures/README.md)**
 
-A COMP 4330SEF group project evaluating how simulated EEG noise affects single-channel sleep staging and comparing two strategies for improving robustness:
+We tested how three types of noise affect sleep staging from single-channel EEG. We compared cleaning the signal before classification with training AttnSleep on noisy examples. This is our COMP 4330SEF Group 7 project.
 
-- **Input denoising:** process EEG with band-pass filtering, wavelet denoising or a denoising autoencoder (DAE), then classify it with a frozen AttnSleep baseline.
-- **Noise-augmented training:** train AttnSleep with clean and corrupted inputs so that the classifier learns to handle interference directly.
+**[Open the live demo](https://sleep-lab-7qq.pages.dev/)** or [run the same demo locally](demo/README.md) with `python demo/serve.py`. It shows how E1–E6 handle the same test segment. Use the full test results below to compare methods across subjects.
 
-**E1–E6 are complete.** This repository contains the experiment code, configurations, archived results and analysis tools. The runnable E1–E6 browser demonstration is included in [demo/](demo/README.md).
+## Our six experiments
 
-## Experimental design
+| Experiment | What we did | Code | Test results |
+| --- | --- | --- | --- |
+| E1 · Clean baseline | Train AttnSleep and test with no added synthetic noise. | [Train](experiments/train_clean_fivefold.py) | [Five folds](results/e1_clean_baseline/clean_baseline_5fold_results.csv) |
+| E2 · Noisy baseline | Add noise to the EEG and test the same frozen E1 classifier. | [Evaluate](experiments/run_e2_evaluation_resumable.py) | [By fold and condition](results/e2_noisy_baseline/e2_per_fold.csv) |
+| E3 · Band-pass | Filter the input before the frozen classifier. Select the passband on validation data. | [Filter and evaluate](experiments/run_e3_bandpass.py) | [Selected filters on test data](results/e3_bandpass/comparison/selected_per_fold.csv) |
+| E4 · Wavelet | Apply wavelet denoising before the frozen classifier. | [Run E4](experiments/run_e4_wavelet.py) · [Denoiser](experiments/wavelet_denoising.py) | [By fold and condition](results/e4_wavelet/test_per_fold.csv) |
+| E5 · Denoising autoencoder | Train a DAE on noisy–clean pairs, then classify the reconstructed EEG with the frozen classifier. | [Train and evaluate](experiments/run_e5_dae.py) · [DAE model](experiments/dae_model.py) | [By fold and condition](results/e5_dae/test_per_fold.csv) |
+| E6 · Noise augmentation | Train a separate AttnSleep from random initialization on a mix of clean and noisy inputs. | [Train and evaluate](experiments/run_e6_noise_augmentation.py) | [By fold and condition](results/e6_noise_augmentation/test_per_fold.csv) |
 
-We use **Sleep-EDF-20**: 20 subjects, 39 nights and 42,308 single-channel Fpz-Cz EEG segments. Each segment is 30 seconds long, sampled at 100 Hz.
+## What we found
 
-All methods use the same subject-wise five-fold splits: 12 training, 4 validation and 4 test subjects per fold. All nights from a subject stay in the same partition within a fold. Noise is applied to the preprocessed 30-second segments, using three types—Gaussian white noise, baseline drift and oscillatory burst artifacts—at three severity levels each. Together with the clean condition, this gives ten evaluation conditions. Here, **clean means no additional synthetic noise**, not an artifact-free recording.
+| Method | Clean Macro-F1 (%) | Mean noisy Macro-F1 (%) |
+| --- | ---: | ---: |
+| E1 / E2 baseline | 75.08 ± 4.32 | 58.14 ± 3.46 |
+| E3 · Band-pass | 63.65 ± 7.77 | 55.98 ± 6.88 |
+| E4 · Wavelet | 71.42 ± 5.78 | 62.93 ± 5.81 |
+| E5 · DAE | 73.81 ± 3.61 | 69.89 ± 7.74 |
+| E6 · Noise augmentation | 74.24 ± 4.73 | **73.37 ± 4.46** |
 
-| Experiment | Method | Purpose |
-|---|---|---|
-| E1 | Clean AttnSleep baseline | Establish performance without additional synthetic noise |
-| E2 | Noisy baseline | Measure degradation using the same frozen baseline under noise |
-| E3 | Band-pass filtering + frozen baseline | Evaluate traditional frequency-based filtering |
-| E4 | Wavelet denoising + frozen baseline | Evaluate multiscale input denoising |
-| E5 | DAE + frozen baseline | Evaluate learned signal reconstruction |
-| E6 | Noise-augmented AttnSleep | Evaluate robustness learned during classifier training |
+E6 gained **15.22 percentage points** over E2 on noisy EEG and lost **0.84 points** against E1 on clean EEG, using unrounded scores. With the classifier frozen, E5 had the highest mean noisy score. Band-pass filtering lowered both scores. The [condition-by-condition figure](figures/images/08_condition_heatmap.png) shows how these averages vary with the type and strength of noise.
 
-Parameters and checkpoints are selected using validation data. E2–E6 share the same test segments and noise instances. E3–E5 retain the corresponding fold's frozen E1 classifier; E6 trains a separate AttnSleep from random initialization. This compares complete robustness strategies, rather than isolating a single training component. Exact noise settings and subject splits are in [configs/](configs/).
+We used Sleep-EDF-20 (20 subjects, 39 nights, 42,308 EEG segments). Each fold had 12 training, 4 validation and 4 test subjects. We applied three noise types at three strengths to the same test segments for E2–E6. We averaged the nine noisy scores within each fold, then reported the mean and sample standard deviation across five folds. “Clean” means no added synthetic noise. E2's clean reference comes from E1. [Subject splits and noise settings](configs/)
 
-## Main results
+The comparison covers complete strategies. We used one training seed and synthetic noise. The experiments do not isolate the effects of retraining, initialization or model selection, or establish performance on clinical artifacts. [Experiment notes](docs/experiment_notes.md)
 
-**Test Macro-F1 (%), five-fold mean ± sample standard deviation.** For the noisy score, we first average the nine noisy conditions within each fold, then calculate the mean and standard deviation across the five folds.
+## Run the code
 
-| Method | Clean Macro-F1 | Mean noisy Macro-F1 |
-|---|---:|---:|
-| E2 — Baseline | 75.08 ± 4.32 | 58.14 ± 3.46 |
-| E3 — Band-pass | 63.65 ± 7.77 | 55.98 ± 6.88 |
-| E4 — Wavelet | 71.42 ± 5.78 | 62.93 ± 5.81 |
-| E5 — DAE | 73.81 ± 3.61 | 69.89 ± 7.74 |
-| E6 — Noise augmentation | 74.24 ± 4.73 | **73.37 ± 4.46** |
-
-E2's clean score is the E1 reference, not a separately trained model. E3 uses the formal per-fold validation-selected filters, not the candidate with the highest test score.
-
-- **Noise substantially reduces baseline performance:** mean noisy Macro-F1 is 58.14%, compared with 75.08% on clean inputs.
-- **Input denoising has mixed effects:** band-pass filtering falls below the noisy baseline on average, while wavelet denoising and DAE improve it. All three reduce clean-input performance.
-- **Noise augmentation achieves the highest mean noisy score in these experiments:** E6 improves over E2 by **15.22 percentage points**, while clean Macro-F1 decreases by **0.84 percentage points**. These differences use the unrounded means.
-
-These are descriptive results for the specified synthetic-noise protocol. They do not establish superiority under every noise condition or real-world device setting. The five training sets overlap, so the folds are not five independent repeat experiments. Reconstruction metrics apply to E3–E5; timing should only be compared when hardware and measurement protocols match. See [interpretation limits](docs/HANDOVER_MAINTENANCE.md).
-
-## Explore and analyze the results
-
-| Experiment | Archived results | Run and handover instructions |
-|---|---|---|
-| E1 | [Clean baseline](result/e1/) | [Environment and baseline notes](docs/ENVIRONMENT.txt) |
-| E2 | [Noisy baseline](result/e2_v2/) | [E2 guide](docs/E2_HANDOVER.md) |
-| E3 | [Band-pass results](result/e3_bandpass/) | [E3 guide](docs/E3_HANDOVER.md) |
-| E4 | [Wavelet results](result/e4_wavelet/) | [E4 guide](docs/E4_RUN.txt) |
-| E5 | [DAE results](result/e5_dae/) | [E5 guide](docs/E5_RUN.md) |
-| E6 | [Noise-augmentation results](result/e6_noise_augmentation/) | [E6 guide](docs/E6_START_HERE.md) |
-
-To summarize all five methods without rerunning any model, run this from the repository root:
+- **Recreate the slides.** Follow the [figure guide](figures/README.md) to rebuild five charts from the archived results, or all six including the waveform with the original test EEG. The guide links each slide to its PNG, code and input data.
+- **Run an experiment.** The [run guides](docs/README.md) cover setup, data, weights and commands for each method. Original recordings, training checkpoints and full prediction bundles are distributed separately.
+- **Compare all methods.** From the repository root, run the command below with a fresh output directory to create `overall.csv` and `paired_vs_e2.csv` from the archived scores.
 
 ```bash
-python scripts/summarize_all_experiments.py --e3 result/e3_bandpass/comparison/selected_per_fold.csv --out result/local/analysis_summary
+python experiments/summarize_all_experiments.py --e3 results/e3_bandpass/comparison/selected_per_fold.csv --out results/local/analysis_summary
 ```
 
-The output directory must not already exist. The script reads archived CSVs and creates `overall.csv` and `paired_vs_e2.csv`; it does not train models, perform inference or generate noise. Its default E2 source is the verified reference CSV in the E4 handover.
+## Credits
 
-### Presentation and report figures
-
-The [robustness comparison figures](reports/figures/robustness_comparison/README.md) contain an E1/E6 clean-performance trade-off comparison and an E4/E5 reconstruction-versus-classification example (full clean/noisy tables are retained), with PNG/SVG/PDF exports, plotting data and provenance. Figures are organized by content rather than slide number.
-
-```bash
-python scripts/plot_robustness_comparison.py --out result/local/robustness_figures
-```
-
-Use a new output directory. This only reads archived metrics and draws charts; it does not rerun experiments. Requires NumPy and Matplotlib.
-
-## Environment and running experiments
-
-The recorded project environment uses **Ubuntu/WSL, Python 3.10 and PyTorch 2.6.0**; GPU training uses CUDA. Read the [environment instructions](docs/ENVIRONMENT.txt) and the relevant experiment guide before installing dependencies or running an experiment. The dependency snapshot describes the working environment; a fresh installation has not been independently verified.
-
-EEG data, model checkpoints and full prediction NPZs are **shared separately** and are not included in a normal clone. Local locations can be configured with `SLEEP_DATA_DIR`, `SLEEP_BASELINE_DIR` and `SLEEP_RESULT_DIR`; individual guides document additional options and exceptions. In particular, the E2 resumable entry needs explicit `--data-dir` / `--baseline-dir`, and E6 output paths use `--out` rather than `SLEEP_RESULT_DIR`. Existing results can be analyzed without downloading the model weights.
-
-The current E2 evaluation entry is `scripts/run_e2_evaluation_resumable.py`; the shared noise API is `from noise_conditions import apply_noise` when `scripts/` is on the Python path. Old `*_v2` commands and imports remain compatible. The sole noise configuration is still `configs/noise_conditions_v2.json`, identifying the formal Noise v2 protocol. See [compatibility and path guidance](docs/E2_NAMING.md).
-
-For historical reproduction or resuming an old run, use its recorded code commit and environment. Preserve the archived results and manifests, and use a fresh output directory for any new experiment.
-
-## Repository guide
-
-| Directory | Contents |
-|---|---|
-| [docs/](docs/README.md) | Environment, run instructions and handover guidance |
-| [configs/](configs/) | Subject splits, noise protocol and experiment settings |
-| [scripts/](scripts/) | Training, evaluation, verification and analysis tools |
-| [result/](result/) | Formal experiment archives |
-| [reports/](reports/README.md) | Analysis figures, data checks, reproduction evidence and integration audits |
-| [AttnSleep/](AttnSleep/) | Original author implementation and license |
-| [demo/](demo/README.md) | Runnable E1–E6 browser demo with models and a 50-segment demonstration subset |
-
-## Local web demonstration
-
-Run `python demo/serve.py` from the repository root, or double-click `demo/start_demo.bat` on Windows (Python 3.9+ required). The launcher opens http://127.0.0.1:8766/ and serves all required models and demo data locally. No PyTorch, full training dataset, or inference server is required for this browser demo.
-
-The [public demo](https://sleep-lab-7qq.pages.dev/) and the included five-second zoom interface retain E1–E6. Classification and E5 DAE inference run live in the browser; noise and E3/E4 waveforms are prepared inputs. See [setup, method mapping, validation and rebuilding](demo/README.md).
-
-## Attribution and license
-
-This project builds on [the original AttnSleep implementation](https://github.com/emadeldeen24/AttnSleep), vendored at commit `6b4d2665884628c8a7bb09f36589a8ec0992f8e2`. Please cite the original paper, *An attention-based deep learning approach for sleep stage classification with single-channel EEG* (Eldele et al., 2021). The author's [MIT license](AttnSleep/LICENSE) is retained, and compatibility changes are recorded in [author_compatibility.patch](patches/author_compatibility.patch).
-
-Sleep-EDF-20 is drawn from PhysioNet's Sleep-EDF Expanded database. Dataset use remains subject to its source terms; this repository does not grant a separate dataset license.
+We use [AttnSleep by Eldele et al. (2021)](https://github.com/emadeldeen24/AttnSleep), originally at commit `6b4d2665884628c8a7bb09f36589a8ec0992f8e2`. The [original implementation and MIT license](AttnSleep/) and our [compatibility changes](patches/author_compatibility.patch) are included. Sleep-EDF-20 is drawn from PhysioNet's Sleep-EDF Expanded database and is subject to the dataset's terms.

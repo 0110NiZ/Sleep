@@ -11,9 +11,9 @@ runs/*
 !runs/.gitkeep
 logs/*
 !logs/.gitkeep
-reports/*status.json
-reports/*.pid
-reports/*.lock
+docs/checks/*status.json
+docs/checks/*.pid
+docs/checks/*.lock
 *.edf
 *.npz
 *.pth
@@ -23,5 +23,5 @@ reports/*.lock
 # Local outputs, migration backups and shared weights
 **/.e3_active_run.txt
 .layout_migration_backup/
-result/local/
+results/local/
 Sleep_Baseline_5fold/

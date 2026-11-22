@@ -16,7 +16,7 @@ import torch
 import onnxruntime as ort
 from scipy.signal import butter,sosfiltfilt
 PROJECT=ROOT.parent
-sys.path.insert(0,str(PROJECT/'scripts'))
+sys.path.insert(0,str(PROJECT/'experiments'))
 sys.path.insert(0,str(PROJECT/'AttnSleep'))
 from model.model import AttnSleep
 from dae_model import DAE
@@ -27,9 +27,9 @@ splits=read(PROJECT/'configs/fivefold_subject_splits.json')
 files={name:f for f,fold in enumerate(splits['folds']) for name in fold['test']['files']}
 noise=read(PROJECT/'configs/noise_conditions_v2.json')
 wave_config=read(PROJECT/'configs/e4_wavelet.json')
-with (PROJECT/'result/e3_bandpass/comparison/parameter_selection.csv').open(encoding='utf-8-sig') as handle:
+with (PROJECT/'results/e3_bandpass/comparison/parameter_selection.csv').open(encoding='utf-8-sig') as handle:
     e3={int(row['fold']):row['selected_filter'] for row in csv.DictReader(handle)}
-selection=read(PROJECT/'result/e4_wavelet/selection_frozen.json')['folds']
+selection=read(PROJECT/'results/e4_wavelet/selection_frozen.json')['folds']
 e4={f:selection[str(f)]['candidate'] for f in range(5)}
 for f in range(5):
     for path in [args.baseline_dir/f'fold{f}'/'best_validation_macro_f1.pth',args.e5_dir/f'fold{f}'/'best.pth',args.e5_dir/f'fold{f}'/'selection.json',args.e6_dir/f'fold{f}'/'best.pth',args.e6_dir/f'fold{f}'/'selection.json']:
