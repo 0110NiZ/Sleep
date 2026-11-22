@@ -9,9 +9,9 @@ Stages:
     summary    - merge results and generate visualizations
 
 Run from repository root:
-    python experiments/run_e3_bandpass.py --stage validation --fold all
-    python experiments/run_e3_bandpass.py --stage test --fold all
-    python experiments/run_e3_bandpass.py --stage summary
+    python experiments/e3_bandpass/run_e3_bandpass.py --stage validation --fold all
+    python experiments/e3_bandpass/run_e3_bandpass.py --stage test --fold all
+    python experiments/e3_bandpass/run_e3_bandpass.py --stage summary
 
 Output:
     results/local/YYYYMMDD-HHMMSS-E3/ (default output root)
@@ -43,18 +43,21 @@ from scipy.signal import butter, sosfiltfilt
 # 1. Paths and imports
 # ============================================================
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
-sys.path.insert(0, str(ROOT / "experiments"))
 sys.path.insert(0, str(ROOT / "AttnSleep"))
 
 from model.model import AttnSleep
-from noise_conditions import apply_noise, apply_noise_v2
 
-import run_e2_evaluation as e2
+if not __package__:
+    sys.path.insert(0, str(ROOT))
+
+from experiments.support.shared.noise_conditions import apply_noise, apply_noise_v2
+
+from experiments.e2_noisy_baseline import run_e2_evaluation as e2
 
 
-from project_paths import BASELINE_DIR, RESULT_ROOT, E2_DIR, baseline_fold
+from experiments.support.shared.project_paths import BASELINE_DIR, RESULT_ROOT, E2_DIR, baseline_fold
 
 
 
@@ -229,11 +232,11 @@ def settings():
         ),
 
         "noise_generator_sha256": sha256(
-            ROOT / "experiments/noise_conditions.py"
+            ROOT / "experiments/support/shared/noise_conditions.py"
         ),
 
         "e2_evaluation_sha256": sha256(
-            ROOT / "experiments/run_e2_evaluation.py"
+            ROOT / "experiments/e2_noisy_baseline/run_e2_evaluation.py"
         ),
 
         "candidates": CANDIDATES,

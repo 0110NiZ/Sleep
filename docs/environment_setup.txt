@@ -43,7 +43,7 @@ requirements.txt 已指定 PyTorch 官方 CUDA 12.4 wheel 索引，其他依赖�
 https://github.com/emadeldeen24/AttnSleep
 作者基础提交：6b4d2665884628c8a7bb09f36589a8ec0992f8e2
 网络结构未改，预处理/训练辅助代码已做新版依赖兼容修改。
-正式五折入口：experiments/train_clean_fivefold.py
+正式五折入口：experiments/e1_clean_baseline/train_clean_fivefold.py
 固定受试者划分：configs/fivefold_subject_splits.json
 第一折配置：configs/clean_baseline_fold0.json
 训练、验证、测试分别12、4、4人；仅训练集标签计算权重；验证集Macro-F1选epoch。

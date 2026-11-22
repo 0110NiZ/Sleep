@@ -26,7 +26,7 @@ This writes five PNGs in `images/` and five CSVs in `tables/` inside the new out
 python figures/make_figures.py --out results/local/presentation-with-eeg --data-dir /path/to/processed/sleep-edf-20
 ```
 
-The waveform uses epoch 100 (zero-based) from test fold 0, stage N1, at 100 Hz with noise seed 123. The original EEG is distributed separately. See the [recording manifest](../docs/checks/sleep_edf20_manifest.json) and [preprocessing code](../experiments/preprocess_full.py).
+The waveform uses epoch 100 (zero-based) from test fold 0, stage N1, at 100 Hz with noise seed 123. The original EEG is distributed separately. See the [recording manifest](../docs/checks/sleep_edf20_manifest.json) and [preprocessing code](../experiments/support/data_prep/preprocess_full.py).
 
 ## How the numbers are calculated
 

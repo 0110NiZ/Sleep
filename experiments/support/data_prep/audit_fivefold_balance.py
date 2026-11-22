@@ -1,7 +1,7 @@
 from pathlib import Path
 import json,csv,hashlib
 import numpy as np,mne
-R=Path(__file__).resolve().parents[1];p=R/'configs/fivefold_subject_splits.json';before=hashlib.sha256(p.read_bytes()).hexdigest();split=json.loads(p.read_text());D=Path(split['data_directory'])
+R=Path(__file__).resolve().parents[3];p=R/'configs/fivefold_subject_splits.json';before=hashlib.sha256(p.read_bytes()).hexdigest();split=json.loads(p.read_text());D=Path(split['data_directory'])
 meta={}
 src=Path(mne.__file__).parent/'datasets/sleep_physionet/age_records.csv'
 for r in csv.DictReader(src.open()):

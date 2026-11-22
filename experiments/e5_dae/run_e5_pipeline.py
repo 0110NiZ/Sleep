@@ -1,7 +1,11 @@
 """Run verification, training and testing sequentially, recording failures."""
 import json,os,subprocess,sys,time,traceback
 from pathlib import Path
-from project_paths import ROOT, RESULT_ROOT
+
+if not __package__:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from experiments.support.shared.project_paths import ROOT, RESULT_ROOT
 root=ROOT
 out=RESULT_ROOT/'e5_dae';out.mkdir(parents=True,exist_ok=True)
 os.chdir(root)
@@ -10,7 +14,7 @@ try:
     for stage in ['verify','train','test']:
         (out/'pipeline_status.json').write_text(json.dumps(dict(stage=stage,pid=os.getpid(),started=time.time())))
         print('START STAGE',stage,flush=True)
-        subprocess.run([sys.executable,'experiments/run_e5_dae.py','--stage',stage],check=True)
+        subprocess.run([sys.executable,'experiments/e5_dae/run_e5_dae.py','--stage',stage],check=True)
     (out/'pipeline_status.json').write_text(json.dumps(dict(stage='complete',finished=time.time())))
 except Exception:
     (out/'pipeline_status.json').write_text(json.dumps(dict(stage='failed',error=traceback.format_exc())))

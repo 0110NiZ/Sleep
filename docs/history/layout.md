@@ -1,6 +1,6 @@
 # Archive path history
 
-Current folders: [experiments](../../experiments/), [results](../../results/), [presentation figures](../../figures/) and [checks](../checks/). In older records, `scripts/` means `experiments/`, `result/` means `results/`, and `reports/` usually means `docs/checks/`. The E1 and E2 archives are now `results/e1_clean_baseline/` and `results/e2_noisy_baseline/`. The table below describes the earlier layout.
+Current folders: [experiments](../../experiments/README.md), [results](../../results/), [presentation figures](../../figures/) and [checks](../checks/). For scripts listed in older records under `scripts/` or directly under `experiments/`, use the experiment index to find the matching E1–E6 method or shared tool. The E5 batch runner was renamed from `background_e5.py` to [run_e5_pipeline.py](../../experiments/e5_dae/run_e5_pipeline.py). In older records, `result/` means `results/`, and `reports/` usually means `docs/checks/`. The E1 and E2 archives are now `results/e1_clean_baseline/` and `results/e2_noisy_baseline/`. The table below describes the earlier layout.
 
 ## Round-one delivery layout
 

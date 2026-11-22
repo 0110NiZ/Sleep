@@ -59,13 +59,13 @@ PyTorch须是与你GPU驱动兼容的版本，建议对齐小组2.6.0环境。�
 在Sleep根目录运行：
 
 ```powershell
-python experiments/run_e6_noise_augmentation.py --stage check
+python experiments/e6_noise_augmentation/run_e6_noise_augmentation.py --stage check
 ```
 
 如果数据在 `F:\SleepData\clean`：
 
 ```powershell
-python experiments/run_e6_noise_augmentation.py --stage check --data-dir "F:\SleepData\clean"
+python experiments/e6_noise_augmentation/run_e6_noise_augmentation.py --stage check --data-dir "F:\SleepData\clean"
 ```
 
 check会核验共享代码/划分/配置，并列出缺失文件，不读取测试NPZ内容。正式train/smoke在每折加载train/validation时才逐文件核验哈希、形状和标签计数。需要看到missing_files为空。若CUDA=False，先解决GPU环境，不要直接开始完整训练。
@@ -75,7 +75,7 @@ check会核验共享代码/划分/配置，并列出缺失文件，不读取测�
 ## 5. 小规模试跑
 
 ```powershell
-python experiments/run_e6_noise_augmentation.py --stage smoke --device cuda
+python experiments/e6_noise_augmentation/run_e6_noise_augmentation.py --stage smoke --device cuda
 ```
 
 只用fold0的少量train/validation数据跑1轮，覆盖十种验证条件，不做正式测试。结果单独保存在 `results/local/e6_smoke/`，不会进入正式结果。
@@ -85,7 +85,7 @@ python experiments/run_e6_noise_augmentation.py --stage smoke --device cuda
 ## 6. 正式五折训练
 
 ```powershell
-python -u experiments/run_e6_noise_augmentation.py --stage train --device cuda
+python -u experiments/e6_noise_augmentation/run_e6_noise_augmentation.py --stage train --device cuda
 ```
 
 输出：`results/local/e6_noise_augmentation/`。
@@ -102,7 +102,7 @@ python -u experiments/run_e6_noise_augmentation.py --stage train --device cuda
 想先做fold0：
 
 ```powershell
-python -u experiments/run_e6_noise_augmentation.py --stage train --fold 0 --device cuda
+python -u experiments/e6_noise_augmentation/run_e6_noise_augmentation.py --stage train --fold 0 --device cuda
 ```
 
 之后使用不带 `--fold` 的相同命令，会跳过完成折并继续其他折。不要同时运行同一输出目录的两个进程。
@@ -112,7 +112,7 @@ python -u experiments/run_e6_noise_augmentation.py --stage train --fold 0 --devi
 ## 7. 五折选模全部完成后正式Test
 
 ```powershell
-python experiments/run_e6_noise_augmentation.py --stage test --device cuda
+python experiments/e6_noise_augmentation/run_e6_noise_augmentation.py --stage test --device cuda
 ```
 
 这里 `--device cuda` 用于匹配已记录的训练环境；正式测试按照配置在CPU进行，与E2/E5使用相同batch size和推理设备。它不加载E1或DAE权重。
@@ -132,12 +132,12 @@ test会检查五折都完成100轮、best哈希匹配、数据未改变，然后
 ## 8. 生成与E2/E4/E5的比较
 
 ```powershell
-python experiments/summarize_e6.py
+python experiments/e6_noise_augmentation/summarize_e6.py
 ```
 
 默认读取并写入 `results/local/e6_noise_augmentation/`，生成 `E6_RESULT_REPORT.md` 和 `paired_differences.csv`。该历史脚本不读取 `SLEEP_RESULT_DIR`；若使用其他输出根目录，须传 `--out /path/to/e6_output`，且不要指向正式归档。
 
-原 summarize_e6.py 是历史 E2/E4/E5/E6 比较入口。当前已整合 E3 正式结果，统一比较使用 experiments/summarize_all_experiments.py，并传入 results/e3_bandpass/comparison/selected_per_fold.csv。不能仅用55.98%构造逐折分析。
+原 summarize_e6.py 是历史 E2/E4/E5/E6 比较入口。当前已整合 E3 正式结果，统一比较使用 experiments/support/comparison/summarize_all_experiments.py，并传入 results/e3_bandpass/comparison/selected_per_fold.csv。不能仅用55.98%构造逐折分析。
 
 主要分析：九噪声平均Macro-F1、Clean变化、哪类噪声获益、强高斯是否仍不稳定、N1等各阶段变化、逐折方向是否一致、计算成本。50%配方未证明最优；固定一个训练seed；五折并非五次独立重复实验。不得仅因均值上升就宣称统计显著性。
 
@@ -147,6 +147,6 @@ E6不重建波形，所以RMSE/SNR improvement不适用。耗时以CPU模型前�
 
 提交源代码、配置、运行说明、环境记录、日志、50行逐折指标、十条件汇总、阶段指标、混淆矩阵、五折权重和50份预测。
 
-历史 E6 开发使用 `E6-noise-augmentation` 分支，已随 E1–E6 整合到 main。两轮目录与入口维护也已合并 main；旧入口仍兼容，见 [e2_compatibility.md](e2_compatibility.md)。
+E6 的正式代码在 [e6_noise_augmentation](../experiments/e6_noise_augmentation/) 中。历史记录里的噪声脚本名称见 [E2 文件对照](e2_compatibility.md)。
 
 `results/local/`、NPZ和PTH被原仓库.gitignore忽略。权重和预测通过组内共享存储交接；把体积小的正式结果复制到 `results/e6_noise_augmentation/` 后再提交，切勿把smoke或合成数据结果当成正式结果。

@@ -10,12 +10,12 @@ We tested how three types of noise affect sleep staging from single-channel EEG.
 
 | Experiment | What we did | Code | Test results |
 | --- | --- | --- | --- |
-| E1 · Clean baseline | Train AttnSleep and test with no added synthetic noise. | [Train](experiments/train_clean_fivefold.py) | [Five folds](results/e1_clean_baseline/clean_baseline_5fold_results.csv) |
-| E2 · Noisy baseline | Add noise to the EEG and test the same frozen E1 classifier. | [Evaluate](experiments/run_e2_evaluation_resumable.py) | [By fold and condition](results/e2_noisy_baseline/e2_per_fold.csv) |
-| E3 · Band-pass | Filter the input before the frozen classifier. Select the passband on validation data. | [Filter and evaluate](experiments/run_e3_bandpass.py) | [Selected filters on test data](results/e3_bandpass/comparison/selected_per_fold.csv) |
-| E4 · Wavelet | Apply wavelet denoising before the frozen classifier. | [Run E4](experiments/run_e4_wavelet.py) · [Denoiser](experiments/wavelet_denoising.py) | [By fold and condition](results/e4_wavelet/test_per_fold.csv) |
-| E5 · Denoising autoencoder | Train a DAE on noisy–clean pairs, then classify the reconstructed EEG with the frozen classifier. | [Train and evaluate](experiments/run_e5_dae.py) · [DAE model](experiments/dae_model.py) | [By fold and condition](results/e5_dae/test_per_fold.csv) |
-| E6 · Noise augmentation | Train a separate AttnSleep from random initialization on a mix of clean and noisy inputs. | [Train and evaluate](experiments/run_e6_noise_augmentation.py) | [By fold and condition](results/e6_noise_augmentation/test_per_fold.csv) |
+| E1 · Clean baseline | Train AttnSleep and test with no added synthetic noise. | [Train](experiments/e1_clean_baseline/train_clean_fivefold.py) | [Five folds](results/e1_clean_baseline/clean_baseline_5fold_results.csv) |
+| E2 · Noisy baseline | Add noise to the EEG and test the same frozen E1 classifier. | [Evaluate](experiments/e2_noisy_baseline/run_e2_evaluation_resumable.py) | [By fold and condition](results/e2_noisy_baseline/e2_per_fold.csv) |
+| E3 · Band-pass | Filter the input before the frozen classifier. Select the passband on validation data. | [Filter and evaluate](experiments/e3_bandpass/run_e3_bandpass.py) | [Selected filters on test data](results/e3_bandpass/comparison/selected_per_fold.csv) |
+| E4 · Wavelet | Apply wavelet denoising before the frozen classifier. | [Run E4](experiments/e4_wavelet/run_e4_wavelet.py) · [Denoiser](experiments/e4_wavelet/wavelet_denoising.py) | [By fold and condition](results/e4_wavelet/test_per_fold.csv) |
+| E5 · Denoising autoencoder | Train a DAE on noisy–clean pairs, then classify the reconstructed EEG with the frozen classifier. | [Train and evaluate](experiments/e5_dae/run_e5_dae.py) · [DAE model](experiments/e5_dae/dae_model.py) | [By fold and condition](results/e5_dae/test_per_fold.csv) |
+| E6 · Noise augmentation | Train a separate AttnSleep from random initialization on a mix of clean and noisy inputs. | [Train and evaluate](experiments/e6_noise_augmentation/run_e6_noise_augmentation.py) | [By fold and condition](results/e6_noise_augmentation/test_per_fold.csv) |
 
 ## What we found
 
@@ -40,7 +40,7 @@ The comparison covers complete strategies. We used one training seed and synthet
 - **Compare all methods.** From the repository root, run the command below with a fresh output directory to create `overall.csv` and `paired_vs_e2.csv` from the archived scores.
 
 ```bash
-python experiments/summarize_all_experiments.py --e3 results/e3_bandpass/comparison/selected_per_fold.csv --out results/local/analysis_summary
+python experiments/support/comparison/summarize_all_experiments.py --e3 results/e3_bandpass/comparison/selected_per_fold.csv --out results/local/analysis_summary
 ```
 
 ## Credits

@@ -2,7 +2,7 @@
 """E3 final analysis, without training, filtering or model inference.
 
 From Sleep/:
-    python experiments/finalize_e3_results.py
+    python experiments/e3_bandpass/finalize_e3_results.py
 
 Uses all ten Validation conditions (including Clean) to choose one A-D
 filter for EACH fold; only then extracts the corresponding saved Test outputs.
@@ -21,7 +21,7 @@ import numpy as np
 from sklearn.metrics import (accuracy_score, cohen_kappa_score,
                              confusion_matrix, precision_recall_fscore_support)
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 STAGES = ["W", "N1", "N2", "N3", "REM"]
 FILTERS = list("ABCD")
 

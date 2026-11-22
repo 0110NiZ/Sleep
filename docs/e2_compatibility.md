@@ -1,31 +1,14 @@
-# E2 naming maintenance (round two)
+# E2 files and the Noise v2 protocol
 
-Round one was merged into main at `61f4d48`. Round two (`4a1ec93`), developed on `maintenance/e2-naming-round2`, is now integrated into main.
+| Name in older runs | Current file |
+| --- | --- |
+| `noise_conditions_v2.py` | [Shared noise generator](../experiments/support/shared/noise_conditions.py) |
+| `run_e2_evaluation_v2.py` | [E2 evaluator](../experiments/e2_noisy_baseline/run_e2_evaluation.py) |
+| `run_e2_evaluation_v2_resumable.py` | [E2 entry point](../experiments/e2_noisy_baseline/run_e2_evaluation_resumable.py) |
+| `visualize_noise_v2.py` | [Noise preview](../experiments/support/shared/visualize_noise.py) |
 
-| Current entry | Compatible old entry |
-|---|---|
-| `experiments/noise_conditions.py`, `apply_noise` | `experiments/noise_conditions_v2.py`, `apply_noise_v2` |
-| `experiments/run_e2_evaluation.py` | `experiments/run_e2_evaluation_v2.py` |
-| `experiments/run_e2_evaluation_resumable.py` | `experiments/run_e2_evaluation_v2_resumable.py` |
-| `experiments/visualize_noise.py` | `experiments/visualize_noise_v2.py` |
+Use the [current E2 commands](run_e2.md) for new evaluations. The four older Python filenames in this table identify scripts in previous revisions. The [noise configuration](../configs/noise_conditions_v2.json) still defines the nine noisy test conditions and the clean reference.
 
-Old Python modules alias the canonical module object, including private helpers and mutable globals. Old CLI commands execute the canonical implementation. There is only one noise algorithm. The original generator is preserved verbatim in the canonical file, followed only by an `apply_noise` alias. E6 verifies the original content against the archived E5 hash before permitting any new run; it does not rewrite or bypass archived manifests.
+The original run records retain their paths and source hashes. E6 checks the noise generator against the source hash in the archived E5 manifest, accounting for the public function alias and the relocated config lookup in the standalone self-test. The [previous verification record](checks/e2_naming_round2/README.md) describes the earlier layout.
 
-## Paths and preserved records
-
-- `configs/noise_conditions_v2.json` remains the sole noise configuration, byte-identical, including `version: noise_v2`. No competing configuration is introduced.
-- Published `results/e2_noisy_baseline/` and all archived results, figures, reports, selection records and hashes stay untouched. This is a historical archive, not a second algorithm to delete.
-- New local E2 runs default to `SLEEP_RESULT_DIR/e2` (default root: `results/local`). If only an existing `e2_v2` directory is present under that root, it remains selected. If both exist, fail explicitly rather than guessing. Use a fresh output root for maintenance-code runs.
-- The resumable E2 entry accepts explicit `--output-dir`, including old paths; its new default is the local result directory, not the committed archive. No output was generated there by this maintenance.
-- The exact historical reference `c2547fb:result/e2_v2/predictions_with_ids.csv` remains unchanged.
-- Source hashes change when entry points/imports move. Resume historical experiments with the original commit/environment. Do not edit old manifests to make a new checkout resume them.
-
-## Verification and limits
-
-This maintenance checks old/new imports, CLI help, ten-condition noise equality against the pre-maintenance generator, batching and input layouts, protocol checks, archived file hashes and the descriptive summary. A small CPU inference comparison may verify rename equivalence; it is not a rerun of the five-fold experiment. No training, tuning or official output regeneration is authorized.
-
-The [browser demo](../demo/README.md) includes its model files, sample signals and validation commands.
-
-Checks passed; see [verification record](../docs/checks/e2_naming_round2/README.md). Runtime checks used an Ubuntu LF checkout, matching the original experiment environment. Windows CRLF conversion can trigger the existing byte-hash protections; do not bypass them.
-
-For actual E2 inference with the resumable entry, pass `--data-dir` and `--baseline-dir` explicitly: their defaults remain historical machine-specific paths. `--check-only --output-dir /path/to/full_e2_output` checks the full shared output, including prediction NPZs; the committed archive alone is insufficient for that check.
+New E2 outputs default to `results/local/e2/`. Set `SLEEP_RESULT_DIR` to choose another root or pass `--output-dir` to the resumable evaluator. An existing local `e2_v2/` folder is reused when it is the only E2 folder under that root. E5's reference `c2547fb:result/e2_v2/predictions_with_ids.csv` addresses a file at that historical commit.

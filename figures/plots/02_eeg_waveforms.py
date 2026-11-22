@@ -36,8 +36,8 @@ def main():
     assert clean.shape==(3000,) and np.isfinite(clean).all()
     cfg_path = args.project_dir/'configs/noise_conditions_v2.json'
     cfg = json.loads(cfg_path.read_text())
-    sys.path.insert(0,str(args.project_dir/'experiments'))
-    from noise_conditions import apply_noise_v2
+    sys.path.insert(0,str(args.project_dir))
+    from experiments.support.shared.noise_conditions import apply_noise_v2
     sample_id = f'{args.file}:{args.epoch_index}'
     conditions={c['name']:c for c in cfg['conditions']}
     arrays={'Clean':clean}
@@ -64,7 +64,7 @@ def main():
     meta={'source_file':source.name,'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
           'sample_id':sample_id,'epoch_index_zero_based':args.epoch_index,'stage':stage,'test_fold':args.fold,
           'splits_sha256':hashlib.sha256(args.splits.read_bytes()).hexdigest(),'config_file':'configs/noise_conditions_v2.json','seed':args.seed,
-          'generator_file':'experiments/noise_conditions.py',
+          'generator_file':'experiments/support/shared/noise_conditions.py',
           'unit':'μV','sampling_rate':100,'conditions':[conditions[k] for k in arrays],
           'note':'Actual preprocessed study epoch. All three noisy traces reuse this same epoch. No model inference or retraining.'}
     (OUTPUT/'02_eeg_waveforms.provenance.json').write_text(json.dumps(meta,indent=2,ensure_ascii=False)+'\n')

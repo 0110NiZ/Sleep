@@ -3,12 +3,16 @@ import argparse,csv,hashlib,json,os,platform,random,subprocess,time
 from pathlib import Path
 import numpy as np
 import torch
-from dae_model import DAE
-import run_e2_evaluation as e2
-from noise_conditions import apply_noise, apply_noise_v2
+import sys
 
-ROOT=Path(__file__).resolve().parents[1]
-from project_paths import BASELINE_DIR, RESULT_ROOT, configured, baseline_fold
+if not __package__:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from experiments.e5_dae.dae_model import DAE
+from experiments.e2_noisy_baseline import run_e2_evaluation as e2
+from experiments.support.shared.noise_conditions import apply_noise, apply_noise_v2
+
+from experiments.support.shared.project_paths import ROOT, BASELINE_DIR, RESULT_ROOT, configured, baseline_fold
 BASE=configured('E5_BASELINE_ROOT', BASELINE_DIR)
 OUT=RESULT_ROOT/'e5_dae'
 def load(p):return json.loads(Path(p).read_text(encoding='utf-8-sig'))
@@ -75,7 +79,7 @@ def audit(cfg,splits,conditions):
             assert np.isfinite(x).all();assert np.bincount(y,minlength=5).tolist()==row['class_counts']
             total+=len(y)
     assert total==42308
-    source=['experiments/dae_model.py','experiments/run_e5_dae.py','experiments/noise_conditions.py','experiments/run_e2_evaluation.py',
+    source=['experiments/e5_dae/dae_model.py','experiments/e5_dae/run_e5_dae.py','experiments/support/shared/noise_conditions.py','experiments/e2_noisy_baseline/run_e2_evaluation.py',
         'AttnSleep/model/model.py','configs/e5_dae.json','configs/noise_conditions_v2.json','configs/fivefold_subject_splits.json']
     manifest=dict(code={p:sha(ROOT/p) for p in source},data=hashes,weights=weights,config=cfg,
         python=platform.python_version(),torch=torch.__version__,numpy=np.__version__,

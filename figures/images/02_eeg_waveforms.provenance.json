@@ -8,7 +8,7 @@
   "splits_sha256": "33c3dfb60d6fcbb47d7bceaa35e61c2d552bc110a2bf5829d6481f552f2ab0e4",
   "config_file": "configs/noise_conditions_v2.json",
   "seed": 123,
-  "generator_file": "experiments/noise_conditions.py",
+  "generator_file": "experiments/support/shared/noise_conditions.py",
   "unit": "μV",
   "sampling_rate": 100,
   "conditions": [

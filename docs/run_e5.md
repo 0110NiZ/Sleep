@@ -11,11 +11,11 @@ cd /path/to/Sleep
 export SLEEP_DATA_DIR=/path/to/clean_npz
 export SLEEP_BASELINE_DIR=/path/to/fivefold_baseline
 export SLEEP_RESULT_DIR=/path/to/new_output_root
-python experiments/check_e5.py
-python experiments/run_e5_dae.py --smoke
-python experiments/run_e5_dae.py --stage verify
-python experiments/run_e5_dae.py --stage train
-python experiments/run_e5_dae.py --stage test
+python experiments/e5_dae/check_e5.py
+python experiments/e5_dae/run_e5_dae.py --smoke
+python experiments/e5_dae/run_e5_dae.py --stage verify
+python experiments/e5_dae/run_e5_dae.py --stage train
+python experiments/e5_dae/run_e5_dae.py --stage test
 ```
 
 `verify` reproduces all 423,080 original E2 CPU predictions with matching IDs and labels. It does not select DAE settings. Exact prediction agreement is required before E5 testing. E4 and E5 NPZ container hashes differ, but the x/y/fs/ch_label arrays from the actual experimental inputs were independently verified as identical. Object headers were not compared and the container-hash difference was not attributed to a confirmed cause. Original baseline weight hashes, split contents, per-record epoch counts and label counts are checked.

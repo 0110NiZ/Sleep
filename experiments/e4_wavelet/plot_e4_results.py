@@ -5,7 +5,12 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from project_paths import E2_DIR, RESULT_ROOT
+import sys
+
+if not __package__:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from experiments.support.shared.project_paths import E2_DIR, RESULT_ROOT
 
 def read(p):
  with p.open(encoding='utf-8-sig') as f:return list(csv.DictReader(f))

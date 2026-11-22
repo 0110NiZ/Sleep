@@ -1,5 +1,5 @@
 """Generate robustness comparison figures from archived formal results; no training/inference.
-Run in repository root: python experiments/plot_robustness_comparison.py
+Run in repository root: python experiments/support/comparison/plot_robustness_comparison.py
 Requires numpy, matplotlib. Refuses to overwrite an existing output directory.
 """
 import argparse,csv,hashlib,json,statistics,subprocess
@@ -8,7 +8,7 @@ import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(__file__).resolve().parents[3]
 def source_commit():
     # A submission ZIP can be extracted outside Git or inside an unrelated repository.
     if not (ROOT / '.git').exists():
@@ -109,7 +109,7 @@ From repository root in the Sleep environment:
 
 ```bash
 source .venv/bin/activate
-python experiments/plot_robustness_comparison.py --out /tmp/sleep-robustness-figures-new
+python experiments/support/comparison/plot_robustness_comparison.py --out /tmp/sleep-robustness-figures-new
 ```
 
 Use a new output directory. Requirements: numpy and matplotlib. The default output is `docs/additional_figures`; the script refuses to overwrite an existing directory.

@@ -29,7 +29,7 @@ From repository root in the Sleep environment:
 
 ```bash
 source .venv/bin/activate
-python experiments/plot_robustness_comparison.py --out /tmp/sleep-robustness-figures-new
+python experiments/support/comparison/plot_robustness_comparison.py --out /tmp/sleep-robustness-figures-new
 ```
 
 Use a new output directory. Requirements: numpy and matplotlib. The default output is `docs/additional_figures`; the script refuses to overwrite an existing directory.

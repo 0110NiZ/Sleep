@@ -4,9 +4,9 @@
 Uses the shared E2 implementation; the old command remains a compatibility entry.
 
 Usage:
-    python experiments/run_e2_evaluation_resumable.py --check-only
-    python experiments/run_e2_evaluation_resumable.py --fold all --conditions all
-    python experiments/run_e2_evaluation_resumable.py --fold 3 --conditions Gaussian_High
+    python experiments/e2_noisy_baseline/run_e2_evaluation_resumable.py --check-only
+    python experiments/e2_noisy_baseline/run_e2_evaluation_resumable.py --fold all --conditions all
+    python experiments/e2_noisy_baseline/run_e2_evaluation_resumable.py --fold 3 --conditions Gaussian_High
 
 Existing complete results are validated and skipped.
 """
@@ -21,15 +21,18 @@ from pathlib import Path
 import numpy as np
 import torch
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
-sys.path.insert(0, str(ROOT / "experiments"))
 sys.path.insert(0, str(ROOT / "AttnSleep"))
 
-import run_e2_evaluation as legacy_e2
-from project_paths import E2_DIR, baseline_fold
+
+if not __package__:
+    sys.path.insert(0, str(ROOT))
+
+from experiments.e2_noisy_baseline import run_e2_evaluation as legacy_e2
+from experiments.support.shared.project_paths import E2_DIR, baseline_fold
 from model.model import AttnSleep
-from noise_conditions import apply_noise, apply_noise_v2
+from experiments.support.shared.noise_conditions import apply_noise, apply_noise_v2
 
 
 def load_json(path):
@@ -107,7 +110,7 @@ def sha256(path):
 
 def verify_noise_modules():
     path = (
-        ROOT / "experiments/noise_conditions.py"
+        ROOT / "experiments/support/shared/noise_conditions.py"
     )
 
     if not path.is_file():
@@ -667,7 +670,7 @@ def main():
         print(
             "WARNING: derived pooled/stage results "
             "may be stale. "
-            "Rerun experiments/finalize_e2_results.py"
+            "Rerun experiments/e2_noisy_baseline/finalize_e2_results.py"
         )
 
     else:

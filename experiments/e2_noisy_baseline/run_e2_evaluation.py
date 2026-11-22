@@ -27,15 +27,18 @@ from sklearn.metrics import (
 # 1. Paths and imports
 # ============================================================
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 sys.path.insert(0, str(ROOT / "AttnSleep"))
-sys.path.insert(0, str(ROOT / "experiments"))
 
 from model.model import AttnSleep
-from noise_conditions import apply_noise, apply_noise_v2
 
-from project_paths import DATA_DIR, BASELINE_DIR, E2_DIR, baseline_fold
+if not __package__:
+    sys.path.insert(0, str(ROOT))
+
+from experiments.support.shared.noise_conditions import apply_noise, apply_noise_v2
+
+from experiments.support.shared.project_paths import DATA_DIR, BASELINE_DIR, E2_DIR, baseline_fold
 OUTPUT_DIR = E2_DIR
 
 SPLIT_FILE = (

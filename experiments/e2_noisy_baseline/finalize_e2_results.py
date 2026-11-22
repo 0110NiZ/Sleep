@@ -11,10 +11,10 @@ validates alignment and existing E2 metrics, then adds:
   - e2_analysis_manifest.json
 
 Usage (from Sleep repo root):
-  python experiments/finalize_e2_results.py
+  python experiments/e2_noisy_baseline/finalize_e2_results.py
 
 Optional different locations:
-  python experiments/finalize_e2_results.py --e2-dir results/e2_noisy_baseline \
+  python experiments/e2_noisy_baseline/finalize_e2_results.py --e2-dir results/e2_noisy_baseline \
       --data-dir /mnt/d/SleepProject/data/processed/sleep-edf-20
 """
 
@@ -34,7 +34,7 @@ from sklearn.metrics import (
     precision_recall_fscore_support,
 )
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 STAGES = ["W", "N1", "N2", "N3", "REM"]
 LABELS = list(range(5))
 CONDITIONS = [

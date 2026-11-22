@@ -5,10 +5,14 @@ from pathlib import Path
 import numpy as np
 import pywt
 import torch
-import run_e2_evaluation as e2
-from noise_conditions import apply_noise, apply_noise_v2
-from wavelet_denoising import denoise
-from project_paths import E2_DIR, ROOT, BASELINE_DIR, RESULT_ROOT, baseline_fold
+
+if not __package__:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from experiments.e2_noisy_baseline import run_e2_evaluation as e2
+from experiments.support.shared.noise_conditions import apply_noise, apply_noise_v2
+from experiments.e4_wavelet.wavelet_denoising import denoise
+from experiments.support.shared.project_paths import E2_DIR, ROOT, BASELINE_DIR, RESULT_ROOT, baseline_fold
 
 
 def save(path, obj):
@@ -129,7 +133,7 @@ def main():
     if args.fold!='all' and args.stage!='validation':ap.error('--fold is supported only for independent validation jobs')
     out=args.output_dir.resolve();out.mkdir(parents=True,exist_ok=True)
     config=load(ROOT/'configs/e4_wavelet.json');noise=load(ROOT/'configs/noise_conditions_v2.json');splits=load(ROOT/'configs/fivefold_subject_splits.json')
-    files=['configs/e4_wavelet.json','configs/noise_conditions_v2.json','configs/fivefold_subject_splits.json','experiments/noise_conditions.py','experiments/wavelet_denoising.py','experiments/run_e4_wavelet.py','experiments/run_e2_evaluation.py','AttnSleep/model/model.py']
+    files=['configs/e4_wavelet.json','configs/noise_conditions_v2.json','configs/fivefold_subject_splits.json','experiments/support/shared/noise_conditions.py','experiments/e4_wavelet/wavelet_denoising.py','experiments/e4_wavelet/run_e4_wavelet.py','experiments/e2_noisy_baseline/run_e2_evaluation.py','AttnSleep/model/model.py']
     hashes={f:digest(ROOT/f) for f in files}
     hashes.update({f'checkpoint_fold{f}':digest(baseline_fold(f)/'best_validation_macro_f1.pth') for f in range(5)})
     datafiles=sorted({name for fold in splits['folds'] for name in fold['test']['files']})

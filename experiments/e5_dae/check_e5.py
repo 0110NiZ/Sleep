@@ -1,8 +1,14 @@
 """Small contract checks, using training examples only."""
 import numpy as np
 import torch
-from run_e5_dae import ROOT,load,read_group,baseline,noisy
-from dae_model import DAE
+import sys
+from pathlib import Path
+
+if not __package__:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from experiments.e5_dae.run_e5_dae import ROOT,load,read_group,baseline,noisy
+from experiments.e5_dae.dae_model import DAE
 torch.set_num_threads(4)
 s=load(ROOT/'configs/fivefold_subject_splits.json')['folds'][0]
 x,_,ids=read_group(s['train']);x=x[:8];ids=ids[:8];original=x.copy()

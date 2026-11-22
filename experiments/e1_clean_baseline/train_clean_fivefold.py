@@ -1,7 +1,7 @@
 """Train exactly one configured fold; test labels are read only after best epoch is frozen."""
 from pathlib import Path
 import os,sys,json,time,hashlib,subprocess,random,fcntl
-R=Path(__file__).resolve().parents[1];sys.path.insert(0,str(R/'AttnSleep'))
+R=Path(__file__).resolve().parents[2];sys.path.insert(0,str(R/'AttnSleep'))
 import numpy as np
 import torch
 from torch.utils.data import TensorDataset,DataLoader

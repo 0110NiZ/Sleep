@@ -11,7 +11,6 @@ Four waveforms per figure:
 Uses the same noise configuration, sample IDs, and seed
 as run_e2_evaluation.py.
 
-The original visualize_noise.py is not modified.
 """
 
 import argparse
@@ -24,15 +23,20 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from noise_conditions import apply_noise, apply_noise_v2
-from project_paths import E2_DIR
+import sys
+
+if not __package__:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+
+from experiments.support.shared.noise_conditions import apply_noise, apply_noise_v2
+from experiments.support.shared.project_paths import E2_DIR
 
 
 # ============================================================
 # 1. Paths
 # ============================================================
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[3]
 
 DATA_DIR = Path(
     "/mnt/d/SleepProject/data/processed/sleep-edf-20"

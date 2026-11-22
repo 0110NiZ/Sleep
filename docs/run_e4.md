@@ -23,9 +23,9 @@ Raw EEG, processed EEG and weights are not committed to Git.
 
 Optional reproduction commands from the repository root, using your compatible environment and a fresh SLEEP_RESULT_DIR (the default is results/local):
 ```bash
-python experiments/run_e4_wavelet.py --stage validation
-python experiments/run_e4_wavelet.py --stage test
-python experiments/run_e4_wavelet.py --stage summary
+python experiments/e4_wavelet/run_e4_wavelet.py --stage validation
+python experiments/e4_wavelet/run_e4_wavelet.py --stage test
+python experiments/e4_wavelet/run_e4_wavelet.py --stage summary
 ```
 Or use --stage all. Completed condition JSONs are reused only when the
 recorded source/configuration/checkpoint/data hashes match.
@@ -66,9 +66,9 @@ python -m venv .venv
 Activate the environment using your platform's activation command.
 ```bash
 python -m pip install -r requirements-e4.txt
-python experiments/run_e2_evaluation.py --fold all --conditions all
-python experiments/run_e4_wavelet.py --stage all
-python experiments/plot_e4_results.py
+python experiments/e2_noisy_baseline/run_e2_evaluation.py --fold all --conditions all
+python experiments/e4_wavelet/run_e4_wavelet.py --stage all
+python experiments/e4_wavelet/plot_e4_results.py
 ```
 
 The archived completed run is in results/e4_wavelet; new runs go to

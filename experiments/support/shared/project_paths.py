@@ -1,7 +1,7 @@
 """Local paths only; experiment settings remain in configs/."""
 import os
 from pathlib import Path
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[3]
 def configured(name, default):
     value = Path(os.environ.get(name, str(default))).expanduser()
     return value.resolve() if value.is_absolute() else (ROOT / value).resolve()

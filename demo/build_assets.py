@@ -16,12 +16,12 @@ import torch
 import onnxruntime as ort
 from scipy.signal import butter,sosfiltfilt
 PROJECT=ROOT.parent
-sys.path.insert(0,str(PROJECT/'experiments'))
+sys.path.insert(0,str(PROJECT))
 sys.path.insert(0,str(PROJECT/'AttnSleep'))
 from model.model import AttnSleep
-from dae_model import DAE
-from noise_conditions import apply_noise
-from wavelet_denoising import denoise
+from experiments.e5_dae.dae_model import DAE
+from experiments.support.shared.noise_conditions import apply_noise
+from experiments.e4_wavelet.wavelet_denoising import denoise
 read=lambda p:json.loads(p.read_text(encoding='utf-8'))
 splits=read(PROJECT/'configs/fivefold_subject_splits.json')
 files={name:f for f,fold in enumerate(splits['folds']) for name in fold['test']['files']}

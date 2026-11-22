@@ -3,9 +3,9 @@
 From the repository root, use the preprocessed EEG, five E1 checkpoints and the corresponding full E2 working output. Use the same local output root throughout the three stages.
 
 ```bash
-python experiments/run_e3_bandpass.py --stage validation --fold all
-python experiments/run_e3_bandpass.py --stage test --fold all
-python experiments/run_e3_bandpass.py --stage summary
+python experiments/e3_bandpass/run_e3_bandpass.py --stage validation --fold all
+python experiments/e3_bandpass/run_e3_bandpass.py --stage test --fold all
+python experiments/e3_bandpass/run_e3_bandpass.py --stage summary
 ```
 
 ## 1. Overview
@@ -54,7 +54,7 @@ E3 uses the same configuration as E2.
 
 - `configs/fivefold_subject_splits.json`
 - `configs/noise_conditions_v2.json`
-- `experiments/noise_conditions.py`
+- `experiments/support/shared/noise_conditions.py`
 
 See [run_e2.md](run_e2.md) for the complete Noise v2 definitions and reproducibility requirements.
 
@@ -315,7 +315,7 @@ Signal-quality improvements do not necessarily translate into improved classific
 
 ### 9.1 Original E3 Experiment
 
-`experiments/run_e3_bandpass.py`
+`experiments/e3_bandpass/run_e3_bandpass.py`
 
 The original experiment implements:
 
@@ -329,11 +329,11 @@ Historical source code and experiment metadata are retained for reproducibility.
 
 ### 9.2 E3 Finalization
 
-`experiments/finalize_e3_results.py`
+`experiments/e3_bandpass/finalize_e3_results.py`
 
 **Optional finalization on a working copy only:**
 
-`python experiments/finalize_e3_results.py --e3-dir /path/to/e3_working_copy --e2-dir /path/to/full_e2_output`
+`python experiments/e3_bandpass/finalize_e3_results.py --e3-dir /path/to/e3_working_copy --e2-dir /path/to/full_e2_output`
 
 Replace the example paths and supply the required saved predictions. This writes into the E3 working copy; its default points to the committed archive. Do not rerun it on the original archive. For ordinary comparisons, use the root README summary command, which reads the already finalized CSVs.
 

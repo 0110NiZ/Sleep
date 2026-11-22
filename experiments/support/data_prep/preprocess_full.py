@@ -1,7 +1,7 @@
 from pathlib import Path
 import subprocess,json,os,time,hashlib,sys
 import numpy as np
-R=Path(__file__).resolve().parents[1]; S=R/'results/data_preparation/preprocess_full_status.json'
+R=Path(__file__).resolve().parents[3]; S=R/'results/data_preparation/preprocess_full_status.json'
 S.parent.mkdir(parents=True, exist_ok=True)
 def status(stage,**extra):
  d=dict(stage=stage,pid=os.getpid(),updated_unix=time.time(),**extra)

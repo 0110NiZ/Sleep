@@ -445,7 +445,7 @@ def apply_noise_v2(
 if __name__ == "__main__":
 
     config_path = (
-        Path(__file__).resolve().parents[1]
+        Path(__file__).resolve().parents[3]
         / "configs"
         / "noise_conditions_v2.json"
     )

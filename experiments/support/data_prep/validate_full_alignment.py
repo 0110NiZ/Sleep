@@ -1,7 +1,11 @@
 from pathlib import Path
 import numpy as np
 import mne,json,sys
-from project_paths import ROOT, DATA_DIR, RAW_DIR
+
+if not __package__:
+    sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+
+from experiments.support.shared.project_paths import ROOT, DATA_DIR, RAW_DIR
 mapping={'Sleep stage W':0,'Sleep stage 1':1,'Sleep stage 2':2,'Sleep stage 3':3,'Sleep stage 4':3,'Sleep stage R':4}
 reports=[]
 early='--early' in sys.argv

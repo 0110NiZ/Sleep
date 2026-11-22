@@ -3,7 +3,7 @@
 Run from the repository root with the 39 preprocessed recordings and five E1 checkpoints. Use a fresh output directory for a new evaluation.
 
 ```bash
-python experiments/run_e2_evaluation_resumable.py --fold all --conditions all --data-dir data/processed/sleep-edf-20 --baseline-dir Sleep_Baseline_5fold --output-dir results/local/e2
+python experiments/e2_noisy_baseline/run_e2_evaluation_resumable.py --fold all --conditions all --data-dir data/processed/sleep-edf-20 --baseline-dir Sleep_Baseline_5fold --output-dir results/local/e2
 ```
 
 If you trained E1 with this repository's configs, use `--baseline-dir runs/clean_baseline_5fold`. The two supported checkpoint layouts are `fold0`–`fold4` and `fold0_seed123`–`fold4_seed123`.
@@ -57,7 +57,7 @@ The E1 checkpoints are reused for inference. E2 does not retrain AttnSleep.
 
 **Noise generator:**
 
-`experiments/noise_conditions.py`
+`experiments/support/shared/noise_conditions.py`
 
 **Noise configuration:**
 
@@ -215,13 +215,13 @@ These identities allow subsequent analysis by subject, recording, epoch, noise c
 
 ### 7.1 Current Shared E2 Evaluation
 
-`experiments/run_e2_evaluation.py`
+`experiments/e2_noisy_baseline/run_e2_evaluation.py`
 
-This is the maintained shared evaluator, using `project_paths.py` for local paths. The old `run_e2_evaluation_v2.py` entry forwards to it. Historical E3 source hashes refer to the original experiment revision, not to the maintained file or compatibility wrapper. Retrieve that recorded revision for historical reproduction.
+This evaluator uses the [shared paths](../experiments/support/shared/project_paths.py) for local data and checkpoints. Historical E3 source hashes refer to the revision recorded for the original run.
 
 ### 7.2 Resumable E2 Evaluation
 
-`experiments/run_e2_evaluation_resumable.py`
+`experiments/e2_noisy_baseline/run_e2_evaluation_resumable.py`
 
 This additional script supports configurable paths, checking existing results and fold-condition-level resumable execution.
 
@@ -229,7 +229,7 @@ New local runs default to `results/local/e2/` (or `SLEEP_RESULT_DIR/e2`); an exi
 
 **Verify completed E2 results:**
 
-`python experiments/run_e2_evaluation_resumable.py --check-only --output-dir /path/to/full_e2_output`
+`python experiments/e2_noisy_baseline/run_e2_evaluation_resumable.py --check-only --output-dir /path/to/full_e2_output`
 
 Replace the example path with the full shared E2 output containing CSV/JSON files and all 50 prediction NPZs. The Git archive alone does not contain those NPZs; a missing-file report after cloning is not an experimental failure.
 
@@ -243,11 +243,11 @@ This operation does not perform model inference. For an intentional new evaluati
 
 ### 7.3 E2 Postprocessing
 
-`experiments/finalize_e2_results.py`
+`experiments/e2_noisy_baseline/finalize_e2_results.py`
 
 **Optional postprocessing on a working copy only:**
 
-`python experiments/finalize_e2_results.py --e2-dir /path/to/e2_working_copy --data-dir /path/to/clean_npz`
+`python experiments/e2_noisy_baseline/finalize_e2_results.py --e2-dir /path/to/e2_working_copy --data-dir /path/to/clean_npz`
 
 Replace both paths. This writes into the supplied E2 directory; the default points to the committed archive. Completed results require no finalization rerun. Use the root README summary command for read-only analysis of the published scores.
 
@@ -292,7 +292,7 @@ The sample-identified prediction CSV contains labels and identities, not complet
 - E2 uses frozen E1 AttnSleep checkpoints.
 - All five Test folds and ten conditions have been completed.
 - E2 sample identities and pooled metrics have been generated and verified.
-- The original E2 evaluation code is retained in Git history; current old-name entries are compatibility wrappers.
+- See the [E2 file guide](e2_compatibility.md) to map names in earlier reports to the current scripts.
 - No model retraining is required for the completed E2 postprocessing.
 
 **E2 experiment and statistical analysis: Completed.**

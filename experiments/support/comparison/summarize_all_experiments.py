@@ -2,7 +2,7 @@
 import argparse, csv, json, statistics
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[3]
 def read_table(path):
     with Path(path).open(encoding="utf-8-sig", newline="") as f:
         rows=list(csv.DictReader(f))

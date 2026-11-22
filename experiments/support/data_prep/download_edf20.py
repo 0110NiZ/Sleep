@@ -4,7 +4,7 @@ from urllib.request import Request,urlopen
 from concurrent.futures import ThreadPoolExecutor,as_completed
 import csv,hashlib,json,re,time,os,threading,fcntl
 import mne
-R=Path(__file__).resolve().parents[1]; D=R/'data/raw/sleep-edf-20'; P=R/'data/.downloads/sleep-edf-20'
+R=Path(__file__).resolve().parents[3]; D=R/'data/raw/sleep-edf-20'; P=R/'data/.downloads/sleep-edf-20'
 S=R/'results/data_preparation/download_edf20_status.json'; BASE='https://physionet.org/files/sleep-edfx/1.0.0/sleep-cassette/'
 S.parent.mkdir(parents=True, exist_ok=True)
 D.mkdir(parents=True,exist_ok=True); P.mkdir(parents=True,exist_ok=True)
