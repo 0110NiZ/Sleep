@@ -1,0 +1,22 @@
+Sleep-EDF Expanded, Bob Kemp, PhysioNet, version 1.0.0.
+https://physionet.org/content/sleep-edfx/1.0.0/
+DOI: https://doi.org/10.13026/C2X676
+License: Open Data Commons Attribution License v1.0.
+https://physionet.org/content/sleep-edfx/view-license/1.0.0/
+Local copy: DATA-LICENSE.html.
+This demonstration includes derived 30-second Fpz-Cz EEG segments and
+preprocessed/noise-perturbed derivatives of the public dataset, with original
+record and epoch identifiers retained. It does not redistribute full nights.
+
+Original publication:
+B Kemp, AH Zwinderman, B Tuk, HAC Kamphuisen, JJL Oberye.
+Analysis of a sleep-dependent neuronal feedback loop: the slow-wave
+microcontinuity of the EEG. IEEE-BME 47(9):1185-1194 (2000).
+https://doi.org/10.1109/10.867928
+
+PhysioNet:
+Pollard et al. PhysioNet as a global platform for biomedical research.
+Nature Health (2026). https://doi.org/10.1038/s44360-026-00096-z
+
+AttnSleep code: Copyright (c) 2020 Emadeldeen Eldele, MIT license.
+ONNX Runtime: Microsoft, MIT license. See accompanying license files.

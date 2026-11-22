@@ -7,7 +7,7 @@ A COMP 4330SEF group project evaluating how simulated EEG noise affects single-c
 - **Input denoising:** process EEG with band-pass filtering, wavelet denoising or a denoising autoencoder (DAE), then classify it with a frozen AttnSleep baseline.
 - **Noise-augmented training:** train AttnSleep with clean and corrupted inputs so that the classifier learns to handle interference directly.
 
-**E1–E6 are complete.** This repository contains the experiment code, configurations, archived results and analysis tools. The web demonstration is awaiting source-code delivery.
+**E1–E6 are complete.** This repository contains the experiment code, configurations, archived results and analysis tools. The runnable E1–E6 browser demonstration is included in [demo/](demo/README.md).
 
 ## Experimental design
 
@@ -95,11 +95,13 @@ For historical reproduction or resuming an old run, use its recorded code commit
 | [result/](result/) | Formal experiment archives |
 | [reports/](reports/README.md) | Analysis figures, data checks, reproduction evidence and integration audits |
 | [AttnSleep/](AttnSleep/) | Original author implementation and license |
-| [demo/](demo/README.md) | Reserved location for the forthcoming local web demo |
+| [demo/](demo/README.md) | Runnable E1–E6 browser demo with models and a 50-segment demonstration subset |
 
 ## Local web demonstration
 
-The planned demo will display EEG corruption, denoising and sleep-stage predictions. **Only a placeholder is currently included in `demo/`; there is no runnable webpage in this repository yet.** Once the source is delivered, its paths and sample predictions will be checked against the formal experiment archives.
+Run `python demo/serve.py` from the repository root, or double-click `demo/start_demo.bat` on Windows (Python 3.9+ required). The launcher opens http://127.0.0.1:8766/ and serves all required models and demo data locally. No PyTorch, full training dataset, or inference server is required for this browser demo.
+
+The [public demo](https://sleep-lab-7qq.pages.dev/) and the included five-second zoom interface retain E1–E6. Classification and E5 DAE inference run live in the browser; noise and E3/E4 waveforms are prepared inputs. See [setup, method mapping, validation and rebuilding](demo/README.md).
 
 ## Attribution and license
 

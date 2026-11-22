@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sleep Lab | EEG Classification</title><style>
+:root{font-family:Segoe UI,Microsoft YaHei,sans-serif;color:#172a38;background:#f3f6f8}*{box-sizing:border-box}body{margin:0}header{background:#102c3a;color:white;padding:30px max(5vw,24px)}header small{color:#6ee7c3;letter-spacing:3px}h1{font-size:30px;margin:10px 0}header p{color:#bfced7;margin:0}main{max-width:1300px;margin:auto;padding:24px}section,.card{background:white;border:1px solid #dfe7eb;border-radius:14px;padding:20px;margin-bottom:20px}.controls{display:flex;gap:16px;align-items:end;flex-wrap:wrap}label{display:grid;gap:7px;font-size:13px;color:#506472}select,input,button{padding:11px;border:1px solid #cbd7de;border-radius:8px;font:inherit}input{width:110px}button{cursor:pointer;background:#087e80;color:white;border:0;font-weight:600}button.secondary{background:#eaf2f3;color:#21656b}button:disabled{opacity:.5;cursor:wait}.status{font-size:14px;color:#526b79;margin-top:14px}.tags{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}.tag{padding:6px 12px;border-radius:20px;background:#e7f4f0;color:#276557;font-size:13px}.muted{color:#70818d;background:#edf0f3}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{margin:0;min-width:0}.top{display:flex;justify-content:space-between;gap:12px;align-items:start}.card h3{margin:0 0 6px;font-size:18px}.parameter{font-size:12px;color:#71828d}.prediction{font-size:24px;font-weight:700;white-space:nowrap}.ok{color:#087e65}.bad{color:#b25236}canvas{display:block;width:100%;height:165px;margin-top:14px}.metrics{font-size:12px;color:#667985;display:flex;justify-content:space-between;margin:8px 0}.prob{display:flex;gap:6px;margin-top:12px}.prob span{flex:1;font-size:11px;background:#f3f6f8;padding:7px;border-radius:5px}.prob i{display:block;background:#23a895;height:4px;margin-top:5px}.empty{padding:50px;text-align:center;color:#6b818d}.summary{margin-top:24px}table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:12px;text-align:left;border-bottom:1px solid #e8edf0}.note{font-size:13px;color:#627783;line-height:1.8}footer{margin-top:20px;font-size:12px;color:#7b8e9a}@media(max-width:760px){.grid{grid-template-columns:1fr}main{padding:12px}h1{font-size:25px}header{padding:24px}select{max-width:220px}}
+select{max-width:340px}.explain{border-left:3px solid #087e80;padding-left:14px}details{margin-top:16px}a{color:#087e80}
+header{padding:24px max(5vw,24px)}header h1{font-size:28px;margin:0}header p{margin-top:6px}main{max-width:1400px}.controls{gap:14px}label{font-size:14px}select{max-width:420px}section,.card{border-radius:10px}.card h3{font-size:17px}.prob span{font-size:12px}.status{min-height:20px}.summary h3{margin-top:0}footer{font-size:13px;padding-bottom:12px}.method-note{font-size:14px;line-height:1.5;color:#526b79;margin:14px 0 0}.metrics{font-size:13px}.prediction small{display:block;font-size:11px;font-weight:400;color:#657782;text-align:right}.table-wrap{overflow-x:auto}.empty{font-size:16px}.tag{font-size:14px}.summary p{font-size:14px}.parameter{font-size:13px}.status:empty{display:none}
+
+header{background:white;color:#172a38;padding:14px 24px;border-bottom:1px solid #dfe7eb}header h1{font-size:22px}header p{display:none}main{max-width:1500px;padding:16px 24px}section{padding:14px;margin-bottom:12px}.controls{gap:12px}select,button{padding:9px 12px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card{padding:14px;border-top:3px solid #b9c6cf}.card.correct{border-top-color:#087e65}.card.incorrect{border-top-color:#b25236}.card h3{font-size:16px;margin:0}.prediction{font-size:28px}.top{align-items:center}.tag{background:transparent;padding:0;font-size:15px}.tags{margin:12px 0;gap:20px}.method-note{font-size:13px}.detail-area{margin-top:14px}.detail-area summary{cursor:pointer;color:#506472;font-size:14px;padding:6px 0}.detail-area .summary{margin-top:12px}.detail-area p{font-size:14px}.status{margin-top:8px}canvas{height:120px;margin-top:8px}footer{margin-top:8px}.topline{font-size:13px;color:#657782}.detail-table{font-size:13px}.detail-table td,.detail-table th{padding:9px}.empty{padding:20px}@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.grid{grid-template-columns:1fr}main{padding:12px}.controls{gap:8px}select{max-width:100%}}
+.view-controls{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:12px 0}.view-controls label{display:flex;align-items:center;gap:8px}.view-controls input{width:auto}.view-note{font-size:13px;color:#506472}.path-note{font-size:12px;color:#506472;margin-top:4px}canvas{height:150px}</style></head><body>
+<header><h1>Sleep Lab</h1><p>EEG sleep stage classification</p></header>
+<main><section><div class="controls">
+<label>Sample<select id="record" disabled></select></label>
+<label>Noise<select id="condition" disabled></select></label>
+<button id="run" disabled>Compare</button><button class="secondary" id="random" disabled>Random</button><button class="secondary" id="download" disabled>Export</button>
+</div><div class="status" id="status" role="status" aria-live="polite">Loading samples…</div>
+</section>
+<div id="sample" class="tags"></div>
+<div class="view-controls"><label>View<select id="window"><option value="0">0–5 s</option><option value="5">5–10 s</option><option value="10">10–15 s</option><option value="15">15–20 s</option><option value="20">20–25 s</option><option value="25">25–30 s</option><option value="all">Full 30 s</option></select></label><label><input type="checkbox" id="reference" checked>Clean overlay</label><span class="view-note">Shared scale · Predictions use all 30 s</span></div><div class="grid" id="cards"><section class="empty" style="grid-column:1/-1">Select a sample and noise condition, then click Compare.</section></div>
+<details class="detail-area"><summary>Details &amp; full-test results</summary><p>Live classification and DAE inference. Noise, band-pass and wavelet inputs are prepared in advance. All plots share the same scale.</p><div id="details" class="table-wrap"></div><section class="summary"><h3>Five-fold results</h3><p class="note">Macro-F1 on the full test set. These results do not change with the selected sample.</p>
+<div class="table-wrap"><table><thead><tr><th>Condition</th><th>E2</th><th>E4</th><th>E5</th><th>E6</th></tr></thead><tbody>
+<tr><td>All 9 noise conditions</td><td>58.14%</td><td>62.93%</td><td>69.89%</td><td>73.37%</td></tr>
+<tr><td>Clean</td><td>75.08%</td><td>71.42%</td><td>73.81%</td><td>74.24%</td></tr>
+<tr><td>Gaussian · Medium</td><td>49.40%</td><td>68.18%</td><td>65.50%</td><td>72.53%</td></tr>
+<tr><td>Gaussian · High</td><td>20.10%</td><td>64.55%</td><td>50.74%</td><td>70.08%</td></tr>
+</tbody></table></div></section></details>
+<footer><a href="https://github.com/0110NiZ/Sleep" target="_blank" rel="noopener">GitHub</a> · <a href="ATTRIBUTION.txt" target="_blank" rel="noopener">Data &amp; licenses</a></footer></main>
+<script src="vendor/ort.wasm.min.js"></script><script src="inference.js"></script><script>
+const $=id=>document.getElementById(id);let meta,last,busy=false;
+const conditionLabel=c=>c.replaceAll('_',' · ');
+function wave(canvas,data,reference,scale,color,start,duration){
+ const dpr=devicePixelRatio||1,w=canvas.clientWidth,h=150;
+ canvas.width=w*dpr;canvas.height=h*dpr;
+ const c=canvas.getContext('2d');c.scale(dpr,dpr);
+ const left=45,right=w-8,top=16,bottom=126,mid=(top+bottom)/2;
+ c.font='10px Segoe UI';c.fillStyle='#687d8a';c.strokeStyle='#e9eff2';
+ for(let k=-1;k<=1;k++){const y=mid-k*(bottom-top)/2;c.beginPath();c.moveTo(left,y);c.lineTo(right,y);c.stroke();c.fillText((k*scale).toFixed(0),0,y+3)}
+ c.fillText('µV',0,10);
+ const step=duration===5?1:5;
+ for(let sec=0;sec<=duration;sec+=step){const x=left+sec/duration*(right-left);c.fillText((start+sec)+'s',Math.min(x,w-25),145)}
+ function trace(values,stroke,width,dashed){c.strokeStyle=stroke;c.lineWidth=width;c.setLineDash(dashed?[4,3]:[]);c.beginPath();values.forEach((v,i)=>{const x=left+i/(duration*100)*(right-left),y=mid-v/scale*(bottom-top)/2;i?c.lineTo(x,y):c.moveTo(x,y)});c.stroke()}
+ if(reference)trace(reference,'#9aa9b8',1,true);
+ trace(data,color,1.3,false);
+}
+
+const names={E1:'Clean baseline',E2:'Noisy baseline',E3:'Band-pass',E4:'Wavelet',E5:'DAE',E6:'Noise-trained'};
+function render(){if(!last)return;
+$('sample').innerHTML=`<span class="tag"><b>True stage: ${last.truth}</b></span><span class="tag muted">${last.sample} · ${conditionLabel(last.condition)}</span>`;
+const view=$('window').value,start=view==='all'?0:Number(view),duration=view==='all'?30:5;
+const slices=last.rows.map(r=>r.wave.slice(start*100,(start+duration)*100));
+const scale=Math.ceil(Math.max(1,...slices.flat().map(Math.abs))*1.05);
+const notes={E1:'Clean input',E2:'Noise added',E3:'Band-pass output',E4:'Wavelet output',E5:'DAE output',E6:'Same input as E2 · different model'};
+$('cards').innerHTML=last.rows.map(r=>`<article class="card ${r.correct?'correct':'incorrect'}"><div class="top"><h3>${r.key} · ${names[r.key]}</h3><div class="prediction ${r.correct?'ok':'bad'}" aria-label="Prediction ${r.prediction}, ${r.correct?'correct':'incorrect'}">${r.prediction} ${r.correct?'✓':'✗'}</div></div><div class="path-note">${notes[r.key]}</div><canvas id="wave-${r.key}" aria-label="${r.key} EEG waveform"></canvas></article>`).join('');
+$('details').innerHTML=`<table class="detail-table"><thead><tr><th>Method</th><th>Configuration</th><th>RMSE (µV)</th>${meta.labels.map(l=>`<th>${l}</th>`).join('')}</tr></thead><tbody>${last.rows.map(r=>`<tr><td>${r.key}</td><td>${r.parameter}</td><td>${r.rmse.toFixed(2)}</td>${r.probabilities.map(p=>`<td>${(p*100).toFixed(1)}%</td>`).join('')}</tr>`).join('')}</tbody></table><p>Stage probabilities are model outputs. RMSE is measured against the clean input.</p>`;
+last.rows.forEach((r,i)=>wave($('wave-'+r.key),slices[i],$('reference').checked&&i!==0?slices[0]:null,scale,r.key==='E1'?'#536c89':r.key==='E2'?'#b96c48':'#078b86',start,duration));}
+function controls(disabled){['run','random','record','condition'].forEach(id=>$(id).disabled=disabled);$('download').disabled=disabled||!last}
+async function execute(random=false){if(busy)return;busy=true;controls(true);if(random)$('record').selectedIndex=Math.floor(Math.random()*meta.samples.length);
+try{last=await inferSample(meta,$('record').value,$('condition').value,t=>$('status').textContent=t);render();$('status').textContent='';}catch(e){$('status').textContent='Unable to run. Check your connection and click Compare to retry.';}finally{busy=false;controls(false)}}
+$('window').onchange=render;$('reference').onchange=render;
+$('run').onclick=()=>execute();$('random').onclick=()=>execute(true);window.onresize=render;
+for(const id of ['record','condition'])$(id).onchange=()=>{if(last)$('status').textContent='Selection changed. Click Compare to update the results.';};
+$('download').onclick=()=>{let url=URL.createObjectURL(new Blob([JSON.stringify(last,null,2)],{type:'application/json'}));let a=document.createElement('a');a.href=url;a.download='sleep-demo-result.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+fetch('manifest.json').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(d=>{meta=d;$('record').innerHTML=d.samples.map(s=>`<option value="${s.key}">Fold ${s.fold+1} · ${s.id} · ${s.truth}</option>`).join('');$('condition').innerHTML=d.conditions.map(c=>`<option value="${c}">${conditionLabel(c)}</option>`).join('');$('condition').value='Gaussian_High';$('record').value='s015';$('status').textContent='';controls(false);execute()}).catch(e=>$('status').textContent='Could not load samples. Check your connection and reload.');
+</script></body></html>

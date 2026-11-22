@@ -1,0 +1,1213 @@
+{
+  "labels": [
+    "W",
+    "N1",
+    "N2",
+    "N3",
+    "REM"
+  ],
+  "conditions": [
+    "Clean",
+    "Gaussian_Low",
+    "Gaussian_Medium",
+    "Gaussian_High",
+    "Drift_Low",
+    "Drift_Medium",
+    "Drift_High",
+    "Burst_Low",
+    "Burst_Medium",
+    "Burst_High"
+  ],
+  "samples": [
+    {
+      "key": "s000",
+      "record": "SC4071E0.npz",
+      "index": 26,
+      "id": "SC4071E0.npz:26",
+      "fold": 0,
+      "truth": "W",
+      "signals": {
+        "Clean": "data/s000-Clean.bin",
+        "Gaussian_Low": "data/s000-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s000-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s000-Gaussian_High.bin",
+        "Drift_Low": "data/s000-Drift_Low.bin",
+        "Drift_Medium": "data/s000-Drift_Medium.bin",
+        "Drift_High": "data/s000-Drift_High.bin",
+        "Burst_Low": "data/s000-Burst_Low.bin",
+        "Burst_Medium": "data/s000-Burst_Medium.bin",
+        "Burst_High": "data/s000-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s001",
+      "record": "SC4172E0.npz",
+      "index": 458,
+      "id": "SC4172E0.npz:458",
+      "fold": 0,
+      "truth": "W",
+      "signals": {
+        "Clean": "data/s001-Clean.bin",
+        "Gaussian_Low": "data/s001-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s001-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s001-Gaussian_High.bin",
+        "Drift_Low": "data/s001-Drift_Low.bin",
+        "Drift_Medium": "data/s001-Drift_Medium.bin",
+        "Drift_High": "data/s001-Drift_High.bin",
+        "Burst_Low": "data/s001-Burst_Low.bin",
+        "Burst_Medium": "data/s001-Burst_Medium.bin",
+        "Burst_High": "data/s001-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s002",
+      "record": "SC4071E0.npz",
+      "index": 70,
+      "id": "SC4071E0.npz:70",
+      "fold": 0,
+      "truth": "N1",
+      "signals": {
+        "Clean": "data/s002-Clean.bin",
+        "Gaussian_Low": "data/s002-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s002-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s002-Gaussian_High.bin",
+        "Drift_Low": "data/s002-Drift_Low.bin",
+        "Drift_Medium": "data/s002-Drift_Medium.bin",
+        "Drift_High": "data/s002-Drift_High.bin",
+        "Burst_Low": "data/s002-Burst_Low.bin",
+        "Burst_Medium": "data/s002-Burst_Medium.bin",
+        "Burst_High": "data/s002-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s003",
+      "record": "SC4112E0.npz",
+      "index": 706,
+      "id": "SC4112E0.npz:706",
+      "fold": 0,
+      "truth": "N1",
+      "signals": {
+        "Clean": "data/s003-Clean.bin",
+        "Gaussian_Low": "data/s003-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s003-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s003-Gaussian_High.bin",
+        "Drift_Low": "data/s003-Drift_Low.bin",
+        "Drift_Medium": "data/s003-Drift_Medium.bin",
+        "Drift_High": "data/s003-Drift_High.bin",
+        "Burst_Low": "data/s003-Burst_Low.bin",
+        "Burst_Medium": "data/s003-Burst_Medium.bin",
+        "Burst_High": "data/s003-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s004",
+      "record": "SC4021E0.npz",
+      "index": 213,
+      "id": "SC4021E0.npz:213",
+      "fold": 0,
+      "truth": "N2",
+      "signals": {
+        "Clean": "data/s004-Clean.bin",
+        "Gaussian_Low": "data/s004-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s004-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s004-Gaussian_High.bin",
+        "Drift_Low": "data/s004-Drift_Low.bin",
+        "Drift_Medium": "data/s004-Drift_Medium.bin",
+        "Drift_High": "data/s004-Drift_High.bin",
+        "Burst_Low": "data/s004-Burst_Low.bin",
+        "Burst_Medium": "data/s004-Burst_Medium.bin",
+        "Burst_High": "data/s004-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s005",
+      "record": "SC4022E0.npz",
+      "index": 642,
+      "id": "SC4022E0.npz:642",
+      "fold": 0,
+      "truth": "N2",
+      "signals": {
+        "Clean": "data/s005-Clean.bin",
+        "Gaussian_Low": "data/s005-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s005-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s005-Gaussian_High.bin",
+        "Drift_Low": "data/s005-Drift_Low.bin",
+        "Drift_Medium": "data/s005-Drift_Medium.bin",
+        "Drift_High": "data/s005-Drift_High.bin",
+        "Burst_Low": "data/s005-Burst_Low.bin",
+        "Burst_Medium": "data/s005-Burst_Medium.bin",
+        "Burst_High": "data/s005-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s006",
+      "record": "SC4172E0.npz",
+      "index": 218,
+      "id": "SC4172E0.npz:218",
+      "fold": 0,
+      "truth": "N3",
+      "signals": {
+        "Clean": "data/s006-Clean.bin",
+        "Gaussian_Low": "data/s006-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s006-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s006-Gaussian_High.bin",
+        "Drift_Low": "data/s006-Drift_Low.bin",
+        "Drift_Medium": "data/s006-Drift_Medium.bin",
+        "Drift_High": "data/s006-Drift_High.bin",
+        "Burst_Low": "data/s006-Burst_Low.bin",
+        "Burst_Medium": "data/s006-Burst_Medium.bin",
+        "Burst_High": "data/s006-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s007",
+      "record": "SC4112E0.npz",
+      "index": 128,
+      "id": "SC4112E0.npz:128",
+      "fold": 0,
+      "truth": "N3",
+      "signals": {
+        "Clean": "data/s007-Clean.bin",
+        "Gaussian_Low": "data/s007-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s007-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s007-Gaussian_High.bin",
+        "Drift_Low": "data/s007-Drift_Low.bin",
+        "Drift_Medium": "data/s007-Drift_Medium.bin",
+        "Drift_High": "data/s007-Drift_High.bin",
+        "Burst_Low": "data/s007-Burst_Low.bin",
+        "Burst_Medium": "data/s007-Burst_Medium.bin",
+        "Burst_High": "data/s007-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s008",
+      "record": "SC4021E0.npz",
+      "index": 866,
+      "id": "SC4021E0.npz:866",
+      "fold": 0,
+      "truth": "REM",
+      "signals": {
+        "Clean": "data/s008-Clean.bin",
+        "Gaussian_Low": "data/s008-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s008-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s008-Gaussian_High.bin",
+        "Drift_Low": "data/s008-Drift_Low.bin",
+        "Drift_Medium": "data/s008-Drift_Medium.bin",
+        "Drift_High": "data/s008-Drift_High.bin",
+        "Burst_Low": "data/s008-Burst_Low.bin",
+        "Burst_Medium": "data/s008-Burst_Medium.bin",
+        "Burst_High": "data/s008-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s009",
+      "record": "SC4172E0.npz",
+      "index": 1268,
+      "id": "SC4172E0.npz:1268",
+      "fold": 0,
+      "truth": "REM",
+      "signals": {
+        "Clean": "data/s009-Clean.bin",
+        "Gaussian_Low": "data/s009-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s009-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s009-Gaussian_High.bin",
+        "Drift_Low": "data/s009-Drift_Low.bin",
+        "Drift_Medium": "data/s009-Drift_Medium.bin",
+        "Drift_High": "data/s009-Drift_High.bin",
+        "Burst_Low": "data/s009-Burst_Low.bin",
+        "Burst_Medium": "data/s009-Burst_Medium.bin",
+        "Burst_High": "data/s009-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s010",
+      "record": "SC4152E0.npz",
+      "index": 544,
+      "id": "SC4152E0.npz:544",
+      "fold": 1,
+      "truth": "W",
+      "signals": {
+        "Clean": "data/s010-Clean.bin",
+        "Gaussian_Low": "data/s010-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s010-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s010-Gaussian_High.bin",
+        "Drift_Low": "data/s010-Drift_Low.bin",
+        "Drift_Medium": "data/s010-Drift_Medium.bin",
+        "Drift_High": "data/s010-Drift_High.bin",
+        "Burst_Low": "data/s010-Burst_Low.bin",
+        "Burst_Medium": "data/s010-Burst_Medium.bin",
+        "Burst_High": "data/s010-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s011",
+      "record": "SC4152E0.npz",
+      "index": 533,
+      "id": "SC4152E0.npz:533",
+      "fold": 1,
+      "truth": "W",
+      "signals": {
+        "Clean": "data/s011-Clean.bin",
+        "Gaussian_Low": "data/s011-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s011-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s011-Gaussian_High.bin",
+        "Drift_Low": "data/s011-Drift_Low.bin",
+        "Drift_Medium": "data/s011-Drift_Medium.bin",
+        "Drift_High": "data/s011-Drift_High.bin",
+        "Burst_Low": "data/s011-Burst_Low.bin",
+        "Burst_Medium": "data/s011-Burst_Medium.bin",
+        "Burst_High": "data/s011-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s012",
+      "record": "SC4161E0.npz",
+      "index": 821,
+      "id": "SC4161E0.npz:821",
+      "fold": 1,
+      "truth": "N1",
+      "signals": {
+        "Clean": "data/s012-Clean.bin",
+        "Gaussian_Low": "data/s012-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s012-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s012-Gaussian_High.bin",
+        "Drift_Low": "data/s012-Drift_Low.bin",
+        "Drift_Medium": "data/s012-Drift_Medium.bin",
+        "Drift_High": "data/s012-Drift_High.bin",
+        "Burst_Low": "data/s012-Burst_Low.bin",
+        "Burst_Medium": "data/s012-Burst_Medium.bin",
+        "Burst_High": "data/s012-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s013",
+      "record": "SC4101E0.npz",
+      "index": 71,
+      "id": "SC4101E0.npz:71",
+      "fold": 1,
+      "truth": "N1",
+      "signals": {
+        "Clean": "data/s013-Clean.bin",
+        "Gaussian_Low": "data/s013-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s013-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s013-Gaussian_High.bin",
+        "Drift_Low": "data/s013-Drift_Low.bin",
+        "Drift_Medium": "data/s013-Drift_Medium.bin",
+        "Drift_High": "data/s013-Drift_High.bin",
+        "Burst_Low": "data/s013-Burst_Low.bin",
+        "Burst_Medium": "data/s013-Burst_Medium.bin",
+        "Burst_High": "data/s013-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s014",
+      "record": "SC4042E0.npz",
+      "index": 354,
+      "id": "SC4042E0.npz:354",
+      "fold": 1,
+      "truth": "N2",
+      "signals": {
+        "Clean": "data/s014-Clean.bin",
+        "Gaussian_Low": "data/s014-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s014-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s014-Gaussian_High.bin",
+        "Drift_Low": "data/s014-Drift_Low.bin",
+        "Drift_Medium": "data/s014-Drift_Medium.bin",
+        "Drift_High": "data/s014-Drift_High.bin",
+        "Burst_Low": "data/s014-Burst_Low.bin",
+        "Burst_Medium": "data/s014-Burst_Medium.bin",
+        "Burst_High": "data/s014-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s015",
+      "record": "SC4162E0.npz",
+      "index": 868,
+      "id": "SC4162E0.npz:868",
+      "fold": 1,
+      "truth": "N2",
+      "signals": {
+        "Clean": "data/s015-Clean.bin",
+        "Gaussian_Low": "data/s015-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s015-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s015-Gaussian_High.bin",
+        "Drift_Low": "data/s015-Drift_Low.bin",
+        "Drift_Medium": "data/s015-Drift_Medium.bin",
+        "Drift_High": "data/s015-Drift_High.bin",
+        "Burst_Low": "data/s015-Burst_Low.bin",
+        "Burst_Medium": "data/s015-Burst_Medium.bin",
+        "Burst_High": "data/s015-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s016",
+      "record": "SC4152E0.npz",
+      "index": 906,
+      "id": "SC4152E0.npz:906",
+      "fold": 1,
+      "truth": "N3",
+      "signals": {
+        "Clean": "data/s016-Clean.bin",
+        "Gaussian_Low": "data/s016-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s016-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s016-Gaussian_High.bin",
+        "Drift_Low": "data/s016-Drift_Low.bin",
+        "Drift_Medium": "data/s016-Drift_Medium.bin",
+        "Drift_High": "data/s016-Drift_High.bin",
+        "Burst_Low": "data/s016-Burst_Low.bin",
+        "Burst_Medium": "data/s016-Burst_Medium.bin",
+        "Burst_High": "data/s016-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s017",
+      "record": "SC4151E0.npz",
+      "index": 299,
+      "id": "SC4151E0.npz:299",
+      "fold": 1,
+      "truth": "N3",
+      "signals": {
+        "Clean": "data/s017-Clean.bin",
+        "Gaussian_Low": "data/s017-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s017-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s017-Gaussian_High.bin",
+        "Drift_Low": "data/s017-Drift_Low.bin",
+        "Drift_Medium": "data/s017-Drift_Medium.bin",
+        "Drift_High": "data/s017-Drift_High.bin",
+        "Burst_Low": "data/s017-Burst_Low.bin",
+        "Burst_Medium": "data/s017-Burst_Medium.bin",
+        "Burst_High": "data/s017-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s018",
+      "record": "SC4162E0.npz",
+      "index": 422,
+      "id": "SC4162E0.npz:422",
+      "fold": 1,
+      "truth": "REM",
+      "signals": {
+        "Clean": "data/s018-Clean.bin",
+        "Gaussian_Low": "data/s018-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s018-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s018-Gaussian_High.bin",
+        "Drift_Low": "data/s018-Drift_Low.bin",
+        "Drift_Medium": "data/s018-Drift_Medium.bin",
+        "Drift_High": "data/s018-Drift_High.bin",
+        "Burst_Low": "data/s018-Burst_Low.bin",
+        "Burst_Medium": "data/s018-Burst_Medium.bin",
+        "Burst_High": "data/s018-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s019",
+      "record": "SC4152E0.npz",
+      "index": 1151,
+      "id": "SC4152E0.npz:1151",
+      "fold": 1,
+      "truth": "REM",
+      "signals": {
+        "Clean": "data/s019-Clean.bin",
+        "Gaussian_Low": "data/s019-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s019-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s019-Gaussian_High.bin",
+        "Drift_Low": "data/s019-Drift_Low.bin",
+        "Drift_Medium": "data/s019-Drift_Medium.bin",
+        "Drift_High": "data/s019-Drift_High.bin",
+        "Burst_Low": "data/s019-Burst_Low.bin",
+        "Burst_Medium": "data/s019-Burst_Medium.bin",
+        "Burst_High": "data/s019-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s020",
+      "record": "SC4191E0.npz",
+      "index": 21,
+      "id": "SC4191E0.npz:21",
+      "fold": 2,
+      "truth": "W",
+      "signals": {
+        "Clean": "data/s020-Clean.bin",
+        "Gaussian_Low": "data/s020-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s020-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s020-Gaussian_High.bin",
+        "Drift_Low": "data/s020-Drift_Low.bin",
+        "Drift_Medium": "data/s020-Drift_Medium.bin",
+        "Drift_High": "data/s020-Drift_High.bin",
+        "Burst_Low": "data/s020-Burst_Low.bin",
+        "Burst_Medium": "data/s020-Burst_Medium.bin",
+        "Burst_High": "data/s020-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s021",
+      "record": "SC4002E0.npz",
+      "index": 46,
+      "id": "SC4002E0.npz:46",
+      "fold": 2,
+      "truth": "W",
+      "signals": {
+        "Clean": "data/s021-Clean.bin",
+        "Gaussian_Low": "data/s021-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s021-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s021-Gaussian_High.bin",
+        "Drift_Low": "data/s021-Drift_Low.bin",
+        "Drift_Medium": "data/s021-Drift_Medium.bin",
+        "Drift_High": "data/s021-Drift_High.bin",
+        "Burst_Low": "data/s021-Burst_Low.bin",
+        "Burst_Medium": "data/s021-Burst_Medium.bin",
+        "Burst_High": "data/s021-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s022",
+      "record": "SC4182E0.npz",
+      "index": 437,
+      "id": "SC4182E0.npz:437",
+      "fold": 2,
+      "truth": "N1",
+      "signals": {
+        "Clean": "data/s022-Clean.bin",
+        "Gaussian_Low": "data/s022-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s022-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s022-Gaussian_High.bin",
+        "Drift_Low": "data/s022-Drift_Low.bin",
+        "Drift_Medium": "data/s022-Drift_Medium.bin",
+        "Drift_High": "data/s022-Drift_High.bin",
+        "Burst_Low": "data/s022-Burst_Low.bin",
+        "Burst_Medium": "data/s022-Burst_Medium.bin",
+        "Burst_High": "data/s022-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s023",
+      "record": "SC4182E0.npz",
+      "index": 468,
+      "id": "SC4182E0.npz:468",
+      "fold": 2,
+      "truth": "N1",
+      "signals": {
+        "Clean": "data/s023-Clean.bin",
+        "Gaussian_Low": "data/s023-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s023-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s023-Gaussian_High.bin",
+        "Drift_Low": "data/s023-Drift_Low.bin",
+        "Drift_Medium": "data/s023-Drift_Medium.bin",
+        "Drift_High": "data/s023-Drift_High.bin",
+        "Burst_Low": "data/s023-Burst_Low.bin",
+        "Burst_Medium": "data/s023-Burst_Medium.bin",
+        "Burst_High": "data/s023-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s024",
+      "record": "SC4002E0.npz",
+      "index": 788,
+      "id": "SC4002E0.npz:788",
+      "fold": 2,
+      "truth": "N2",
+      "signals": {
+        "Clean": "data/s024-Clean.bin",
+        "Gaussian_Low": "data/s024-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s024-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s024-Gaussian_High.bin",
+        "Drift_Low": "data/s024-Drift_Low.bin",
+        "Drift_Medium": "data/s024-Drift_Medium.bin",
+        "Drift_High": "data/s024-Drift_High.bin",
+        "Burst_Low": "data/s024-Burst_Low.bin",
+        "Burst_Medium": "data/s024-Burst_Medium.bin",
+        "Burst_High": "data/s024-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s025",
+      "record": "SC4191E0.npz",
+      "index": 94,
+      "id": "SC4191E0.npz:94",
+      "fold": 2,
+      "truth": "N2",
+      "signals": {
+        "Clean": "data/s025-Clean.bin",
+        "Gaussian_Low": "data/s025-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s025-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s025-Gaussian_High.bin",
+        "Drift_Low": "data/s025-Drift_Low.bin",
+        "Drift_Medium": "data/s025-Drift_Medium.bin",
+        "Drift_High": "data/s025-Drift_High.bin",
+        "Burst_Low": "data/s025-Burst_Low.bin",
+        "Burst_Medium": "data/s025-Burst_Medium.bin",
+        "Burst_High": "data/s025-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s026",
+      "record": "SC4002E0.npz",
+      "index": 138,
+      "id": "SC4002E0.npz:138",
+      "fold": 2,
+      "truth": "N3",
+      "signals": {
+        "Clean": "data/s026-Clean.bin",
+        "Gaussian_Low": "data/s026-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s026-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s026-Gaussian_High.bin",
+        "Drift_Low": "data/s026-Drift_Low.bin",
+        "Drift_Medium": "data/s026-Drift_Medium.bin",
+        "Drift_High": "data/s026-Drift_High.bin",
+        "Burst_Low": "data/s026-Burst_Low.bin",
+        "Burst_Medium": "data/s026-Burst_Medium.bin",
+        "Burst_High": "data/s026-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s027",
+      "record": "SC4081E0.npz",
+      "index": 881,
+      "id": "SC4081E0.npz:881",
+      "fold": 2,
+      "truth": "N3",
+      "signals": {
+        "Clean": "data/s027-Clean.bin",
+        "Gaussian_Low": "data/s027-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s027-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s027-Gaussian_High.bin",
+        "Drift_Low": "data/s027-Drift_Low.bin",
+        "Drift_Medium": "data/s027-Drift_Medium.bin",
+        "Drift_High": "data/s027-Drift_High.bin",
+        "Burst_Low": "data/s027-Burst_Low.bin",
+        "Burst_Medium": "data/s027-Burst_Medium.bin",
+        "Burst_High": "data/s027-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s028",
+      "record": "SC4191E0.npz",
+      "index": 981,
+      "id": "SC4191E0.npz:981",
+      "fold": 2,
+      "truth": "REM",
+      "signals": {
+        "Clean": "data/s028-Clean.bin",
+        "Gaussian_Low": "data/s028-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s028-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s028-Gaussian_High.bin",
+        "Drift_Low": "data/s028-Drift_Low.bin",
+        "Drift_Medium": "data/s028-Drift_Medium.bin",
+        "Drift_High": "data/s028-Drift_High.bin",
+        "Burst_Low": "data/s028-Burst_Low.bin",
+        "Burst_Medium": "data/s028-Burst_Medium.bin",
+        "Burst_High": "data/s028-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s029",
+      "record": "SC4081E0.npz",
+      "index": 964,
+      "id": "SC4081E0.npz:964",
+      "fold": 2,
+      "truth": "REM",
+      "signals": {
+        "Clean": "data/s029-Clean.bin",
+        "Gaussian_Low": "data/s029-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s029-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s029-Gaussian_High.bin",
+        "Drift_Low": "data/s029-Drift_Low.bin",
+        "Drift_Medium": "data/s029-Drift_Medium.bin",
+        "Drift_High": "data/s029-Drift_High.bin",
+        "Burst_Low": "data/s029-Burst_Low.bin",
+        "Burst_Medium": "data/s029-Burst_Medium.bin",
+        "Burst_High": "data/s029-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W3 · sym8 · 阈值 0.5"
+    },
+    {
+      "key": "s030",
+      "record": "SC4121E0.npz",
+      "index": 7,
+      "id": "SC4121E0.npz:7",
+      "fold": 3,
+      "truth": "W",
+      "signals": {
+        "Clean": "data/s030-Clean.bin",
+        "Gaussian_Low": "data/s030-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s030-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s030-Gaussian_High.bin",
+        "Drift_Low": "data/s030-Drift_Low.bin",
+        "Drift_Medium": "data/s030-Drift_Medium.bin",
+        "Drift_High": "data/s030-Drift_High.bin",
+        "Burst_Low": "data/s030-Burst_Low.bin",
+        "Burst_Medium": "data/s030-Burst_Medium.bin",
+        "Burst_High": "data/s030-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s031",
+      "record": "SC4011E0.npz",
+      "index": 5,
+      "id": "SC4011E0.npz:5",
+      "fold": 3,
+      "truth": "W",
+      "signals": {
+        "Clean": "data/s031-Clean.bin",
+        "Gaussian_Low": "data/s031-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s031-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s031-Gaussian_High.bin",
+        "Drift_Low": "data/s031-Drift_Low.bin",
+        "Drift_Medium": "data/s031-Drift_Medium.bin",
+        "Drift_High": "data/s031-Drift_High.bin",
+        "Burst_Low": "data/s031-Burst_Low.bin",
+        "Burst_Medium": "data/s031-Burst_Medium.bin",
+        "Burst_High": "data/s031-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s032",
+      "record": "SC4012E0.npz",
+      "index": 737,
+      "id": "SC4012E0.npz:737",
+      "fold": 3,
+      "truth": "N1",
+      "signals": {
+        "Clean": "data/s032-Clean.bin",
+        "Gaussian_Low": "data/s032-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s032-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s032-Gaussian_High.bin",
+        "Drift_Low": "data/s032-Drift_Low.bin",
+        "Drift_Medium": "data/s032-Drift_Medium.bin",
+        "Drift_High": "data/s032-Drift_High.bin",
+        "Burst_Low": "data/s032-Burst_Low.bin",
+        "Burst_Medium": "data/s032-Burst_Medium.bin",
+        "Burst_High": "data/s032-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s033",
+      "record": "SC4092E0.npz",
+      "index": 886,
+      "id": "SC4092E0.npz:886",
+      "fold": 3,
+      "truth": "N1",
+      "signals": {
+        "Clean": "data/s033-Clean.bin",
+        "Gaussian_Low": "data/s033-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s033-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s033-Gaussian_High.bin",
+        "Drift_Low": "data/s033-Drift_Low.bin",
+        "Drift_Medium": "data/s033-Drift_Medium.bin",
+        "Drift_High": "data/s033-Drift_High.bin",
+        "Burst_Low": "data/s033-Burst_Low.bin",
+        "Burst_Medium": "data/s033-Burst_Medium.bin",
+        "Burst_High": "data/s033-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s034",
+      "record": "SC4012E0.npz",
+      "index": 1031,
+      "id": "SC4012E0.npz:1031",
+      "fold": 3,
+      "truth": "N2",
+      "signals": {
+        "Clean": "data/s034-Clean.bin",
+        "Gaussian_Low": "data/s034-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s034-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s034-Gaussian_High.bin",
+        "Drift_Low": "data/s034-Drift_Low.bin",
+        "Drift_Medium": "data/s034-Drift_Medium.bin",
+        "Drift_High": "data/s034-Drift_High.bin",
+        "Burst_Low": "data/s034-Burst_Low.bin",
+        "Burst_Medium": "data/s034-Burst_Medium.bin",
+        "Burst_High": "data/s034-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s035",
+      "record": "SC4061E0.npz",
+      "index": 593,
+      "id": "SC4061E0.npz:593",
+      "fold": 3,
+      "truth": "N2",
+      "signals": {
+        "Clean": "data/s035-Clean.bin",
+        "Gaussian_Low": "data/s035-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s035-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s035-Gaussian_High.bin",
+        "Drift_Low": "data/s035-Drift_Low.bin",
+        "Drift_Medium": "data/s035-Drift_Medium.bin",
+        "Drift_High": "data/s035-Drift_High.bin",
+        "Burst_Low": "data/s035-Burst_Low.bin",
+        "Burst_Medium": "data/s035-Burst_Medium.bin",
+        "Burst_High": "data/s035-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s036",
+      "record": "SC4062E0.npz",
+      "index": 431,
+      "id": "SC4062E0.npz:431",
+      "fold": 3,
+      "truth": "N3",
+      "signals": {
+        "Clean": "data/s036-Clean.bin",
+        "Gaussian_Low": "data/s036-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s036-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s036-Gaussian_High.bin",
+        "Drift_Low": "data/s036-Drift_Low.bin",
+        "Drift_Medium": "data/s036-Drift_Medium.bin",
+        "Drift_High": "data/s036-Drift_High.bin",
+        "Burst_Low": "data/s036-Burst_Low.bin",
+        "Burst_Medium": "data/s036-Burst_Medium.bin",
+        "Burst_High": "data/s036-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s037",
+      "record": "SC4092E0.npz",
+      "index": 115,
+      "id": "SC4092E0.npz:115",
+      "fold": 3,
+      "truth": "N3",
+      "signals": {
+        "Clean": "data/s037-Clean.bin",
+        "Gaussian_Low": "data/s037-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s037-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s037-Gaussian_High.bin",
+        "Drift_Low": "data/s037-Drift_Low.bin",
+        "Drift_Medium": "data/s037-Drift_Medium.bin",
+        "Drift_High": "data/s037-Drift_High.bin",
+        "Burst_Low": "data/s037-Burst_Low.bin",
+        "Burst_Medium": "data/s037-Burst_Medium.bin",
+        "Burst_High": "data/s037-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s038",
+      "record": "SC4092E0.npz",
+      "index": 682,
+      "id": "SC4092E0.npz:682",
+      "fold": 3,
+      "truth": "REM",
+      "signals": {
+        "Clean": "data/s038-Clean.bin",
+        "Gaussian_Low": "data/s038-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s038-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s038-Gaussian_High.bin",
+        "Drift_Low": "data/s038-Drift_Low.bin",
+        "Drift_Medium": "data/s038-Drift_Medium.bin",
+        "Drift_High": "data/s038-Drift_High.bin",
+        "Burst_Low": "data/s038-Burst_Low.bin",
+        "Burst_Medium": "data/s038-Burst_Medium.bin",
+        "Burst_High": "data/s038-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s039",
+      "record": "SC4062E0.npz",
+      "index": 892,
+      "id": "SC4062E0.npz:892",
+      "fold": 3,
+      "truth": "REM",
+      "signals": {
+        "Clean": "data/s039-Clean.bin",
+        "Gaussian_Low": "data/s039-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s039-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s039-Gaussian_High.bin",
+        "Drift_Low": "data/s039-Drift_Low.bin",
+        "Drift_Medium": "data/s039-Drift_Medium.bin",
+        "Drift_High": "data/s039-Drift_High.bin",
+        "Burst_Low": "data/s039-Burst_Low.bin",
+        "Burst_Medium": "data/s039-Burst_Medium.bin",
+        "Burst_High": "data/s039-Burst_High.bin"
+      },
+      "e3_parameter": "A · 0.3–35 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s040",
+      "record": "SC4141E0.npz",
+      "index": 50,
+      "id": "SC4141E0.npz:50",
+      "fold": 4,
+      "truth": "W",
+      "signals": {
+        "Clean": "data/s040-Clean.bin",
+        "Gaussian_Low": "data/s040-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s040-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s040-Gaussian_High.bin",
+        "Drift_Low": "data/s040-Drift_Low.bin",
+        "Drift_Medium": "data/s040-Drift_Medium.bin",
+        "Drift_High": "data/s040-Drift_High.bin",
+        "Burst_Low": "data/s040-Burst_Low.bin",
+        "Burst_Medium": "data/s040-Burst_Medium.bin",
+        "Burst_High": "data/s040-Burst_High.bin"
+      },
+      "e3_parameter": "B · 0.5–30 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s041",
+      "record": "SC4131E0.npz",
+      "index": 984,
+      "id": "SC4131E0.npz:984",
+      "fold": 4,
+      "truth": "W",
+      "signals": {
+        "Clean": "data/s041-Clean.bin",
+        "Gaussian_Low": "data/s041-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s041-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s041-Gaussian_High.bin",
+        "Drift_Low": "data/s041-Drift_Low.bin",
+        "Drift_Medium": "data/s041-Drift_Medium.bin",
+        "Drift_High": "data/s041-Drift_High.bin",
+        "Burst_Low": "data/s041-Burst_Low.bin",
+        "Burst_Medium": "data/s041-Burst_Medium.bin",
+        "Burst_High": "data/s041-Burst_High.bin"
+      },
+      "e3_parameter": "B · 0.5–30 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s042",
+      "record": "SC4141E0.npz",
+      "index": 284,
+      "id": "SC4141E0.npz:284",
+      "fold": 4,
+      "truth": "N1",
+      "signals": {
+        "Clean": "data/s042-Clean.bin",
+        "Gaussian_Low": "data/s042-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s042-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s042-Gaussian_High.bin",
+        "Drift_Low": "data/s042-Drift_Low.bin",
+        "Drift_Medium": "data/s042-Drift_Medium.bin",
+        "Drift_High": "data/s042-Drift_High.bin",
+        "Burst_Low": "data/s042-Burst_Low.bin",
+        "Burst_Medium": "data/s042-Burst_Medium.bin",
+        "Burst_High": "data/s042-Burst_High.bin"
+      },
+      "e3_parameter": "B · 0.5–30 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s043",
+      "record": "SC4052E0.npz",
+      "index": 789,
+      "id": "SC4052E0.npz:789",
+      "fold": 4,
+      "truth": "N1",
+      "signals": {
+        "Clean": "data/s043-Clean.bin",
+        "Gaussian_Low": "data/s043-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s043-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s043-Gaussian_High.bin",
+        "Drift_Low": "data/s043-Drift_Low.bin",
+        "Drift_Medium": "data/s043-Drift_Medium.bin",
+        "Drift_High": "data/s043-Drift_High.bin",
+        "Burst_Low": "data/s043-Burst_Low.bin",
+        "Burst_Medium": "data/s043-Burst_Medium.bin",
+        "Burst_High": "data/s043-Burst_High.bin"
+      },
+      "e3_parameter": "B · 0.5–30 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s044",
+      "record": "SC4051E0.npz",
+      "index": 535,
+      "id": "SC4051E0.npz:535",
+      "fold": 4,
+      "truth": "N2",
+      "signals": {
+        "Clean": "data/s044-Clean.bin",
+        "Gaussian_Low": "data/s044-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s044-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s044-Gaussian_High.bin",
+        "Drift_Low": "data/s044-Drift_Low.bin",
+        "Drift_Medium": "data/s044-Drift_Medium.bin",
+        "Drift_High": "data/s044-Drift_High.bin",
+        "Burst_Low": "data/s044-Burst_Low.bin",
+        "Burst_Medium": "data/s044-Burst_Medium.bin",
+        "Burst_High": "data/s044-Burst_High.bin"
+      },
+      "e3_parameter": "B · 0.5–30 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s045",
+      "record": "SC4032E0.npz",
+      "index": 250,
+      "id": "SC4032E0.npz:250",
+      "fold": 4,
+      "truth": "N2",
+      "signals": {
+        "Clean": "data/s045-Clean.bin",
+        "Gaussian_Low": "data/s045-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s045-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s045-Gaussian_High.bin",
+        "Drift_Low": "data/s045-Drift_Low.bin",
+        "Drift_Medium": "data/s045-Drift_Medium.bin",
+        "Drift_High": "data/s045-Drift_High.bin",
+        "Burst_Low": "data/s045-Burst_Low.bin",
+        "Burst_Medium": "data/s045-Burst_Medium.bin",
+        "Burst_High": "data/s045-Burst_High.bin"
+      },
+      "e3_parameter": "B · 0.5–30 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s046",
+      "record": "SC4131E0.npz",
+      "index": 266,
+      "id": "SC4131E0.npz:266",
+      "fold": 4,
+      "truth": "N3",
+      "signals": {
+        "Clean": "data/s046-Clean.bin",
+        "Gaussian_Low": "data/s046-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s046-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s046-Gaussian_High.bin",
+        "Drift_Low": "data/s046-Drift_Low.bin",
+        "Drift_Medium": "data/s046-Drift_Medium.bin",
+        "Drift_High": "data/s046-Drift_High.bin",
+        "Burst_Low": "data/s046-Burst_Low.bin",
+        "Burst_Medium": "data/s046-Burst_Medium.bin",
+        "Burst_High": "data/s046-Burst_High.bin"
+      },
+      "e3_parameter": "B · 0.5–30 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s047",
+      "record": "SC4031E0.npz",
+      "index": 121,
+      "id": "SC4031E0.npz:121",
+      "fold": 4,
+      "truth": "N3",
+      "signals": {
+        "Clean": "data/s047-Clean.bin",
+        "Gaussian_Low": "data/s047-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s047-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s047-Gaussian_High.bin",
+        "Drift_Low": "data/s047-Drift_Low.bin",
+        "Drift_Medium": "data/s047-Drift_Medium.bin",
+        "Drift_High": "data/s047-Drift_High.bin",
+        "Burst_Low": "data/s047-Burst_Low.bin",
+        "Burst_Medium": "data/s047-Burst_Medium.bin",
+        "Burst_High": "data/s047-Burst_High.bin"
+      },
+      "e3_parameter": "B · 0.5–30 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s048",
+      "record": "SC4141E0.npz",
+      "index": 399,
+      "id": "SC4141E0.npz:399",
+      "fold": 4,
+      "truth": "REM",
+      "signals": {
+        "Clean": "data/s048-Clean.bin",
+        "Gaussian_Low": "data/s048-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s048-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s048-Gaussian_High.bin",
+        "Drift_Low": "data/s048-Drift_Low.bin",
+        "Drift_Medium": "data/s048-Drift_Medium.bin",
+        "Drift_High": "data/s048-Drift_High.bin",
+        "Burst_Low": "data/s048-Burst_Low.bin",
+        "Burst_Medium": "data/s048-Burst_Medium.bin",
+        "Burst_High": "data/s048-Burst_High.bin"
+      },
+      "e3_parameter": "B · 0.5–30 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    },
+    {
+      "key": "s049",
+      "record": "SC4051E0.npz",
+      "index": 241,
+      "id": "SC4051E0.npz:241",
+      "fold": 4,
+      "truth": "REM",
+      "signals": {
+        "Clean": "data/s049-Clean.bin",
+        "Gaussian_Low": "data/s049-Gaussian_Low.bin",
+        "Gaussian_Medium": "data/s049-Gaussian_Medium.bin",
+        "Gaussian_High": "data/s049-Gaussian_High.bin",
+        "Drift_Low": "data/s049-Drift_Low.bin",
+        "Drift_Medium": "data/s049-Drift_Medium.bin",
+        "Drift_High": "data/s049-Drift_High.bin",
+        "Burst_Low": "data/s049-Burst_Low.bin",
+        "Burst_Medium": "data/s049-Burst_Medium.bin",
+        "Burst_High": "data/s049-Burst_High.bin"
+      },
+      "e3_parameter": "B · 0.5–30 Hz · 4阶",
+      "e4_parameter": "W1 · db4 · 阈值 0.5"
+    }
+  ],
+  "models": {
+    "0": {
+      "baseline": {
+        "url": "models/baseline-0.onnx",
+        "sha256": "2f123e6dae0dc5f8867a5d4ef8f37f0441c3ec380924a72824f90670c1907924",
+        "bytes": 2079609
+      },
+      "dae": {
+        "url": "models/dae-0.onnx",
+        "sha256": "1c8544ae27017494db9fe3fe9c1b5ddb15f22f28197239362750f6d07ce2334b",
+        "bytes": 299015
+      },
+      "augmented": {
+        "url": "models/augmented-0.onnx",
+        "sha256": "344d655a43373059fe6929d6e34b723aed2c33f0161579c2e9c31df134618b9c",
+        "bytes": 2079609
+      }
+    },
+    "1": {
+      "baseline": {
+        "url": "models/baseline-1.onnx",
+        "sha256": "dd4a65a7cf0c7fe342734a6667817cb5a4c412169b1ff3fed59637329e0981fa",
+        "bytes": 2079609
+      },
+      "dae": {
+        "url": "models/dae-1.onnx",
+        "sha256": "75e982a678a9c5ddeb9b99f86c8a601e1289e19f2ba26b462384994471028e86",
+        "bytes": 299015
+      },
+      "augmented": {
+        "url": "models/augmented-1.onnx",
+        "sha256": "451773cfb2963527525585c055bb87aba9bc3fbbb2952c758e701d39a81e9863",
+        "bytes": 2079609
+      }
+    },
+    "2": {
+      "baseline": {
+        "url": "models/baseline-2.onnx",
+        "sha256": "03eed2ad965889e3b8b3b97960449c9182c2b97f6899a60c51d9de475fab65e4",
+        "bytes": 2079609
+      },
+      "dae": {
+        "url": "models/dae-2.onnx",
+        "sha256": "7a9880b0678026c5145cdd1f476b5d7b7c02055270bd9dcfd1b09f297f063793",
+        "bytes": 299015
+      },
+      "augmented": {
+        "url": "models/augmented-2.onnx",
+        "sha256": "68e980981b6d0bf15757d749dd20b055101138682ef22666daaae30301cbe83d",
+        "bytes": 2079609
+      }
+    },
+    "3": {
+      "baseline": {
+        "url": "models/baseline-3.onnx",
+        "sha256": "6828d200626801b1528a1814735b5dc5e455bbcef271177192d0d198554d606d",
+        "bytes": 2079609
+      },
+      "dae": {
+        "url": "models/dae-3.onnx",
+        "sha256": "9d7dcd178f5f22606c4deff3d41fd6529fae3bbb8a363371a5923a32856f9aaa",
+        "bytes": 299015
+      },
+      "augmented": {
+        "url": "models/augmented-3.onnx",
+        "sha256": "00edc7000b649af564b60c23055bdb056ff9a686fb027d4a6ebe81a730b66779",
+        "bytes": 2079609
+      }
+    },
+    "4": {
+      "baseline": {
+        "url": "models/baseline-4.onnx",
+        "sha256": "fd4dae516dd161d25095fceb9f132f63d68a416ac866ec20ded42453174fa434",
+        "bytes": 2079609
+      },
+      "dae": {
+        "url": "models/dae-4.onnx",
+        "sha256": "15cad7ab669ec1463eed58b1d80a01a8f6613a48763a0fe36251de8c3e22d8b1",
+        "bytes": 299015
+      },
+      "augmented": {
+        "url": "models/augmented-4.onnx",
+        "sha256": "a609031e62a4ce728c8d819cbd39f41104200c5b46ff88fa0d549be2603650d2",
+        "bytes": 2079609
+      }
+    }
+  },
+  "noise_seed": 123,
+  "subset_seed": 4330,
+  "preprocessing": "Noise v2 and E3/E4 prepared with original Python code; DAE and all classifiers run live in browser."
+}

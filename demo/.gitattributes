@@ -1,0 +1,4 @@
+# Preserve hashes and model/data bytes across platforms.
+dist/** -text
+page_template.html -text
+*.docx -text

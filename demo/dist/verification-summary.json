@@ -1,0 +1,6 @@
+{
+  "sample_conditions": 500,
+  "predictions_checked": 3000,
+  "all_labels_match": true,
+  "max_logit_difference": 6.4373016357421875e-06
+}

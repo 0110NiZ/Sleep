@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "counts": {
+    "signals": 2000,
+    "predictions": 3000,
+    "models": 15
+  },
+  "fold_mapping": "All 50 samples match original test folds",
+  "signal_arrays": "Bitwise equal to original clean/noise/bandpass/wavelet calculations",
+  "predictions": "Match previous PyTorch verification labels",
+  "E6_input": "Same noisy input as E2",
+  "prediction_length": 3000
+}
