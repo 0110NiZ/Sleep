@@ -9,6 +9,11 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 ROOT=Path(__file__).resolve().parents[1]
+def source_commit():
+    # A submission ZIP can be extracted outside Git or inside an unrelated repository.
+    if not (ROOT / '.git').exists():
+        return None
+    return subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
 SOURCES={'E2':'result/e2_v2/e2_per_fold.csv','E3':'result/e3_bandpass/comparison/selected_per_fold.csv','E4':'result/e4_wavelet/test_per_fold.csv','E5':'result/e5_dae/test_per_fold.csv','E6':'result/e6_noise_augmentation/test_per_fold.csv'}
 def read(p):
  with p.open(encoding='utf-8-sig',newline='') as f:rows=list(csv.DictReader(f))
@@ -71,7 +76,7 @@ def main():
  plt.close(fig)
  rmse_diff=comparison[0]['rmse_mean_uv']-comparison[1]['rmse_mean_uv'];f1_diff=comparison[0]['macro_f1_mean']-comparison[1]['macro_f1_mean']
  inputs=list(SOURCES.values())+['result/e4_wavelet/e2_reference_per_fold.csv','configs/noise_conditions_v2.json']
- provenance={'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'plot_script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'clean_comparison_colors':model_colors,'sources_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in inputs},'python':__import__('sys').version,'matplotlib':matplotlib.__version__,'numpy':np.__version__,'e6_vs_e2_noisy_pp':float(n[-1]-n[0]),'e6_vs_e2_clean_pp':float(c[-1]-c[0]),'p9_rmse_difference_uv':rmse_diff,'p9_macro_f1_difference_pp':f1_diff}
+ provenance={'source_commit':source_commit(),'plot_script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'clean_comparison_colors':model_colors,'sources_sha256':{p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in inputs},'python':__import__('sys').version,'matplotlib':matplotlib.__version__,'numpy':np.__version__,'e6_vs_e2_noisy_pp':float(n[-1]-n[0]),'e6_vs_e2_clean_pp':float(c[-1]-c[0]),'p9_rmse_difference_uv':rmse_diff,'p9_macro_f1_difference_pp':f1_diff}
  (out/'provenance.json').write_text(json.dumps(provenance,indent=2)+'\n')
  (out/'README.md').write_text('''# Robustness comparison figures
 

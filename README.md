@@ -1,5 +1,7 @@
 # AttnSleep Robustness under Simulated EEG Noise
 
+For the course submission, see the [presentation figure index and reproduction commands](reports/figures/presentation/README.md). The six figures, plotting inputs and source code are included there. The experiment results below use the original archived test runs.
+
 A COMP 4330SEF group project evaluating how simulated EEG noise affects single-channel sleep staging and comparing two strategies for improving robustness:
 
 - **Input denoising:** process EEG with band-pass filtering, wavelet denoising or a denoising autoencoder (DAE), then classify it with a frozen AttnSleep baseline.

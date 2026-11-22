@@ -1,0 +1,46 @@
+{
+  "source_file": "SC4021E0.npz",
+  "source_sha256": "31b9908467374a769f8ac2740b434d8cd63eb249dc1bbe356a706002a831c071",
+  "sample_id": "SC4021E0.npz:100",
+  "epoch_index_zero_based": 100,
+  "stage": "N1",
+  "test_fold": 0,
+  "splits_sha256": "33c3dfb60d6fcbb47d7bceaa35e61c2d552bc110a2bf5829d6481f552f2ab0e4",
+  "config_file": "configs/noise_conditions_v2.json",
+  "seed": 123,
+  "generator_file": "scripts/noise_conditions.py",
+  "unit": "μV",
+  "sampling_rate": 100,
+  "conditions": [
+    {
+      "name": "Clean",
+      "noise_type": "clean"
+    },
+    {
+      "name": "Gaussian_High",
+      "noise_type": "gaussian",
+      "snr_db": 5.0
+    },
+    {
+      "name": "Drift_High",
+      "noise_type": "baseline_wander",
+      "frequency_hz": 0.5,
+      "amplitude_uv": 40.0
+    },
+    {
+      "name": "Burst_High",
+      "noise_type": "burst",
+      "frequency_range_hz": [
+        15.0,
+        35.0
+      ],
+      "duration_range_s": [
+        0.5,
+        2.0
+      ],
+      "amplitude_ratio": 7.0,
+      "burst_count": 1
+    }
+  ],
+  "note": "Actual preprocessed study epoch. All three noisy traces reuse this same epoch. No model inference or retraining."
+}
