@@ -1,6 +1,5 @@
 """Compare reconstruction error and classification under medium Gaussian noise."""
 import _bootstrap
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from plot_style import *
@@ -20,12 +19,8 @@ def main():
         ax.set_ylabel(ylab);ax.set_title(title,fontsize=17,pad=21)
         ax.text(.96,.95,caption,transform=ax.transAxes,ha='right',va='top',color=SUBTLE,fontsize=11)
         tidy(ax)
-    fig.suptitle('Lower RMSE does not always mean higher sleep-stage F1',fontsize=21,fontweight='bold',y=1.04)
-    rmse_gain = d.at['E4', 'rmse_uv'] - d.at['E5', 'rmse_uv']
-    f1_gain = d.at['E4', 'macro_f1'] - d.at['E5', 'macro_f1']
-    fig.text(.5,.015,f'Same medium-Gaussian test segments and frozen classifier within each fold · DAE: −{rmse_gain:.2f} μV RMSE · Wavelet: +{f1_gain:.2f} pp F1',
-             ha='center',fontsize=10,color=SUBTLE)
-    fig.tight_layout(w_pad=2.4,rect=(0,.05,1,1))
+    fig.suptitle('Wavelet and DAE under Medium Gaussian Noise', fontsize=21, fontweight='bold')
+    fig.tight_layout(w_pad=2.4)
     save(fig,'E4_E5_rmse_vs_macro_f1')
 
 if __name__=='__main__':main()
